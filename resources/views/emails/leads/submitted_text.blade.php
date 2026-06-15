@@ -1,48 +1,43 @@
-{{ $brand ?? config('app.name') }} — New Enquiry
-=========================================
-
-Source : {{ $s->source ?? '-' }}
-Type   : {{ strtoupper($s->form_type ?? '-') }}
-Locale : {{ strtoupper($s->locale ?? '-') }}
-
-CONTACT DETAILS
----------------
-Name    : {{ $s->name ?? '-' }}
-@if($s->company)Company : {{ $s->company }}
-@endif
-Phone   : {{ $s->phone ?? '-' }}
-@if($s->email)Email   : {{ $s->email }}
-@endif
-
-@if($s->message)Message:
-{{ $s->message }}
-
-@endif
-
 @php
     $details = $s->details ?? [];
     if (is_string($details)) {
         $decoded = json_decode($details, true);
         $details = (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) ? $decoded : [];
     }
-    if (!is_array($details)) $details = [];
-    $refUrl = $details['ref'] ?? null;
-    if (array_key_exists('ref', $details)) unset($details['ref']);
+    if (! is_array($details)) $details = [];
+
+    $treatmentLabel = $details['treatment_label'] ?? $details['service_title'] ?? null;
+    $sourceForm     = $details['source_form'] ?? $s->form_type;
+    $refUrl         = $details['ref'] ?? null;
+    $createdAt      = $s->created_at?->setTimezone('Europe/Istanbul')?->format('d.m.Y H:i') ?? now()->format('d.m.Y H:i');
+    $brandName      = $brand ?? (config('mail.from.name') ?? config('app.name'));
 @endphp
-@if(!empty($details))
-ADDITIONAL DETAILS
-------------------
-@foreach($details as $key => $value)
-{{ ucfirst(str_replace('_',' ', (string) $key)) }} : {{ is_array($value) ? json_encode($value) : $value }}
-@endforeach
+{{ $brandName }} — Yeni Randevu Talebi #{{ str_pad((string) $s->id, 5, '0', STR_PAD_LEFT) }}
+=========================================================
 
+Ad Soyad : {{ $s->name ?? '—' }}
+Telefon  : {{ $s->phone ?? '—' }}
+@if($s->email)
+E-posta  : {{ $s->email }}
 @endif
-META
-----
-IP       : {{ $s->ip ?? '-' }}
-Location : {{ trim(implode(', ', array_filter([$s->geo_city, $s->geo_region, $s->geo_country])) ?: '-') }}
-@if($refUrl)Referrer : {{ $refUrl }}
+@if($treatmentLabel)
+Tedavi   : {{ $treatmentLabel }}
 @endif
 
-Submission #{{ $s->id }}
-{{ $s->created_at ?? now() }}
+@if($s->message)
+--- MESAJ ---
+{{ $s->message }}
+
+@endif
+--- METADATA ---
+Tarih    : {{ $createdAt }}
+Kaynak   : {{ ucfirst($sourceForm ?? 'simple') }}{{ $s->source ? ' / ' . $s->source : '' }}
+Konum    : {{ trim(implode(', ', array_filter([$s->geo_city, $s->geo_region, $s->geo_country]))) ?: '—' }}
+IP       : {{ $s->ip ?? '—' }}
+@if($refUrl)
+Referrer : {{ $refUrl }}
+@endif
+
+---
+Bu mail web sitenizdeki form aracılığıyla otomatik gönderilmiştir.
+{{ $brandName }} · Kalp ve Damar Cerrahisi Uzmanı

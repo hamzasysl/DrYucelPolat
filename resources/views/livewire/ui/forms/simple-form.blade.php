@@ -1,6 +1,8 @@
 @php
     $errText = 'text-[12px] text-brand-600 font-light';
     $label   = 'block text-[10.5px] font-medium tracking-[0.20em] uppercase text-ink-400';
+    $req     = '<span class="text-brand-500 font-bold ml-0.5">*</span>';
+    $optTag  = '<span class="text-ink-300 font-normal text-[9.5px] tracking-normal lowercase ml-1">(opsiyonel)</span>';
 @endphp
 
 <div class="space-y-6 relative">
@@ -47,7 +49,7 @@
         {{-- Name + İlgilendiğiniz Tedavi (custom styled select) --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="space-y-1.5">
-                <label class="{{ $label }}">{{ __('form.fields.name') }}</label>
+                <label class="{{ $label }}">{{ __('form.fields.name') }} {!! $req !!}</label>
                 <x-input type="text" wire:model.live="name" autocomplete="name" :placeholder="__('form.placeholders.name')" />
                 @error('name') <p class="{{ $errText }}">{{ $message }}</p> @enderror
             </div>
@@ -61,7 +63,7 @@
             @endphp
 
             <div class="space-y-1.5">
-                <label class="{{ $label }}">{{ __('form.fields.treatment') }}</label>
+                <label class="{{ $label }}">{{ __('form.fields.treatment') }} {!! $req !!}</label>
                 <div class="relative"
                      x-data="{
                         open: false,
@@ -116,7 +118,7 @@
         {{-- Phone + Email --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="space-y-1.5">
-                <label class="{{ $label }}">{{ __('form.fields.phone') }}</label>
+                <label class="{{ $label }}">{{ __('form.fields.phone') }} {!! $req !!}</label>
                 @php($phoneId = 'phone-'.$this->getId())
                 <div wire:ignore class="relative phone-iti" data-iti>
                     <x-input
@@ -131,7 +133,7 @@
             </div>
 
             <div class="space-y-1.5">
-                <label class="{{ $label }}">{{ __('form.fields.email') }}</label>
+                <label class="{{ $label }}">{{ __('form.fields.email') }} {!! $optTag !!}</label>
                 <x-input type="email" wire:model.live="email" autocomplete="email" :placeholder="__('form.placeholders.email')" />
                 @error('email') <p class="{{ $errText }}">{{ $message }}</p> @enderror
             </div>

@@ -58,7 +58,7 @@ class SimpleForm extends Component
                     }
                 },
             ],
-            'email'   => ['required', 'email', 'max:180'],
+            'email'   => ['nullable', 'email', 'max:180'],
             'message' => ['nullable', 'string', 'max:1000'],
         ];
     }
