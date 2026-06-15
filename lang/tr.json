@@ -1,0 +1,39 @@
+{
+    "form.kicker": "Randevu Talebi",
+    "form.title": "Konsültasyon için iletişime geçin!",
+    "form.subtitle": "Formu doldurun, en kısa sürede size dönüş yapalım.",
+
+    "form.fields.name":      "Ad Soyad",
+    "form.fields.treatment": "İlgilendiğiniz Tedavi",
+    "form.fields.email":     "E-posta",
+    "form.fields.phone":     "Telefon",
+    "form.fields.message":   "Mesaj",
+
+    "form.placeholders.name":      "Adınız ve soyadınız",
+    "form.placeholders.treatment": "Lütfen seçim yapın",
+    "form.placeholders.email":     "ornek@mail.com",
+    "form.placeholders.phone":     "+90 ...",
+    "form.placeholders.message":   "Şikayetiniz veya merak ettiğiniz konuyu kısaca yazın.",
+
+    "form.treatment_other": "Diğer Tedaviler",
+
+    "form.cta.submit":     "Mesaj Gönder",
+    "form.cta.submitting": "Gönderiliyor...",
+
+    "form.success.kicker": "Mesajınız alındı",
+    "form.success.body":   "Mesajınız bize ulaştı. Ekibimiz en kısa sürede sizinle iletişime geçecek.",
+
+    "form.failed.kicker":  "Gönderilemedi",
+    "form.failed.body":    "Bir aksilik oldu. Lütfen birkaç dakika sonra tekrar deneyin veya info@dryucelpolat.com adresine yazın.",
+
+    "form.privacy":        "Bilgileriniz yalnızca size dönüş yapmak için kullanılır; üçüncü taraflarla paylaşılmaz.",
+
+    "thankyou.title": "Mesajınız için teşekkürler",
+    "thankyou.lead":  "Talebiniz tarafımıza ulaştı. Ekibimiz en kısa sürede sizinle iletişime geçecek.",
+    "thankyou.cta":   "Anasayfaya dön",
+
+    "site.thankyou.title": "Teşekkürler",
+
+    "validation.check_marked_fields":          "Lütfen işaretli alanları kontrol edin.",
+    "validation.custom.phone.valid_phone":     "Lütfen ülke kodlu geçerli bir telefon numarası girin."
+}
