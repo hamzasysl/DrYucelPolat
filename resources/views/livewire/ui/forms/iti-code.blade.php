@@ -50,10 +50,17 @@
                     const iti = window.intlTelInput(input, {
                         initialCountry: "auto",
                         geoIpLookup: (cb) => {
-                            fetch("https://ipapi.co/json/")
-                                .then(r => r.json())
-                                .then(d => cb(String(d?.country_code || "gb").toLowerCase()))
-                                .catch(() => cb("gb"));
+                            // Önce kendi server-side endpoint'imizi dene — torann/geoip
+                            fetch("/api/geo", { headers: { Accept: "application/json" } })
+                                .then(r => r.ok ? r.json() : Promise.reject())
+                                .then(d => cb(String(d?.country_code || "tr").toLowerCase()))
+                                .catch(() => {
+                                    // Yedek: ipapi.co
+                                    fetch("https://ipapi.co/json/")
+                                        .then(r => r.json())
+                                        .then(d => cb(String(d?.country_code || "tr").toLowerCase()))
+                                        .catch(() => cb("tr"));
+                                });
                         },
                         nationalMode: false,
                         separateDialCode: false,

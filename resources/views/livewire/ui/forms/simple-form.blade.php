@@ -91,7 +91,7 @@
                     <div x-show="open" x-transition.opacity.duration.150ms
                          x-cloak style="display:none"
                          class="absolute left-0 right-0 top-full mt-2 z-50
-                                bg-white border border-ink-100 rounded-xl shadow-[0_12px_32px_rgba(15,61,90,0.15)]
+                                bg-white border border-ink-100 rounded-xl shadow-[0_12px_32px_color-mix(in_srgb,var(--color-deep-700)_15%,transparent)]
                                 max-h-[280px] overflow-y-auto py-1.5">
                         <template x-for="(label, slug) in labels" :key="slug">
                             <button type="button"

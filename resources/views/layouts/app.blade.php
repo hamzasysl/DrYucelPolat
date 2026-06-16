@@ -1,10 +1,17 @@
 @php
-    /** Global SEO defaults — sayfa-özel override edilebilir */
-    $siteName    = 'Op. Dr. Yücel Polat';
-    $defaultDesc = 'Op. Dr. Yücel Polat — 20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass ve endovasküler girişimler. Liv Hospital İstanbul. Ücretsiz konsültasyon randevusu.';
-    $defaultTitle = $siteName . ' — Kalp ve Damar Cerrahisi Uzmanı | Liv Hospital İstanbul';
-    $defaultOgImage = asset('img/doktor.webp');
+    /** Global SEO defaults — Site Ayarları'ndan okunur, sayfa-özel override edilebilir */
+    $siteName    = setting('site_name', 'Op. Dr. Yücel Polat');
+    $siteTagline = setting('site_tagline', 'Kalp ve Damar Cerrahisi Uzmanı');
+    $defaultDesc = setting('seo_default_description', 'Op. Dr. Yücel Polat — 20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass ve endovasküler girişimler.');
+    $defaultTitle = setting('seo_default_title', $siteName . ' — ' . $siteTagline);
+    $defaultOgImageRaw = setting('seo_og_image', '/img/doktor.webp');
+    $defaultOgImage = str_starts_with($defaultOgImageRaw, 'http') ? $defaultOgImageRaw : asset(ltrim($defaultOgImageRaw, '/'));
     $canonical = url()->current();
+
+    /** Renkler — Site Ayarları'ndan okunur, varsayılan logo renkleri */
+    $brandPrimary = setting('brand_color_primary', '#E63946');
+    $brandDeep    = setting('brand_color_deep',    '#1E5F9E');
+    $brandLeaf    = setting('brand_color_leaf',    '#84CC16');
 
     /** Global structured data — Physician + Hospital + WebSite, tek @graph node */
     $graphLd = [
@@ -103,6 +110,38 @@
 
     {{-- Canonical --}}
     <link rel="canonical" href="@yield('canonical', $canonical)">
+
+    {{-- Site Ayarları'ndan gelen renk override'ları — ana 500 tonundan 50→900 türetilir (color-mix) --}}
+    <style>
+        :root {
+            /* Ana 500 tonları — admin panelden gelir */
+            --color-brand-500: {{ $brandPrimary }};
+            --color-deep-500:  {{ $brandDeep }};
+            --color-leaf-500:  {{ $brandLeaf }};
+
+            /* BRAND tonları — primary'den otomatik türetildi (light → dark) */
+            --color-brand-50:  color-mix(in srgb, {{ $brandPrimary }} 8%,  white);
+            --color-brand-100: color-mix(in srgb, {{ $brandPrimary }} 18%, white);
+            --color-brand-200: color-mix(in srgb, {{ $brandPrimary }} 35%, white);
+            --color-brand-300: color-mix(in srgb, {{ $brandPrimary }} 55%, white);
+            --color-brand-400: color-mix(in srgb, {{ $brandPrimary }} 78%, white);
+            --color-brand-600: color-mix(in srgb, {{ $brandPrimary }} 88%, black);
+            --color-brand-700: color-mix(in srgb, {{ $brandPrimary }} 70%, black);
+            --color-brand-800: color-mix(in srgb, {{ $brandPrimary }} 55%, black);
+            --color-brand-900: color-mix(in srgb, {{ $brandPrimary }} 38%, black);
+
+            /* DEEP tonları — ikincil renkten türetildi */
+            --color-deep-50:  color-mix(in srgb, {{ $brandDeep }} 8%,  white);
+            --color-deep-100: color-mix(in srgb, {{ $brandDeep }} 18%, white);
+            --color-deep-200: color-mix(in srgb, {{ $brandDeep }} 35%, white);
+            --color-deep-300: color-mix(in srgb, {{ $brandDeep }} 55%, white);
+            --color-deep-400: color-mix(in srgb, {{ $brandDeep }} 78%, white);
+            --color-deep-600: color-mix(in srgb, {{ $brandDeep }} 88%, black);
+            --color-deep-700: color-mix(in srgb, {{ $brandDeep }} 70%, black);
+            --color-deep-800: color-mix(in srgb, {{ $brandDeep }} 55%, black);
+            --color-deep-900: color-mix(in srgb, {{ $brandDeep }} 38%, black);
+        }
+    </style>
 
     {{-- ============================================================
          OPEN GRAPH (Facebook, LinkedIn, WhatsApp)

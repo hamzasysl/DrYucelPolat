@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Hakkımda — Op. Dr. Yücel Polat | Kalp ve Damar Cerrahisi Uzmanı')
+@section('title', page_title('Hakkımda'))
 @section('description', 'Op. Dr. Yücel Polat kimdir? 20+ yıl deneyimle kalp ve damar cerrahisi uzmanı. Eğitim, uzmanlık alanları, klinik felsefe ve değerler. Liv Hospital İstanbul.')
 @section('keywords', 'Op. Dr. Yücel Polat kimdir, kardiyovasküler cerrah, Liv Hospital doktorları, kalp damar cerrahı, vasküler cerrah İstanbul, Yücel Polat özgeçmiş, kalp damar cerrahisi uzmanı')
-@section('og_title', 'Hakkımda — Op. Dr. Yücel Polat | Kalp ve Damar Cerrahisi Uzmanı')
+@section('og_title', page_title('Hakkımda'))
 @section('og_description', '20+ yıl deneyimle kalp ve damar cerrahisi uzmanı. Klinik felsefem, uzmanlık alanlarım ve hasta odaklı yaklaşımım.')
 @section('og_image', asset('img/doktor.webp'))
 @section('og_image_alt', 'Op. Dr. Yücel Polat — Profil Fotoğrafı')
@@ -83,7 +83,7 @@
                         <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
                             <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_rgba(132,204,22,0.20)]">
+                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
                                 <i class="fas fa-hospital text-[10px]"></i>
                             </span>
                             <span class="font-light text-[15px]">Istinye Üniversitesi Liv Hospital</span>
@@ -91,7 +91,7 @@
                         <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
                             <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_rgba(132,204,22,0.20)]">
+                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
                                 <i class="fas fa-hospital text-[10px]"></i>
                             </span>
                             <span class="font-light text-[15px]">Liv Hospital Bahçeşehir</span>
@@ -101,7 +101,7 @@
 
                 <div class="flex flex-wrap gap-3">
                     <a href="{{ route('contact') }}"
-                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_rgba(230,57,70,0.20)] hover:shadow-[0_8px_22px_rgba(230,57,70,0.28)] transition-all">
+                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
                         Randevu Al <i class="fas fa-arrow-right text-[10px]"></i>
                     </a>
                     <a href="https://wa.me/900000000000" target="_blank" rel="noopener"
@@ -179,7 +179,7 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-3 shrink-0">
                     <a href="{{ route('contact') }}"
-                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_rgba(230,57,70,0.20)] hover:shadow-[0_8px_22px_rgba(230,57,70,0.28)] transition-all">
+                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
                         <i class="fas fa-calendar-check text-xs"></i> Randevu Al
                     </a>
                     <a href="https://wa.me/900000000000" target="_blank" rel="noopener"
@@ -234,21 +234,21 @@
                 </p>
                 <div class="space-y-10 max-w-md">
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-phone"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
                             <a href="tel:+900000000000" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">+90 (000) 000 00 00</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-envelope"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
                             <a href="mailto:info@dryucelpolat.com" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">info@dryucelpolat.com</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Klinik</p>
                             <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>

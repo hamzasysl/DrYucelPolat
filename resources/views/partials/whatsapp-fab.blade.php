@@ -5,7 +5,7 @@
      ============================================================ --}}
 
 {{-- MOBILE: Lacivert gradient pill + pulsing mavi glow halo --}}
-<a href="https://wa.me/900000000000"
+<a href="{{ setting('whatsapp_url', 'https://wa.me/900000000000') }}"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp ile randevu al"
@@ -19,7 +19,7 @@
     <span class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20
                  w-[52px] h-[52px] rounded-full bg-white text-deep-600
                  flex items-center justify-center
-                 shadow-[0_5px_16px_rgba(15,61,90,0.30)]
+                 shadow-[0_5px_16px_color-mix(in_srgb,var(--color-deep-700)_30%,transparent)]
                  group-active:scale-95
                  transition-all duration-300 ease-out">
         <i class="fab fa-whatsapp text-[22px]"></i>
@@ -29,7 +29,7 @@
     <span class="relative z-10 bg-gradient-to-b from-deep-700 to-deep-400
                  text-white pl-11 pr-6 py-3.5 rounded-lg
                  text-[12px] font-bold uppercase tracking-[0.18em] whitespace-nowrap
-                 shadow-[0_8px_22px_rgba(15,61,90,0.40)]
+                 shadow-[0_8px_22px_color-mix(in_srgb,var(--color-deep-700)_40%,transparent)]
                  before:absolute before:inset-x-0 before:top-0 before:h-px
                  before:bg-white/25 before:rounded-t-lg">
         Online Randevu
@@ -37,7 +37,7 @@
 </a>
 
 {{-- DESKTOP: Yeşil yuvarlak ikon, çok hafif glow pulse --}}
-<a href="https://wa.me/900000000000"
+<a href="{{ setting('whatsapp_url', 'https://wa.me/900000000000') }}"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp ile iletişim"

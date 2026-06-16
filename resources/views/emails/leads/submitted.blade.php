@@ -288,7 +288,7 @@
                             Kalp ve Damar Cerrahisi Uzmanı
                         </p>
                         <p style="margin:6px 0 0 0;font-size:10.5px;color:rgba(255,255,255,0.55);letter-spacing:0.04em;">
-                            Bu mail web sitenizdeki form aracılığıyla otomatik gönderilmiştir.
+                            Web sitenizdeki iletişim formundan gönderildi.
                         </p>
                     </td>
                 </tr>

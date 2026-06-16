@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', $service['title'] . ' — Op. Dr. Yücel Polat | Liv Hospital İstanbul')
+@section('title', page_title($service['title']))
 @section('description', $service['lead'])
 @section('keywords', $service['title'] . ', ' . $service['title'] . ' İstanbul, ' . $service['title'] . ' fiyat, ' . $service['title'] . ' uzmanı, Op. Dr. Yücel Polat, Liv Hospital, kalp damar cerrahisi, ücretsiz konsültasyon')
-@section('og_title', $service['title'] . ' — Op. Dr. Yücel Polat')
+@section('og_title', page_title($service['title']))
 @section('og_description', $service['lead'])
 @php
     $servicePhotoPathSeo = public_path('img/services/' . $service['slug'] . '.jpg');
@@ -142,7 +142,7 @@
                 {{-- CTA satırı — eşit boyutlu, title case, normal tracking --}}
                 <div class="flex flex-wrap items-stretch gap-3 mb-12">
                     <a href="#randevu-form"
-                       class="group inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-sm font-semibold rounded-lg shadow-[0_8px_20px_rgba(230,57,70,0.28)] hover:shadow-[0_10px_26px_rgba(230,57,70,0.38)] hover:-translate-y-0.5 transition-all">
+                       class="group inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-sm font-semibold rounded-lg shadow-[0_8px_20px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] hover:shadow-[0_10px_26px_color-mix(in_srgb,var(--color-brand-500)_38%,transparent)] hover:-translate-y-0.5 transition-all">
                         <i class="fas fa-calendar-check text-[13px]"></i>
                         Ücretsiz Konsültasyon
                     </a>
@@ -184,7 +184,7 @@
                                                  bg-gradient-to-r from-transparent via-ink-200/70 to-transparent"></span>
                                 @endif
 
-                                <span class="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-deep-50 to-white border border-deep-100/60 text-deep-500 inline-flex items-center justify-center text-xs shrink-0 shadow-[0_2px_5px_rgba(15,61,90,0.06)]">
+                                <span class="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-deep-50 to-white border border-deep-100/60 text-deep-500 inline-flex items-center justify-center text-xs shrink-0 shadow-[0_2px_5px_color-mix(in_srgb,var(--color-deep-700)_6%,transparent)]">
                                     <i class="fas {{ $info['icon'] }}"></i>
                                 </span>
                                 <div class="min-w-0 w-full sm:flex-1">
@@ -493,7 +493,7 @@
                 </div>
 
                 {{-- Tam genişlik liste — ferah padding, pro chevron --}}
-                <div class="rounded-xl border border-ink-100 bg-white overflow-hidden divide-y divide-ink-100 shadow-[0_2px_8px_rgba(15,61,90,0.04)]">
+                <div class="rounded-xl border border-ink-100 bg-white overflow-hidden divide-y divide-ink-100 shadow-[0_2px_8px_color-mix(in_srgb,var(--color-deep-700)_4%,transparent)]">
                     @foreach ([
                         ['q' => 'Tedavi sırasında ağrı hisseder miyim?',  'a' => 'Lokal anestezi kullanıldığı için işlem süresince ağrı hissetmezsiniz; basınç hissi olabilir. Sonrasındaki hafif gerginlik birkaç gün içinde geçer.'],
                         ['q' => 'Sonuçlar ne kadar sürede ortaya çıkar?', 'a' => 'İlk iyileşme belirtileri birkaç gün içinde başlar. Tam sonuç, vakaya bağlı olarak 2-6 hafta arasında ortaya çıkar.'],
@@ -511,8 +511,8 @@
                                 <h3 class="flex-1 font-display text-[16px] font-medium text-deep-700 leading-snug m-0">{{ $faq['q'] }}</h3>
                                 <span class="w-7 h-7 rounded-lg inline-flex items-center justify-center shrink-0 transition-colors duration-200"
                                       :class="open
-                                          ? 'bg-gradient-to-br from-brand-500 to-brand-600 text-white shadow-[0_4px_10px_rgba(230,57,70,0.25)] ring-1 ring-brand-500/30'
-                                          : 'bg-white text-brand-500 ring-1 ring-brand-500/15 group-hover:ring-brand-500/40 group-hover:bg-brand-500/[0.04] group-hover:shadow-[0_2px_6px_rgba(230,57,70,0.12)]'">
+                                          ? 'bg-gradient-to-br from-brand-500 to-brand-600 text-white shadow-[0_4px_10px_color-mix(in_srgb,var(--color-brand-500)_25%,transparent)] ring-1 ring-brand-500/30'
+                                          : 'bg-white text-brand-500 ring-1 ring-brand-500/15 group-hover:ring-brand-500/40 group-hover:bg-brand-500/[0.04] group-hover:shadow-[0_2px_6px_color-mix(in_srgb,var(--color-brand-500)_12%,transparent)]'">
                                     <i x-show="!open" class="fas fa-plus text-[10px]"></i>
                                     <i x-show="open" x-cloak class="fas fa-minus text-[10px]"></i>
                                 </span>

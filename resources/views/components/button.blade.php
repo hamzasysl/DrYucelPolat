@@ -16,7 +16,7 @@
 
     $variants = [
         // Header CTA paralel: from-deep-700 (lacivert) → to-deep-400 (logo mavisi) + üstte 1px white highlight
-        'primary' => 'rounded-lg bg-gradient-to-b from-deep-700 to-deep-400 text-white shadow-[0_4px_14px_rgba(15,61,90,0.22)] hover:from-deep-800 hover:to-deep-500 hover:shadow-[0_10px_28px_rgba(30,95,158,0.30)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/25 before:rounded-t-lg active:scale-[0.985]',
+        'primary' => 'rounded-lg bg-gradient-to-b from-deep-700 to-deep-400 text-white shadow-[0_4px_14px_color-mix(in_srgb,var(--color-deep-700)_22%,transparent)] hover:from-deep-800 hover:to-deep-500 hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-deep-500)_30%,transparent)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/25 before:rounded-t-lg active:scale-[0.985]',
         'outline' => 'rounded-lg border border-ink-200 bg-white text-ink-800 hover:border-ink-900 hover:bg-ink-50',
         'ghost'   => 'rounded-lg text-ink-700 hover:bg-ink-50',
     ];

@@ -39,5 +39,5 @@ Referrer : {{ $refUrl }}
 @endif
 
 ---
-Bu mail web sitenizdeki form aracılığıyla otomatik gönderilmiştir.
+Web sitenizdeki iletişim formundan gönderildi.
 {{ $brandName }} · Kalp ve Damar Cerrahisi Uzmanı

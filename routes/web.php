@@ -20,28 +20,57 @@ Route::view('/_palette', 'pages._palette')->name('palette');
 
 Route::get('/thank-you', \App\Livewire\Ui\ThankYou::class)->name('thank-you');
 
-// SEO: Sitemap.xml — yayında olan tüm sayfaları + has_page hizmetleri içerir.
-Route::get('/sitemap.xml', function () {
+// ============================================================
+// MEZ Admin Panel
+// ============================================================
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Auth
+    Route::get('login', [\App\Http\Controllers\Admin\AuthController::class, 'showLogin'])->name('login');
+    Route::post('login', [\App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login.attempt');
+    Route::post('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
+
+    // Auth-required area
+    Route::middleware('auth')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+        // Users (admin only — controller içinde gate)
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+
+        // Settings
+        Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
+        Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
+
+        // Menus
+        Route::get('menus', [\App\Http\Controllers\Admin\MenuController::class, 'index'])->name('menus.index');
+        Route::get('menus/create', [\App\Http\Controllers\Admin\MenuController::class, 'create'])->name('menus.create');
+        Route::post('menus', [\App\Http\Controllers\Admin\MenuController::class, 'store'])->name('menus.store');
+        Route::get('menus/{menu}/edit', [\App\Http\Controllers\Admin\MenuController::class, 'edit'])->name('menus.edit');
+        Route::put('menus/{menu}', [\App\Http\Controllers\Admin\MenuController::class, 'update'])->name('menus.update');
+        Route::delete('menus/{menu}', [\App\Http\Controllers\Admin\MenuController::class, 'destroy'])->name('menus.destroy');
+        Route::post('menus/reorder', [\App\Http\Controllers\Admin\MenuController::class, 'reorder'])->name('menus.reorder');
+    });
+});
+
+// ============================================================
+// MEZ SEO — Sitemap Modülü
+// HTML görseli + XML crawl feed'i tek SitemapBuilder'dan üretilir.
+// ============================================================
+
+// /sitemap — Kullanıcılar için şık HTML görsel sitemap (MEZ SEO paneli)
+Route::get('/sitemap', function (\App\Seo\SitemapBuilder $builder) {
+    return view('pages.sitemap', [
+        'groups' => $builder->groups(),
+        'stats'  => $builder->stats(),
+    ]);
+})->name('sitemap.html');
+
+// /sitemap.xml — Arama motorları için XML feed + XSL stylesheet ile görsel sürüm
+Route::get('/sitemap.xml', function (\App\Seo\SitemapBuilder $builder) {
     $now = now()->toAtomString();
-    $urls = [
-        ['loc' => route('home'),            'priority' => '1.0', 'changefreq' => 'weekly'],
-        ['loc' => route('about'),           'priority' => '0.8', 'changefreq' => 'monthly'],
-        ['loc' => route('services.index'),  'priority' => '0.9', 'changefreq' => 'monthly'],
-        ['loc' => route('contact'),         'priority' => '0.7', 'changefreq' => 'monthly'],
-        ['loc' => route('blog.index'),      'priority' => '0.6', 'changefreq' => 'weekly'],
-    ];
-    foreach (config('treatments', []) as $t) {
-        if ($t['has_page'] ?? false) {
-            $urls[] = [
-                'loc' => route('services.show', $t['slug']),
-                'priority' => '0.8',
-                'changefreq' => 'monthly',
-            ];
-        }
-    }
     $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    $xml .= '<?xml-stylesheet type="text/xsl" href="' . asset('sitemap.xsl') . '"?>' . "\n";
     $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
-    foreach ($urls as $u) {
+    foreach ($builder->flatUrls() as $u) {
         $xml .= "  <url>\n";
         $xml .= "    <loc>" . htmlspecialchars($u['loc'], ENT_XML1) . "</loc>\n";
         $xml .= "    <lastmod>{$now}</lastmod>\n";
@@ -53,13 +82,93 @@ Route::get('/sitemap.xml', function () {
     return response($xml, 200, ['Content-Type' => 'application/xml; charset=UTF-8']);
 })->name('sitemap');
 
-// robots.txt — Valet/nginx kendi robots location bloğu ile çakışmasın diye Laravel route ile servis ediyoruz.
+// robots.txt — Klasik arama + AI/LLM crawler direktifleri ile birlikte.
 Route::get('/robots.txt', function () {
-    $body  = "User-agent: *\n";
+    $body  = "# ============================================================\n";
+    $body .= "# MEZ SEO — Crawler Directives\n";
+    $body .= "# ============================================================\n\n";
+
+    // Genel arama motorları
+    $body .= "User-agent: *\n";
     $body .= "Allow: /\n";
     $body .= "Disallow: /thank-you\n";
     $body .= "Disallow: /_palette\n";
-    $body .= "\n";
+    $body .= "Disallow: /livewire/\n\n";
+
+    // AI / LLM crawler'larına açık erişim — bilgilendirme amaçlı içerik
+    // taranabilir ve tıbbi rehber yanıtlarında kaynak gösterilebilir.
+    foreach ([
+        'GPTBot',                   // OpenAI — ChatGPT crawler
+        'OAI-SearchBot',            // OpenAI — search index
+        'ChatGPT-User',             // OpenAI — kullanıcı tetikli fetch
+        'ClaudeBot',                // Anthropic — Claude crawler
+        'anthropic-ai',             // Anthropic — eski adı
+        'Claude-Web',               // Anthropic — web fetch
+        'Google-Extended',          // Google — Bard/Gemini training
+        'PerplexityBot',            // Perplexity AI
+        'Perplexity-User',          // Perplexity — kullanıcı tetikli
+        'YouBot',                   // You.com AI
+        'cohere-ai',                // Cohere
+        'Bytespider',               // ByteDance (Doubao)
+        'Amazonbot',                // Amazon (Alexa, Rufus)
+        'Applebot-Extended',        // Apple Intelligence training
+        'Meta-ExternalAgent',       // Meta AI
+        'Meta-ExternalFetcher',     // Meta — kullanıcı tetikli
+        'FacebookBot',              // Meta arama
+        'CCBot',                    // Common Crawl (birçok LLM bunu kullanır)
+        'Diffbot',
+        'Omgili',
+        'Timpibot',                 // Timpi AI
+        'DuckAssistBot',            // DuckDuckGo AI
+        'MistralAI-User',           // Mistral AI
+        'PetalBot',                 // Huawei
+    ] as $bot) {
+        $body .= "User-agent: {$bot}\n";
+        $body .= "Allow: /\n\n";
+    }
+
+    // Sitemap + LLM index dosyaları
+    $body .= "# Sitemap & LLM index\n";
     $body .= "Sitemap: " . route('sitemap') . "\n";
+    $body .= "# LLM-friendly content map: " . url('/llms.txt') . "\n";
+
+    return response($body, 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
+});
+
+// llms.txt — LLM/AI crawler'lar için Markdown formatında yapılandırılmış içerik indeksi.
+// Spec: https://llmstxt.org/
+Route::get('/llms.txt', function (\App\Seo\LlmsTxtBuilder $builder) {
+    return response($builder->render(), 200, ['Content-Type' => 'text/markdown; charset=UTF-8']);
+})->name('llms');
+
+// /api/geo — Server-side GeoIP. JS phone input bunu çağırır, ipapi.co rate-limit derdi yok.
+Route::get('/api/geo', function () {
+    $ip = \App\Services\ClientIp::get();
+    $fallback = 'tr';
+    try {
+        $loc = \Torann\GeoIP\Facades\GeoIP::getLocation($ip)?->toArray() ?? [];
+        $code = strtolower($loc['country_code2'] ?? $loc['iso_code'] ?? '');
+        if (! $code || $code === 'xx') $code = $fallback;
+        return response()->json([
+            'country_code' => $code,
+            'city'         => $loc['city']      ?? null,
+            'region'       => $loc['state_prov']?? null,
+            'ip'           => $ip,
+        ])->header('Cache-Control', 'public, max-age=3600');
+    } catch (\Throwable) {
+        return response()->json(['country_code' => $fallback])->header('Cache-Control', 'public, max-age=300');
+    }
+})->name('api.geo');
+
+// ai.txt — Spawning.ai standardı: AI eğitimi için içerik kullanımı izni.
+Route::get('/ai.txt', function () {
+    $body  = "# AI Training & Content Use Policy\n";
+    $body .= "# Standard: https://site.spawning.ai/spawning-ai-txt\n\n";
+    $body .= "User-Agent: *\n";
+    $body .= "Allow: search-ai\n";
+    $body .= "Allow: train-ai\n";
+    $body .= "Allow: train-genai\n";
+    $body .= "\n";
+    $body .= "Contact: " . config('mail.from.address', 'info@dryucelpolat.com') . "\n";
     return response($body, 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
 });

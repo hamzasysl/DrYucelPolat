@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Op. Dr. Yücel Polat — Kalp ve Damar Cerrahisi Uzmanı | Liv Hospital İstanbul')
+@section('title', page_title())
 @section('description', '20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass, endovasküler girişimler. Liv Hospital İstanbul. Ücretsiz konsültasyon randevusu — hızlı dönüş.')
 @section('keywords', 'kalp damar cerrahisi İstanbul, varis tedavisi, koroner bypass, kalp kapak ameliyatı, Op. Dr. Yücel Polat, Liv Hospital, endovasküler cerrahi, kardiyovasküler cerrah, kılcal damar tedavisi, EVLA, köpük skleroterapi, damar tıkanıklığı tedavisi')
-@section('og_title', 'Op. Dr. Yücel Polat — Kalp ve Damar Cerrahisi Uzmanı | Liv Hospital İstanbul')
+@section('og_title', page_title())
 @section('og_description', '20+ yıl deneyimle modern kalp ve damar tedavisi. Varis, bypass, kapak ve endovasküler girişimlerde uzman yaklaşım.')
 @section('og_image', asset('img/doktor.webp'))
 @section('og_type', 'website')
@@ -114,7 +114,7 @@
             </p>
             <div class="flex flex-wrap items-center justify-center gap-4">
                 <a href="{{ route('contact') }}"
-                   class="inline-flex items-center gap-2 bg-brand-500 hover:bg-white hover:text-deep-700 text-white px-7 py-4 text-sm font-extrabold uppercase tracking-wider rounded-lg shadow-[0_8px_24px_rgba(230,57,70,0.40)] transition-all">
+                   class="inline-flex items-center gap-2 bg-brand-500 hover:bg-white hover:text-deep-700 text-white px-7 py-4 text-sm font-extrabold uppercase tracking-wider rounded-lg shadow-[0_8px_24px_color-mix(in_srgb,var(--color-brand-500)_40%,transparent)] transition-all">
                     <i class="fas fa-calendar-check"></i>
                     Randevu Al
                 </a>
@@ -208,7 +208,7 @@
                         <span class="inline-flex items-center text-deep-600 group-hover:text-brand-500 text-[11px] font-bold uppercase tracking-[0.16em] transition-colors">
                             Detayları Gör
                         </span>
-                        <span class="w-9 h-9 rounded-lg bg-ink-50 text-deep-500 group-hover:bg-brand-500 group-hover:text-white inline-flex items-center justify-center transition-all duration-300 shadow-[0_2px_6px_rgba(15,61,90,0.06)] group-hover:shadow-[0_6px_14px_rgba(230,57,70,0.30)]">
+                        <span class="w-9 h-9 rounded-lg bg-ink-50 text-deep-500 group-hover:bg-brand-500 group-hover:text-white inline-flex items-center justify-center transition-all duration-300 shadow-[0_2px_6px_color-mix(in_srgb,var(--color-deep-700)_6%,transparent)] group-hover:shadow-[0_6px_14px_color-mix(in_srgb,var(--color-brand-500)_30%,transparent)]">
                             <i class="fas fa-arrow-right text-[11px] transition-transform duration-300 group-hover:translate-x-0.5"></i>
                         </span>
                     </div>
@@ -304,7 +304,7 @@
                         <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
                             <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_rgba(132,204,22,0.20)]">
+                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
                                 <i class="fas fa-hospital text-[10px]"></i>
                             </span>
                             <span class="font-light text-[15px]">Istinye Üniversitesi Liv Hospital</span>
@@ -312,7 +312,7 @@
                         <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
                             <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_rgba(132,204,22,0.20)]">
+                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
                                 <i class="fas fa-hospital text-[10px]"></i>
                             </span>
                             <span class="font-light text-[15px]">Liv Hospital Bahçeşehir</span>
@@ -322,7 +322,7 @@
 
                 <div class="flex flex-wrap gap-3">
                     <a href="{{ route('about') }}"
-                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_rgba(230,57,70,0.20)] hover:shadow-[0_8px_22px_rgba(230,57,70,0.28)] transition-all">
+                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
                         Detaylı Özgeçmiş <i class="fas fa-arrow-right text-[10px]"></i>
                     </a>
                     <a href="https://wa.me/900000000000" target="_blank" rel="noopener"
@@ -360,21 +360,21 @@
                 </p>
                 <div class="space-y-10 max-w-md">
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-phone"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
                             <a href="tel:+900000000000" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">+90 (000) 000 00 00</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-envelope"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
                             <a href="mailto:info@dryucelpolat.com" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">info@dryucelpolat.com</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Klinik</p>
                             <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>

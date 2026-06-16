@@ -71,7 +71,7 @@
         <div class="pt-2">
             <button type="submit"
                     wire:loading.attr="disabled"
-                    class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 text-[12.5px] font-semibold rounded-lg shadow-[0_6px_16px_rgba(230,57,70,0.22)] hover:shadow-[0_8px_20px_rgba(230,57,70,0.30)] transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+                    class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 text-[12.5px] font-semibold rounded-lg shadow-[0_6px_16px_color-mix(in_srgb,var(--color-brand-500)_22%,transparent)] hover:shadow-[0_8px_20px_color-mix(in_srgb,var(--color-brand-500)_30%,transparent)] transition-all disabled:opacity-60 disabled:cursor-not-allowed">
                 <span wire:loading.remove wire:target="submit">İletişime Geç</span>
                 <span wire:loading wire:target="submit">Gönderiliyor...</span>
                 <i wire:loading.remove wire:target="submit" class="fas fa-arrow-right text-[10px]"></i>

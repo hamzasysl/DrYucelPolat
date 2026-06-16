@@ -55,7 +55,7 @@
             <a href="{{ route('home') }}"
                class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white
                       px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg
-                      shadow-[0_8px_24px_rgba(230,57,70,0.25)] hover:shadow-[0_10px_28px_rgba(230,57,70,0.32)]
+                      shadow-[0_8px_24px_color-mix(in_srgb,var(--color-brand-500)_25%,transparent)] hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-brand-500)_32%,transparent)]
                       transition-all">
                 <i class="fas fa-house text-xs"></i>
                 Anasayfaya dön

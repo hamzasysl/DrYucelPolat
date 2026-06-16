@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'İletişim & Randevu — Op. Dr. Yücel Polat | Liv Hospital İstanbul')
+@section('title', page_title('İletişim & Randevu'))
 @section('description', 'Op. Dr. Yücel Polat ile iletişim — Liv Hospital İstanbul. Telefon, WhatsApp, e-posta ve online randevu formu. Ücretsiz konsültasyon için hızlı dönüş.')
 @section('keywords', 'Op. Dr. Yücel Polat iletişim, randevu al, kalp damar cerrahı randevu, Liv Hospital iletişim, kardiyovasküler cerrah randevu, ücretsiz konsültasyon, WhatsApp randevu')
-@section('og_title', 'İletişim & Randevu — Op. Dr. Yücel Polat')
+@section('og_title', page_title('İletişim & Randevu'))
 @section('og_description', 'Ücretsiz konsültasyon randevusu için iletişim formu, telefon ve WhatsApp. Liv Hospital İstanbul.')
 @section('og_image', asset('img/doktor.webp'))
 
@@ -62,21 +62,21 @@
                 </p>
                 <div class="space-y-10 max-w-md">
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-phone"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
                             <a href="tel:+900000000000" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">+90 (000) 000 00 00</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-envelope"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
                             <a href="mailto:info@dryucelpolat.com" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">info@dryucelpolat.com</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_rgba(132,204,22,0.18)]"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Klinik</p>
                             <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>

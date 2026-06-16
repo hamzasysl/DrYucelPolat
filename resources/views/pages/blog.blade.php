@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Blog & Sağlık Yazıları — Op. Dr. Yücel Polat | Kalp Damar Bilgi Merkezi')
+@section('title', page_title('Blog & Sağlık Yazıları'))
 @section('description', 'Kalp ve damar sağlığı, varis tedavisi, koroner bypass, endovasküler girişimler ve hasta bilgilendirme yazıları — Op. Dr. Yücel Polat tarafından kaleme alınan rehberler.')
 @section('keywords', 'kalp damar blog, varis blog yazıları, sağlık makaleleri, kardiyovasküler sağlık, kalp sağlığı rehberi, damar hastalıkları bilgi, Op. Dr. Yücel Polat blog')
-@section('og_title', 'Blog & Sağlık Yazıları — Op. Dr. Yücel Polat')
+@section('og_title', page_title('Blog & Sağlık Yazıları'))
 @section('og_description', 'Kalp ve damar sağlığı, tedavi yöntemleri ve hasta bilgilendirme yazıları.')
 @section('og_image', asset('img/doktor.webp'))
 @section('og_type', 'website')

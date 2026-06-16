@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Hizmetler — Tüm Tedaviler | Op. Dr. Yücel Polat | Liv Hospital İstanbul')
+@section('title', page_title('Hizmetler — Tüm Tedaviler'))
 @section('description', 'Varis tedavisi, koroner bypass, kalp kapak, aort, endovasküler girişimler, DVT, lenfödem, diyabetik yara ve daha fazlası — Op. Dr. Yücel Polat tüm uzmanlık alanları.')
 @section('keywords', 'kalp damar cerrahisi hizmetleri, varis tedavisi, koroner bypass, kalp kapak ameliyatı, endovasküler cerrahi, DVT tedavisi, lenfödem tedavisi, diyabetik yara, shockwave IVL, pelvik konjesyon, karotis cerrahisi')
-@section('og_title', 'Tüm Hizmetler — Op. Dr. Yücel Polat | Liv Hospital İstanbul')
+@section('og_title', page_title('Tüm Hizmetler'))
 @section('og_description', 'Varis, bypass, kalp kapak, endovasküler girişimler — Op. Dr. Yücel Polat uzmanlık alanları.')
 @section('og_image', asset('img/doktor.webp'))
 
@@ -106,7 +106,7 @@
 
                 @php $hasPage = $service['has_page'] ?? false; @endphp
                 <a href="{{ $hasPage ? route('services.show', $service['slug']) : '#' }}"
-                   class="group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_16px_rgba(15,61,90,0.06)] hover:shadow-[0_18px_40px_rgba(15,61,90,0.15)] hover:-translate-y-1 transition-all duration-400 border border-ink-100 flex flex-col">
+                   class="group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_16px_color-mix(in_srgb,var(--color-deep-700)_6%,transparent)] hover:shadow-[0_18px_40px_color-mix(in_srgb,var(--color-deep-700)_15%,transparent)] hover:-translate-y-1 transition-all duration-400 border border-ink-100 flex flex-col">
 
                     {{-- Foto alanı --}}
                     <div class="relative h-52 lg:h-56 overflow-hidden bg-gradient-to-br"
@@ -128,7 +128,7 @@
 
                         {{-- Üst sol köşede küçük ikon-rozet (her zaman görünür) --}}
                         <div class="absolute top-4 left-4 inline-flex items-center gap-2">
-                            <span class="w-9 h-9 rounded-lg bg-white/95 backdrop-blur-sm text-deep-600 flex items-center justify-center shadow-[0_3px_10px_rgba(15,61,90,0.18)]">
+                            <span class="w-9 h-9 rounded-lg bg-white/95 backdrop-blur-sm text-deep-600 flex items-center justify-center shadow-[0_3px_10px_color-mix(in_srgb,var(--color-deep-700)_18%,transparent)]">
                                 <i class="fas {{ $service['icon'] }} text-sm"></i>
                             </span>
                         </div>
@@ -148,7 +148,7 @@
                             <span class="inline-flex items-center gap-2 text-deep-600 group-hover:text-brand-500 text-[12px] font-bold uppercase tracking-[0.14em] transition-colors">
                                 Detayları Gör
                             </span>
-                            <span class="w-9 h-9 rounded-lg bg-ink-50 text-deep-500 group-hover:bg-brand-500 group-hover:text-white inline-flex items-center justify-center transition-all duration-300 shadow-[0_2px_6px_rgba(15,61,90,0.06)] group-hover:shadow-[0_6px_14px_rgba(230,57,70,0.30)]">
+                            <span class="w-9 h-9 rounded-lg bg-ink-50 text-deep-500 group-hover:bg-brand-500 group-hover:text-white inline-flex items-center justify-center transition-all duration-300 shadow-[0_2px_6px_color-mix(in_srgb,var(--color-deep-700)_6%,transparent)] group-hover:shadow-[0_6px_14px_color-mix(in_srgb,var(--color-brand-500)_30%,transparent)]">
                                 <i class="fas fa-arrow-right text-[11px] transition-transform duration-300 group-hover:translate-x-0.5"></i>
                             </span>
                         </div>
@@ -159,7 +159,7 @@
 
         {{-- Alt CTA bandı — açık tema --}}
         <div class="mt-16 lg:mt-20">
-            <div class="relative bg-white rounded-2xl overflow-hidden p-8 lg:p-10 border border-ink-100 shadow-[0_8px_28px_-12px_rgba(15,61,90,0.12)]">
+            <div class="relative bg-white rounded-2xl overflow-hidden p-8 lg:p-10 border border-ink-100 shadow-[0_8px_28px_-12px_color-mix(in_srgb,var(--color-deep-700)_12%,transparent)]">
                 {{-- Hafif dekoratif renk yumuşatma — iki yan da mavi tonda --}}
                 <div class="absolute -top-20 -right-20 w-72 h-72 bg-deep-100/40 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-deep-100/35 rounded-full blur-3xl pointer-events-none"></div>
@@ -177,7 +177,7 @@
                     </div>
                     <div class="flex flex-wrap gap-3 shrink-0">
                         <a href="{{ route('contact') }}"
-                           class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3 text-[13px] font-semibold rounded-lg shadow-[0_8px_20px_rgba(230,57,70,0.30)] hover:shadow-[0_12px_28px_rgba(230,57,70,0.42)] transition-all">
+                           class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3 text-[13px] font-semibold rounded-lg shadow-[0_8px_20px_color-mix(in_srgb,var(--color-brand-500)_30%,transparent)] hover:shadow-[0_12px_28px_color-mix(in_srgb,var(--color-brand-500)_42%,transparent)] transition-all">
                             <i class="fas fa-calendar-check text-[12px]"></i>
                             Randevu Al
                         </a>

@@ -79,7 +79,7 @@
             <button @click="prev"
                     class="absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-30
                            w-11 h-11 rounded-full bg-white text-deep-600
-                           shadow-[0_4px_14px_rgba(15,61,90,0.20)]
+                           shadow-[0_4px_14px_color-mix(in_srgb,var(--color-deep-700)_20%,transparent)]
                            hover:bg-deep-600 hover:text-white
                            transition-all duration-200 flex items-center justify-center"
                     aria-label="Önceki">
@@ -88,7 +88,7 @@
             <button @click="next"
                     class="absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-30
                            w-11 h-11 rounded-full bg-white text-deep-600
-                           shadow-[0_4px_14px_rgba(15,61,90,0.20)]
+                           shadow-[0_4px_14px_color-mix(in_srgb,var(--color-deep-700)_20%,transparent)]
                            hover:bg-deep-600 hover:text-white
                            transition-all duration-200 flex items-center justify-center"
                     aria-label="Sonraki">
