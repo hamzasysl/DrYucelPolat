@@ -1,17 +1,17 @@
 @php
     /** Global SEO defaults — Site Ayarları'ndan okunur, sayfa-özel override edilebilir */
-    $siteName    = setting('site_name', 'Op. Dr. Yücel Polat');
-    $siteTagline = setting('site_tagline', 'Kalp ve Damar Cerrahisi Uzmanı');
-    $defaultDesc = setting('seo_default_description', 'Op. Dr. Yücel Polat — 20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass ve endovasküler girişimler.');
-    $defaultTitle = setting('seo_default_title', $siteName . ' — ' . $siteTagline);
-    $defaultOgImageRaw = setting('seo_og_image', '/img/doktor.webp');
+    $siteName    = $siteSettings['site_name']                ?? 'Op. Dr. Yücel Polat';
+    $siteTagline = $siteSettings['site_tagline']             ?? 'Kalp ve Damar Cerrahisi Uzmanı';
+    $defaultDesc = $siteSettings['seo_default_description']  ?? 'Op. Dr. Yücel Polat — 20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass ve endovasküler girişimler.';
+    $defaultTitle = $siteSettings['seo_default_title']       ?? ($siteName . ' — ' . $siteTagline);
+    $defaultOgImageRaw = $siteSettings['seo_og_image']       ?? '/img/doktor.webp';
     $defaultOgImage = str_starts_with($defaultOgImageRaw, 'http') ? $defaultOgImageRaw : asset(ltrim($defaultOgImageRaw, '/'));
     $canonical = url()->current();
 
     /** Renkler — Site Ayarları'ndan okunur, varsayılan logo renkleri */
-    $brandPrimary = setting('brand_color_primary', '#E63946');
-    $brandDeep    = setting('brand_color_deep',    '#1E5F9E');
-    $brandLeaf    = setting('brand_color_leaf',    '#84CC16');
+    $brandPrimary = $siteSettings['brand_color_primary'] ?? '#E63946';
+    $brandDeep    = $siteSettings['brand_color_deep']    ?? '#1E5F9E';
+    $brandLeaf    = $siteSettings['brand_color_leaf']    ?? '#84CC16';
 
     /** Global structured data — Physician + Hospital + WebSite, tek @graph node */
     $graphLd = [

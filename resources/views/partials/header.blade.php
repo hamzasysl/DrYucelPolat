@@ -1,23 +1,22 @@
 @php
-    // DB'den ayar + menüleri çek (admin panelden yönetilir)
-    $headerMenu     = menu_items('header');
+    // Veriler AppServiceProvider'dan global gelir: $siteSettings (array), $siteMenus (array of collections)
     $current        = request()->route() ? request()->route()->getName() : null;
-    $whatsapp       = setting('whatsapp_url', 'https://wa.me/900000000000');
-    $sitePhone      = setting('contact_phone', '+90 (000) 000 00 00');
-    $sitePhoneTel   = setting('contact_phone_raw', '+900000000000');
-    $siteEmail      = setting('contact_email', 'info@dryucelpolat.com');
-    $siteAddress    = setting('contact_address', 'Klinik Adresi, Sarıyer / İstanbul');
-    $siteLogo       = setting('site_logo', '/img/logo.png');
+    $whatsapp       = $siteSettings['whatsapp_url']      ?? 'https://wa.me/900000000000';
+    $sitePhone      = $siteSettings['contact_phone']     ?? '+90 (000) 000 00 00';
+    $sitePhoneTel   = $siteSettings['contact_phone_raw'] ?? '+900000000000';
+    $siteEmail      = $siteSettings['contact_email']     ?? 'info@dryucelpolat.com';
+    $siteAddress    = $siteSettings['contact_address']   ?? 'Klinik Adresi, Sarıyer / İstanbul';
+    $siteLogo       = $siteSettings['site_logo']         ?? '/img/logo.png';
     $socials = [
-        'instagram' => setting('social_instagram'),
-        'facebook'  => setting('social_facebook'),
-        'youtube'   => setting('social_youtube'),
-        'linkedin'  => setting('social_linkedin'),
-        'x'         => setting('social_x'),
+        'instagram' => $siteSettings['social_instagram'] ?? '',
+        'facebook'  => $siteSettings['social_facebook']  ?? '',
+        'youtube'   => $siteSettings['social_youtube']   ?? '',
+        'linkedin'  => $siteSettings['social_linkedin']  ?? '',
+        'x'         => $siteSettings['social_x']         ?? '',
     ];
     $treatments = config('treatments', []);
 
-    // Eski yapı geriye dönük uyum — eğer menü tablosundan boş gelirse fallback
+    $headerMenu = $siteMenus['header'] ?? collect();
     if ($headerMenu->isEmpty()) {
         $nav = [
             ['title' => 'Anasayfa',  'route' => 'home'],
@@ -29,13 +28,13 @@
     } else {
         $nav = $headerMenu->map(function ($m) {
             return [
-                'title'      => $m->label,
-                'route'      => $m->route_name,
-                'url'        => $m->url,
-                'icon'       => $m->icon,
-                'target'     => $m->target,
-                'dropdown'   => $m->is_dropdown,
-                'children'   => $m->children,
+                'title'    => $m->label,
+                'route'    => $m->route_name,
+                'url'      => $m->url,
+                'icon'     => $m->icon,
+                'target'   => $m->target,
+                'dropdown' => $m->is_dropdown,
+                'children' => $m->children,
             ];
         })->all();
     }
@@ -111,7 +110,7 @@
              x-data="{ open: false }">
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex-shrink-0 inline-block">
-                <img src="{{ str_starts_with($siteLogo, 'http') ? $siteLogo : asset(ltrim($siteLogo, '/')) }}" alt="{{ setting('site_name', config('app.name')) }}" class="h-[52px] lg:h-[60px] w-auto">
+                <img src="{{ str_starts_with($siteLogo, 'http') ? $siteLogo : asset(ltrim($siteLogo, '/')) }}" alt="{{ $siteSettings['site_name'] ?? config('app.name') }}" class="h-[52px] lg:h-[60px] w-auto">
             </a>
 
             {{-- Desktop nav (logo mavisi tonu) --}}

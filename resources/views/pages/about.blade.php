@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', page_title('Hakkımda'))
+@section('title', 'Hakkımda — ' . config('app.name'))
 @section('description', 'Op. Dr. Yücel Polat kimdir? 20+ yıl deneyimle kalp ve damar cerrahisi uzmanı. Eğitim, uzmanlık alanları, klinik felsefe ve değerler. Liv Hospital İstanbul.')
 @section('keywords', 'Op. Dr. Yücel Polat kimdir, kardiyovasküler cerrah, Liv Hospital doktorları, kalp damar cerrahı, vasküler cerrah İstanbul, Yücel Polat özgeçmiş, kalp damar cerrahisi uzmanı')
-@section('og_title', page_title('Hakkımda'))
+@section('og_title', 'Hakkımda — ' . config('app.name'))
 @section('og_description', '20+ yıl deneyimle kalp ve damar cerrahisi uzmanı. Klinik felsefem, uzmanlık alanlarım ve hasta odaklı yaklaşımım.')
 @section('og_image', asset('img/doktor.webp'))
 @section('og_image_alt', 'Op. Dr. Yücel Polat — Profil Fotoğrafı')

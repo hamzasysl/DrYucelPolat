@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', page_title())
+@section('title', config("app.name") . " — Kalp ve Damar Cerrahisi Uzmanı")
 @section('description', '20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass, endovasküler girişimler. Liv Hospital İstanbul. Ücretsiz konsültasyon randevusu — hızlı dönüş.')
 @section('keywords', 'kalp damar cerrahisi İstanbul, varis tedavisi, koroner bypass, kalp kapak ameliyatı, Op. Dr. Yücel Polat, Liv Hospital, endovasküler cerrahi, kardiyovasküler cerrah, kılcal damar tedavisi, EVLA, köpük skleroterapi, damar tıkanıklığı tedavisi')
-@section('og_title', page_title())
+@section('og_title', config("app.name") . " — Kalp ve Damar Cerrahisi Uzmanı")
 @section('og_description', '20+ yıl deneyimle modern kalp ve damar tedavisi. Varis, bypass, kapak ve endovasküler girişimlerde uzman yaklaşım.')
 @section('og_image', asset('img/doktor.webp'))
 @section('og_type', 'website')

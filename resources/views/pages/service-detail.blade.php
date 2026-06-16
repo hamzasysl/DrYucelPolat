@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', page_title($service['title']))
+@section('title', $service['title'] . ' — ' . config('app.name'))
 @section('description', $service['lead'])
 @section('keywords', $service['title'] . ', ' . $service['title'] . ' İstanbul, ' . $service['title'] . ' fiyat, ' . $service['title'] . ' uzmanı, Op. Dr. Yücel Polat, Liv Hospital, kalp damar cerrahisi, ücretsiz konsültasyon')
-@section('og_title', page_title($service['title']))
+@section('og_title', $service['title'] . ' — ' . config('app.name'))
 @section('og_description', $service['lead'])
 @php
     $servicePhotoPathSeo = public_path('img/services/' . $service['slug'] . '.jpg');

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', page_title('Hizmetler — Tüm Tedaviler'))
+@section('title', 'Hizmetler — Tüm Tedaviler — ' . config('app.name'))
 @section('description', 'Varis tedavisi, koroner bypass, kalp kapak, aort, endovasküler girişimler, DVT, lenfödem, diyabetik yara ve daha fazlası — Op. Dr. Yücel Polat tüm uzmanlık alanları.')
 @section('keywords', 'kalp damar cerrahisi hizmetleri, varis tedavisi, koroner bypass, kalp kapak ameliyatı, endovasküler cerrahi, DVT tedavisi, lenfödem tedavisi, diyabetik yara, shockwave IVL, pelvik konjesyon, karotis cerrahisi')
-@section('og_title', page_title('Tüm Hizmetler'))
+@section('og_title', 'Tüm Hizmetler — ' . config('app.name'))
 @section('og_description', 'Varis, bypass, kalp kapak, endovasküler girişimler — Op. Dr. Yücel Polat uzmanlık alanları.')
 @section('og_image', asset('img/doktor.webp'))
 

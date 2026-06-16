@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', page_title('İletişim & Randevu'))
+@section('title', 'İletişim & Randevu — ' . config('app.name'))
 @section('description', 'Op. Dr. Yücel Polat ile iletişim — Liv Hospital İstanbul. Telefon, WhatsApp, e-posta ve online randevu formu. Ücretsiz konsültasyon için hızlı dönüş.')
 @section('keywords', 'Op. Dr. Yücel Polat iletişim, randevu al, kalp damar cerrahı randevu, Liv Hospital iletişim, kardiyovasküler cerrah randevu, ücretsiz konsültasyon, WhatsApp randevu')
-@section('og_title', page_title('İletişim & Randevu'))
+@section('og_title', 'İletişim & Randevu — ' . config('app.name'))
 @section('og_description', 'Ücretsiz konsültasyon randevusu için iletişim formu, telefon ve WhatsApp. Liv Hospital İstanbul.')
 @section('og_image', asset('img/doktor.webp'))
 

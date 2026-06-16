@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', page_title('Site Haritası'))
+@section('title', 'Site Haritası — ' . config('app.name'))
 @section('description', 'Op. Dr. Yücel Polat web sitesindeki tüm sayfalara hızlı erişim — site haritası ve SEO durumu.')
-@section('og_title', page_title('Site Haritası'))
+@section('og_title', 'Site Haritası — ' . config('app.name'))
 @section('og_description', 'Tüm sayfaların organize edilmiş listesi.')
 
 @section('structured_data')
