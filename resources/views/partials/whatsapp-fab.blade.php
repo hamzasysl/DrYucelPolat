@@ -5,7 +5,7 @@
      ============================================================ --}}
 
 {{-- MOBILE: Lacivert gradient pill + pulsing mavi glow halo --}}
-<a href="{{ ( ?? 'https://wa.me/900000000000') }}"
+<a href="{{ $siteSettings['whatsapp_url'] ?? 'https://wa.me/900000000000' }}"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp ile randevu al"
@@ -37,7 +37,7 @@
 </a>
 
 {{-- DESKTOP: Yeşil yuvarlak ikon, çok hafif glow pulse --}}
-<a href="{{ ( ?? 'https://wa.me/900000000000') }}"
+<a href="{{ $siteSettings['whatsapp_url'] ?? 'https://wa.me/900000000000' }}"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp ile iletişim"
