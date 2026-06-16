@@ -34,18 +34,18 @@ if (! function_exists('page_title')) {
 if (! function_exists('menu_items')) {
     /**
      * Belirli lokasyon (header/footer/mobile) için aktif menü öğelerini döndürür.
-     * Cache'lenir; admin menü değiştirdiğinde MenuController içinden temizlenmelidir.
+     * NOT: Cache kaldırıldı — Eloquent collection serializasyonu eager-loaded
+     * children'ı her zaman doğru taşımıyor; production'da boş children sorunu yaşandı.
+     * Doğrudan query — ucuz, request-cycle içinde Laravel zaten bellek-cache eder.
      */
     function menu_items(string $location = 'header'): \Illuminate\Database\Eloquent\Collection
     {
-        return Cache::rememberForever("menu:items:{$location}", function () use ($location) {
-            return Menu::query()
-                ->where('location', $location)
-                ->where('is_active', true)
-                ->whereNull('parent_id')
-                ->with(['children' => fn ($q) => $q->where('is_active', true)->orderBy('sort_order')])
-                ->orderBy('sort_order')
-                ->get();
-        });
+        return Menu::query()
+            ->where('location', $location)
+            ->where('is_active', true)
+            ->whereNull('parent_id')
+            ->with(['children' => fn ($q) => $q->where('is_active', true)->orderBy('sort_order')])
+            ->orderBy('sort_order')
+            ->get();
     }
 }

@@ -9,12 +9,21 @@ class Setting extends Model
 {
     protected $fillable = ['key', 'value', 'group', 'type', 'label'];
 
+    /**
+     * Request bazlı statik cache — request içinde aynı key tekrar sorulursa DB hit yok,
+     * farklı request'lerde ise her zaman taze DB değeri. Stale persistent cache sorunu yaşanmaz.
+     */
+    protected static array $requestCache = [];
+
     public static function get(string $key, mixed $default = null): mixed
     {
-        return Cache::rememberForever("setting:{$key}", function () use ($key, $default) {
-            $row = self::query()->where('key', $key)->first();
-            return $row?->value ?? $default;
-        });
+        if (array_key_exists($key, self::$requestCache)) {
+            return self::$requestCache[$key] ?? $default;
+        }
+        $row = self::query()->where('key', $key)->first();
+        $value = $row?->value;
+        self::$requestCache[$key] = $value;
+        return $value ?? $default;
     }
 
     public static function set(string $key, mixed $value, string $group = 'general', string $type = 'text', ?string $label = null): self
@@ -28,6 +37,7 @@ class Setting extends Model
                 'label' => $label,
             ]
         );
+        unset(self::$requestCache[$key]);
         Cache::forget("setting:{$key}");
         return $row;
     }
