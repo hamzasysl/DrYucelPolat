@@ -18,7 +18,7 @@
             'icon'   => $t['icon'] ?? null,
             'url'    => ($t['has_page'] ?? false)
                 ? route('services.show', $t['slug'])
-                : route('services.index'),
+                : '#',
             'target' => '_self',
         ])
         ->values()
