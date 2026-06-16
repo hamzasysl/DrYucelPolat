@@ -11,13 +11,14 @@
     $socials        = config('site.socials', []);
     $nav            = config('site.nav', []);
 
-    // Hizmetler dropdown'i — treatments.php'den (sayfası olanlar).
+    // Hizmetler dropdown'i — tüm tedaviler; sayfası olmayanlar /hizmetler'e yönlendirilir.
     $servicesChildren = collect(config('treatments', []))
-        ->filter(fn ($t) => $t['has_page'] ?? false)
         ->map(fn ($t) => [
             'label'  => $t['title'],
             'icon'   => $t['icon'] ?? null,
-            'url'    => route('services.show', $t['slug']),
+            'url'    => ($t['has_page'] ?? false)
+                ? route('services.show', $t['slug'])
+                : route('services.index'),
             'target' => '_self',
         ])
         ->values()
