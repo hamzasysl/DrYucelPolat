@@ -11,8 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // auth middleware yetkisiz erişimde admin login'e yönlendirir
-        $middleware->redirectGuestsTo(fn () => route('admin.login'));
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

@@ -41,21 +41,25 @@
                 </div>
 
                 {{-- Premium social row — yumuşak cam etkili --}}
-                <div class="flex items-center gap-2">
-                    @php
-                        $socials = [
-                            ['url' => '#', 'icon' => 'fab fa-instagram',  'label' => 'Instagram'],
-                            ['url' => '#', 'icon' => 'fab fa-facebook-f', 'label' => 'Facebook'],
-                            ['url' => '#', 'icon' => 'fab fa-youtube',    'label' => 'YouTube'],
-                        ];
-                    @endphp
-                    @foreach ($socials as $s)
-                        <a href="{{ $s['url'] }}" aria-label="{{ $s['label'] }}"
-                           class="group w-9 h-9 rounded-xl bg-white/[0.06] hover:bg-white border border-white/10 hover:border-white text-white/85 hover:text-deep-700 backdrop-blur transition-all duration-300 inline-flex items-center justify-center hover:-translate-y-0.5">
-                            <i class="{{ $s['icon'] }} text-[13px]"></i>
-                        </a>
-                    @endforeach
-                </div>
+                @php
+                    $footerSocials = collect([
+                        ['url' => config('site.socials.instagram'), 'icon' => 'fab fa-instagram',  'label' => 'Instagram'],
+                        ['url' => config('site.socials.facebook'),  'icon' => 'fab fa-facebook-f', 'label' => 'Facebook'],
+                        ['url' => config('site.socials.youtube'),   'icon' => 'fab fa-youtube',    'label' => 'YouTube'],
+                        ['url' => config('site.socials.linkedin'),  'icon' => 'fab fa-linkedin-in','label' => 'LinkedIn'],
+                        ['url' => config('site.socials.x'),         'icon' => 'fab fa-x-twitter',  'label' => 'X'],
+                    ])->filter(fn ($s) => ! empty($s['url']));
+                @endphp
+                @if ($footerSocials->isNotEmpty())
+                    <div class="flex items-center gap-2">
+                        @foreach ($footerSocials as $s)
+                            <a href="{{ $s['url'] }}" target="_blank" rel="noopener" aria-label="{{ $s['label'] }}"
+                               class="group w-9 h-9 rounded-xl bg-white/[0.06] hover:bg-white border border-white/10 hover:border-white text-white/85 hover:text-deep-700 backdrop-blur transition-all duration-300 inline-flex items-center justify-center hover:-translate-y-0.5">
+                                <i class="{{ $s['icon'] }} text-[13px]"></i>
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
             </div>
 
             {{-- Popüler Hizmetler — 2 kolonlu, geniş alan --}}
@@ -84,26 +88,26 @@
                 </h4>
                 <ul class="space-y-4 text-sm">
                     <li>
-                        <a href="tel:{{ $siteSettings['contact_phone_raw'] ?? '+900000000000' }}" class="group flex items-start gap-3 text-ink-200/80 hover:text-white transition-colors">
+                        <a href="tel:{{ config('site.phone_raw') }}" class="group flex items-start gap-3 text-ink-200/80 hover:text-white transition-colors">
                             <span class="mt-0.5 w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0 group-hover:bg-leaf-500 group-hover:text-white transition-all">
                                 <i class="fas fa-phone text-[10px]"></i>
                             </span>
-                            <span class="font-light pt-1">{{ $siteSettings['contact_phone'] ?? '+90 (000) 000 00 00' }}</span>
+                            <span class="font-light pt-1">{{ config('site.phone') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="mailto:{{ $siteSettings['contact_email'] ?? 'info@dryucelpolat.com' }}" class="group flex items-start gap-3 text-ink-200/80 hover:text-white transition-colors">
+                        <a href="mailto:{{ config('site.email') }}" class="group flex items-start gap-3 text-ink-200/80 hover:text-white transition-colors">
                             <span class="mt-0.5 w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0 group-hover:bg-leaf-500 group-hover:text-white transition-all">
                                 <i class="fas fa-envelope text-[10px]"></i>
                             </span>
-                            <span class="font-light pt-1 break-all">{{ $siteSettings['contact_email'] ?? 'info@dryucelpolat.com' }}</span>
+                            <span class="font-light pt-1 break-all">{{ config('site.email') }}</span>
                         </a>
                     </li>
                     <li class="flex items-start gap-3 text-ink-200/80">
                         <span class="mt-0.5 w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0">
                             <i class="fas fa-map-marker-alt text-[10px]"></i>
                         </span>
-                        <span class="font-light pt-1">{{ $siteSettings['contact_address'] ?? 'Klinik Adresi, Sarıyer / İstanbul' }}</span>
+                        <span class="font-light pt-1">{{ config('site.address') }}</span>
                     </li>
                 </ul>
 

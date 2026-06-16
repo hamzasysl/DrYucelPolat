@@ -1,43 +1,27 @@
 @php
-    // Veriler AppServiceProvider'dan global gelir: $siteSettings (array), $siteMenus (array of collections)
+    // Veriler config/site.php + config/treatments.php'den okunur.
     $current        = request()->route() ? request()->route()->getName() : null;
-    $whatsapp       = $siteSettings['whatsapp_url']      ?? 'https://wa.me/900000000000';
-    $sitePhone      = $siteSettings['contact_phone']     ?? '+90 (000) 000 00 00';
-    $sitePhoneTel   = $siteSettings['contact_phone_raw'] ?? '+900000000000';
-    $siteEmail      = $siteSettings['contact_email']     ?? 'info@dryucelpolat.com';
-    $siteAddress    = $siteSettings['contact_address']   ?? 'Klinik Adresi, Sarıyer / İstanbul';
-    $siteLogo       = $siteSettings['site_logo']         ?? '/img/logo.png';
-    $socials = [
-        'instagram' => $siteSettings['social_instagram'] ?? '',
-        'facebook'  => $siteSettings['social_facebook']  ?? '',
-        'youtube'   => $siteSettings['social_youtube']   ?? '',
-        'linkedin'  => $siteSettings['social_linkedin']  ?? '',
-        'x'         => $siteSettings['social_x']         ?? '',
-    ];
-    $treatments = config('treatments', []);
+    $whatsapp       = config('site.whatsapp');
+    $sitePhone      = config('site.phone');
+    $sitePhoneTel   = config('site.phone_raw');
+    $siteEmail      = config('site.email');
+    $siteAddress    = config('site.address');
+    $siteLogo       = config('site.logo');
+    $siteName       = config('site.name');
+    $socials        = config('site.socials', []);
+    $nav            = config('site.nav', []);
 
-    $headerMenu = $siteMenus['header'] ?? collect();
-    if ($headerMenu->isEmpty()) {
-        $nav = [
-            ['title' => 'Anasayfa',  'route' => 'home'],
-            ['title' => 'Hakkımda',  'route' => 'about'],
-            ['title' => 'Hizmetler', 'dropdown' => true],
-            ['title' => 'Blog',      'route' => 'blog.index'],
-            ['title' => 'İletişim',  'route' => 'contact'],
-        ];
-    } else {
-        $nav = $headerMenu->map(function ($m) {
-            return [
-                'title'    => $m->label,
-                'route'    => $m->route_name,
-                'url'      => $m->url,
-                'icon'     => $m->icon,
-                'target'   => $m->target,
-                'dropdown' => $m->is_dropdown,
-                'children' => $m->children,
-            ];
-        })->all();
-    }
+    // Hizmetler dropdown'i — treatments.php'den (sayfası olanlar).
+    $servicesChildren = collect(config('treatments', []))
+        ->filter(fn ($t) => $t['has_page'] ?? false)
+        ->map(fn ($t) => [
+            'label'  => $t['title'],
+            'icon'   => $t['icon'] ?? null,
+            'url'    => route('services.show', $t['slug']),
+            'target' => '_self',
+        ])
+        ->values()
+        ->all();
 @endphp
 
 <header class="bg-white border-b border-ink-100 sticky top-0 z-50">
@@ -110,7 +94,7 @@
              x-data="{ open: false }">
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex-shrink-0 inline-block">
-                <img src="{{ str_starts_with($siteLogo, 'http') ? $siteLogo : asset(ltrim($siteLogo, '/')) }}" alt="{{ $siteSettings['site_name'] ?? config('app.name') }}" class="h-[52px] lg:h-[60px] w-auto">
+                <img src="{{ str_starts_with($siteLogo, 'http') ? $siteLogo : asset(ltrim($siteLogo, '/')) }}" alt="{{ $siteName }}" class="h-[52px] lg:h-[60px] w-auto">
             </a>
 
             {{-- Desktop nav (logo mavisi tonu) --}}
@@ -181,33 +165,27 @@
                                             $currentSlug = request()->route('slug');
                                         @endphp
 
-                                        @php
-                                            // Dropdown panel — Hizmetler menüsünün children'ı (admin'den yönetilir)
-                                            $dropdownItems = $item['children'] ?? collect();
-                                        @endphp
                                         <div class="grid grid-cols-2 gap-x-2 gap-y-1">
-                                            @foreach ($dropdownItems as $i => $child)
+                                            @foreach ($servicesChildren as $i => $child)
                                                 @php
                                                     $c = $colors[$i % 3];
-                                                    $childUrl = $child->route_name && \Illuminate\Support\Facades\Route::has($child->route_name)
-                                                        ? route($child->route_name)
-                                                        : ($child->url ?? '#');
+                                                    $childUrl = $child['url'];
                                                     $isActive = request()->url() === $childUrl;
-                                                    $childIconPrefix = $child->icon && str_starts_with($child->icon, 'fab ') ? '' : 'fas ';
+                                                    $childIconPrefix = $child['icon'] && str_starts_with($child['icon'], 'fab ') ? '' : 'fas ';
                                                 @endphp
                                                 <a href="{{ $childUrl }}"
-                                                   @if ($child->target === '_blank') target="_blank" rel="noopener" @endif
+                                                   @if ($child['target'] === '_blank') target="_blank" rel="noopener" @endif
                                                    @if ($isActive) aria-current="page" @endif
                                                    class="group flex items-center gap-2 min-[1200px]:gap-3 p-1.5 min-[1200px]:p-2.5 rounded-lg transition-colors
                                                           {{ $isActive ? 'bg-ink-100' : 'hover:bg-ink-50' }}">
-                                                    @if ($child->icon)
+                                                    @if ($child['icon'])
                                                         <span class="w-7 h-7 min-[1200px]:w-9 min-[1200px]:h-9 rounded-lg {{ $c['bg'] }} {{ $c['text'] }} inline-flex items-center justify-center shrink-0 transition-colors {{ $c['fill'] }} group-hover:text-white">
-                                                            <i class="{{ $childIconPrefix . $child->icon }} text-[10px] min-[1200px]:text-sm"></i>
+                                                            <i class="{{ $childIconPrefix . $child['icon'] }} text-[10px] min-[1200px]:text-sm"></i>
                                                         </span>
                                                     @endif
                                                     <div class="min-w-0 flex-1">
                                                         <p class="text-deep-700 text-[11px] min-[1200px]:text-[13px] font-semibold leading-snug group-hover:text-brand-500 transition-colors truncate min-[1200px]:whitespace-normal">
-                                                            {{ $child->label }}
+                                                            {{ $child['label'] }}
                                                         </p>
                                                     </div>
                                                 </a>
@@ -336,23 +314,21 @@
                                         </span>
                                         <i class="fas fa-arrow-right text-[10px] transition-transform group-hover:translate-x-1"></i>
                                     </a>
-                                    @foreach (($item['children'] ?? collect()) as $child)
+                                    @foreach ($servicesChildren as $child)
                                         @php
-                                            $mobChildUrl = $child->route_name && \Illuminate\Support\Facades\Route::has($child->route_name)
-                                                ? route($child->route_name)
-                                                : ($child->url ?? '#');
+                                            $mobChildUrl = $child['url'];
                                             $mobActive = request()->url() === $mobChildUrl;
-                                            $mobIconPrefix = $child->icon && str_starts_with($child->icon, 'fab ') ? '' : 'fas ';
+                                            $mobIconPrefix = $child['icon'] && str_starts_with($child['icon'], 'fab ') ? '' : 'fas ';
                                         @endphp
                                         <a href="{{ $mobChildUrl }}"
-                                           @if ($child->target === '_blank') target="_blank" rel="noopener" @endif
+                                           @if ($child['target'] === '_blank') target="_blank" rel="noopener" @endif
                                            @if ($mobActive) aria-current="page" @endif
                                            class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors text-ink-700
                                                   {{ $mobActive ? 'bg-ink-100' : 'hover:bg-deep-50 hover:text-deep-600' }}">
-                                            @if ($child->icon)
-                                                <i class="{{ $mobIconPrefix . $child->icon }} text-deep-400 text-xs w-4 text-center"></i>
+                                            @if ($child['icon'])
+                                                <i class="{{ $mobIconPrefix . $child['icon'] }} text-deep-400 text-xs w-4 text-center"></i>
                                             @endif
-                                            {{ $child->label }}
+                                            {{ $child['label'] }}
                                         </a>
                                     @endforeach
                                 </div>

@@ -21,37 +21,6 @@ Route::view('/_palette', 'pages._palette')->name('palette');
 Route::get('/thank-you', \App\Livewire\Ui\ThankYou::class)->name('thank-you');
 
 // ============================================================
-// MEZ Admin Panel
-// ============================================================
-Route::prefix('admin')->name('admin.')->group(function () {
-    // Auth
-    Route::get('login', [\App\Http\Controllers\Admin\AuthController::class, 'showLogin'])->name('login');
-    Route::post('login', [\App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login.attempt');
-    Route::post('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
-
-    // Auth-required area
-    Route::middleware('auth')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-
-        // Users (admin only — controller içinde gate)
-        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
-
-        // Settings
-        Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
-        Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
-
-        // Menus
-        Route::get('menus', [\App\Http\Controllers\Admin\MenuController::class, 'index'])->name('menus.index');
-        Route::get('menus/create', [\App\Http\Controllers\Admin\MenuController::class, 'create'])->name('menus.create');
-        Route::post('menus', [\App\Http\Controllers\Admin\MenuController::class, 'store'])->name('menus.store');
-        Route::get('menus/{menu}/edit', [\App\Http\Controllers\Admin\MenuController::class, 'edit'])->name('menus.edit');
-        Route::put('menus/{menu}', [\App\Http\Controllers\Admin\MenuController::class, 'update'])->name('menus.update');
-        Route::delete('menus/{menu}', [\App\Http\Controllers\Admin\MenuController::class, 'destroy'])->name('menus.destroy');
-        Route::post('menus/reorder', [\App\Http\Controllers\Admin\MenuController::class, 'reorder'])->name('menus.reorder');
-    });
-});
-
-// ============================================================
 // MEZ SEO — Sitemap Modülü
 // HTML görseli + XML crawl feed'i tek SitemapBuilder'dan üretilir.
 // ============================================================
