@@ -7,14 +7,14 @@
 
 return [
     'name'        => 'Op. Dr. Yücel Polat',
-    'logo'        => '/img/logo.png',
+    'logo'        => '/img/logo.svg',
 
-    'phone'       => '+90 (000) 000 00 00',
-    'phone_raw'   => '+900000000000',
-    'email'       => 'info@dryucelpolat.com',
+    'phone'       => '+90 506 235 10 88',
+    'phone_raw'   => '+905062351088',
+    'email'       => 'dr.yucelpolat@hotmail.com',
     'address'     => 'Liv Hospital İstanbul, Ulus Mah. Bestekar Şevki Bey Sok. No: 1, Beşiktaş / İstanbul',
 
-    'whatsapp'    => 'https://wa.me/900000000000',
+    'whatsapp'    => 'https://wa.me/905062351088',
 
     // Boş bırakılan sosyaller header'da gizlenir.
     'socials' => [

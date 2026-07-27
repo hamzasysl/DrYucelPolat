@@ -95,30 +95,55 @@
         </div>
     @endif
 
-    {{-- CENTERED CONTENT — full-width, text ortalı --}}
+    {{-- CENTERED CONTENT — logo hiyerarsisini birebir yansitan slider ici --}}
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 lg:py-24 min-h-[540px] lg:min-h-[620px] flex items-center justify-center">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/15 px-4 py-2 rounded-full mb-6">
+        <div class="max-w-4xl mx-auto text-center">
+
+            {{-- 1) Doktor adi badge --}}
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/15 px-4 py-2 rounded-full mb-7">
                 <span class="w-2 h-2 rounded-full bg-leaf-500 animate-pulse"></span>
-                <p class="text-white/90 font-semibold text-xs tracking-widest uppercase">
-                    Op. Dr. Yücel Polat
-                </p>
+                <p class="text-white/90 font-semibold text-[11px] sm:text-xs tracking-[0.28em] uppercase">Op. Dr. Yücel Polat</p>
             </div>
-            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6 drop-shadow-lg">
-                Kalp ve Damar Sağlığınız <br class="hidden sm:inline">
-                <span class="text-brand-400">Emin Ellerde</span>
+
+            {{-- 2) H1 buyuk baslik --}}
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] mb-4 tracking-tight drop-shadow-lg">
+                Kalp ve Damar Cerrahisi
             </h1>
-            <p class="text-ink-100 text-lg leading-relaxed mb-10 max-w-2xl mx-auto drop-shadow">
-                20 yılı aşkın deneyim, binlerce başarılı işlem ve hasta odaklı yaklaşımla
-                varis, endovasküler tedavi ve klasik kalp-damar cerrahisinde modern standartlar.
+
+            {{-- 3) Logo'daki gibi "& FLEBOLOJI" satiri — iki yaninda ince cizgiler --}}
+            <div class="inline-flex items-center gap-3 sm:gap-4 mb-8">
+                <span class="h-px w-10 sm:w-16 bg-white/45"></span>
+                <p class="text-white/95 font-display font-semibold text-base sm:text-lg tracking-[0.22em] uppercase drop-shadow">&amp; Fleboloji</p>
+                <span class="h-px w-10 sm:w-16 bg-white/45"></span>
+            </div>
+
+            {{-- 4) Logo'daki renkli 3 odak alani satiri — okunurluk icin ince cam pill --}}
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-white/8 backdrop-blur-md border border-white/10">
+                    <p class="font-display font-semibold text-xs sm:text-sm tracking-[0.18em] uppercase">
+                        <span class="text-[#ff6a70]">Atardamar</span>
+                        <span class="text-white/45 mx-2">&bull;</span>
+                        <span class="text-[#5eaeef]">Toplardamar</span>
+                        <span class="text-white/45 mx-2">&bull;</span>
+                        <span class="text-[#8fd85e]">Lenf Sistemi</span>
+                    </p>
+                </div>
+            </div>
+
+            {{-- 5) Slogan — logodan birebir --}}
+            <p class="text-white text-lg sm:text-xl lg:text-[22px] leading-relaxed mb-10 max-w-2xl mx-auto font-light drop-shadow">
+                Dolaşım Sisteminin Tamamına Odaklanan <br class="hidden sm:inline">
+                <span class="font-semibold">Tedavi Yaklaşımı</span>
             </p>
+
+            {{-- 6) CTA butonlari --}}
             <div class="flex flex-wrap items-center justify-center gap-4">
                 <a href="{{ route('contact') }}"
                    class="inline-flex items-center gap-2 bg-brand-500 hover:bg-white hover:text-deep-700 text-white px-7 py-4 text-sm font-extrabold uppercase tracking-wider rounded-lg shadow-[0_8px_24px_color-mix(in_srgb,var(--color-brand-500)_40%,transparent)] transition-all">
                     <i class="fas fa-calendar-check"></i>
                     Randevu Al
                 </a>
-                <a href="#"
+                <a href="{{ route('services.index') }}"
                    class="inline-flex items-center gap-2 border-2 border-white/40 text-white hover:bg-white hover:text-deep-700 px-7 py-4 text-sm font-extrabold uppercase tracking-wider rounded-lg backdrop-blur transition-all">
                     Hizmetlerimiz
                     <i class="fas fa-arrow-right"></i>
@@ -325,7 +350,7 @@
                        class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
                         Detaylı Özgeçmiş <i class="fas fa-arrow-right text-[10px]"></i>
                     </a>
-                    <a href="https://wa.me/900000000000" target="_blank" rel="noopener"
+                    <a href="{{ config('site.whatsapp') }}" target="_blank" rel="noopener"
                        class="inline-flex items-center gap-2 bg-[#1FA950] hover:bg-[#168F47] text-white px-6 py-3.5 text-xs font-semibold uppercase tracking-wider rounded-lg shadow-[0_4px_12px_rgba(31,169,80,0.30)] hover:shadow-[0_6px_18px_rgba(22,143,71,0.35)] transition-all">
                         <i class="fab fa-whatsapp text-sm"></i> WhatsApp
                     </a>
@@ -363,14 +388,14 @@
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
-                            <a href="tel:+900000000000" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">+90 (000) 000 00 00</a>
+                            <a href="tel:{{ config('site.phone_raw') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.phone') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
-                            <a href="mailto:info@dryucelpolat.com" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">info@dryucelpolat.com</a>
+                            <a href="mailto:{{ config('site.email') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.email') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">

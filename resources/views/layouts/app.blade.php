@@ -48,8 +48,8 @@
                 'name' => 'Op. Dr. Yücel Polat — Liv Hospital İstanbul',
                 'url' => url('/'),
                 'image' => $defaultOgImage,
-                'telephone' => '+90-000-000-0000',
-                'email' => 'info@dryucelpolat.com',
+                'telephone' => config('site.phone_raw'),
+                'email' => config('site.email'),
                 'address' => [
                     '@type' => 'PostalAddress',
                     'streetAddress' => 'Liv Hospital',

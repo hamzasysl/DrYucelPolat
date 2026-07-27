@@ -13,7 +13,7 @@
             <div class="lg:col-span-4">
                 <div class="inline-flex items-center gap-4 mb-6">
                     <div class="w-14 h-14 rounded-2xl bg-white/95 backdrop-blur flex items-center justify-center shadow-[0_8px_28px_color-mix(in_srgb,var(--color-deep-700)_30%,transparent)]">
-                        <img src="{{ asset('img/logo.png') }}" alt="" class="h-10 w-auto">
+                        <img src="{{ asset(ltrim(config('site.logo'), '/')) }}" alt="{{ config('site.name') }}" class="h-14 w-auto">
                     </div>
                     <div>
                         <h3 class="font-display font-bold text-white text-lg leading-tight">Op. Dr. Yücel Polat</h3>

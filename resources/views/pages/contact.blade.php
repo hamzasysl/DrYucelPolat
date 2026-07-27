@@ -65,14 +65,14 @@
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
-                            <a href="tel:+900000000000" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">+90 (000) 000 00 00</a>
+                            <a href="tel:{{ config('site.phone_raw') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.phone') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
                             <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
-                            <a href="mailto:info@dryucelpolat.com" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">info@dryucelpolat.com</a>
+                            <a href="mailto:{{ config('site.email') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.email') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
