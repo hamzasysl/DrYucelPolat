@@ -15,7 +15,7 @@
         <div class="mb-5">
             <div class="inline-flex items-center gap-3 mb-3">
                 <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                <p class="text-brand-500 font-bold text-[10px] tracking-[0.24em] uppercase">Randevu Talebi</p>
+                <p class="text-brand-500 font-bold text-[10px] tracking-[0.24em] uppercase">RANDEVU TALEBİ</p>
             </div>
             <h3 class="font-display text-[26px] font-bold text-deep-700 leading-tight tracking-tight mb-2">İletişime Geçin!</h3>
             <p class="text-[14px] font-light text-ink-500 leading-snug">Size en kısa sürede dönüş yapalım.</p>

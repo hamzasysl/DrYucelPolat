@@ -5,7 +5,7 @@
      ============================================================ --}}
 
 {{-- MOBILE: Lacivert gradient pill + pulsing mavi glow halo --}}
-<a href="{{ config('site.whatsapp') }}"
+<a href="{{ config('site.whatsapp') }}?text={{ rawurlencode('Merhaba, web sitenizden ulaşıyorum. Sizinle iletişime geçmek istiyorum. Teşekkürler.') }}"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp ile randevu al"
@@ -37,7 +37,7 @@
 </a>
 
 {{-- DESKTOP: Yeşil yuvarlak ikon, çok hafif glow pulse --}}
-<a href="{{ config('site.whatsapp') }}"
+<a href="{{ config('site.whatsapp') }}?text={{ rawurlencode('Merhaba, web sitenizden ulaşıyorum. Sizinle iletişime geçmek istiyorum. Teşekkürler.') }}"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp ile iletişim"

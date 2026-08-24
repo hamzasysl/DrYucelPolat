@@ -139,7 +139,7 @@
                                     @if($phoneTel)
                                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
                                         <tr>
-                                            <td width="110" style="font-size:12.5px;color:{{ $C['ink500'] }};vertical-align:top;padding-top:1px;">Telefon</td>
+                                            <td width="110" style="font-size:12.5px;color:{{ $C['ink500'] }};vertical-align:top;padding-top:1px;">TELEFON</td>
                                             <td style="font-size:14.5px;color:{{ $C['deep'] }};font-weight:600;">
                                                 <a href="tel:{{ $phoneTel }}" style="color:{{ $C['deep'] }};text-decoration:none;">{{ $phoneTel }}</a>
                                             </td>
@@ -151,7 +151,7 @@
                                     @if($s->email)
                                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
                                         <tr>
-                                            <td width="110" style="font-size:12.5px;color:{{ $C['ink500'] }};vertical-align:top;padding-top:1px;">E-posta</td>
+                                            <td width="110" style="font-size:12.5px;color:{{ $C['ink500'] }};vertical-align:top;padding-top:1px;">E-POSTA</td>
                                             <td style="font-size:14.5px;color:{{ $C['brand'] }};font-weight:500;word-break:break-all;">
                                                 <a href="mailto:{{ $s->email }}" style="color:{{ $C['brand'] }};text-decoration:none;">{{ $s->email }}</a>
                                             </td>
@@ -253,7 +253,7 @@
                                         <tr><td colspan="2" style="height:10px;line-height:10px;font-size:0;">&nbsp;</td></tr>
                                         <tr>
                                             <td style="vertical-align:top;padding-right:8px;">
-                                                <p style="margin:0 0 4px 0;font-size:10px;color:{{ $C['ink300'] }};font-weight:700;letter-spacing:0.16em;text-transform:uppercase;">Konum</p>
+                                                <p style="margin:0 0 4px 0;font-size:10px;color:{{ $C['ink300'] }};font-weight:700;letter-spacing:0.16em;text-transform:uppercase;">KONUM</p>
                                                 <p style="margin:0;font-size:12.5px;color:{{ $C['ink700'] }};font-weight:500;">
                                                     {{ trim(implode(', ', array_filter([$s->geo_city, $s->geo_region, $s->geo_country]))) ?: '—' }}
                                                 </p>

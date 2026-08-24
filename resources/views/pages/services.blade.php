@@ -2,7 +2,7 @@
 
 @section('title', 'Hizmetler — Tüm Tedaviler — ' . config('app.name'))
 @section('description', 'Varis tedavisi, koroner bypass, kalp kapak, aort, endovasküler girişimler, DVT, lenfödem, diyabetik yara ve daha fazlası — Op. Dr. Yücel Polat tüm uzmanlık alanları.')
-@section('keywords', 'kalp damar cerrahisi hizmetleri, varis tedavisi, koroner bypass, kalp kapak ameliyatı, endovasküler cerrahi, DVT tedavisi, lenfödem tedavisi, diyabetik yara, shockwave IVL, pelvik konjesyon, karotis cerrahisi')
+@section('keywords', 'kalp damar cerrahisi hizmetleri, varis tedavisi, periferik damar hastalığı, damar tıkanıklığı, koroner bypass, endovasküler cerrahi, DVT tedavisi, lenfödem tedavisi, lipödem, diyabetik ayak, cardisiography, yapay zeka EKG, pelvik konjesyon sendromu, yumurtalık varisleri')
 @section('og_title', 'Tüm Hizmetler — ' . config('app.name'))
 @section('og_description', 'Varis, bypass, kalp kapak, endovasküler girişimler — Op. Dr. Yücel Polat uzmanlık alanları.')
 @section('og_image', asset('img/doktor.webp'))
@@ -74,7 +74,7 @@
         <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
             <div class="inline-flex items-center gap-3 mb-5">
                 <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">Uzmanlık Alanları</p>
+                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">UZMANLIK ALANLARI</p>
                 <span class="h-px w-6 bg-gradient-to-l from-transparent to-leaf-500"></span>
             </div>
             <h2 class="font-display text-3xl lg:text-5xl font-bold text-deep-600 leading-[1.1] mb-5 tracking-tight">

@@ -12,12 +12,11 @@
             {{-- Brand column --}}
             <div class="lg:col-span-4">
                 <div class="inline-flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-white/95 backdrop-blur flex items-center justify-center shadow-[0_8px_28px_color-mix(in_srgb,var(--color-deep-700)_30%,transparent)]">
-                        <img src="{{ asset(ltrim(config('site.logo'), '/')) }}" alt="{{ config('site.name') }}" class="h-14 w-auto">
-                    </div>
+                    <img src="{{ asset(ltrim(config('site.logo'), '/')) }}?v={{ @filemtime(public_path(ltrim(config('site.logo'), '/'))) }}" alt="{{ config('site.name') }}" class="h-16 w-auto">
+
                     <div>
                         <h3 class="font-display font-bold text-white text-lg leading-tight">Op. Dr. Yücel Polat</h3>
-                        <p class="text-deep-100 text-[10px] font-semibold tracking-[0.22em] uppercase mt-0.5">Kardiyovasküler Cerrahi</p>
+                        <p class="text-deep-100 text-[10px] font-semibold tracking-[0.22em] uppercase mt-0.5">KARDİYOVASKÜLER CERRAHİ</p>
                     </div>
                 </div>
 
@@ -142,11 +141,6 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-ink-200/65 font-light">
             <p>© {{ date('Y') }} Op. Dr. Yücel Polat — Tüm hakları saklıdır.</p>
             <div class="flex items-center gap-4">
-                <a href="{{ route('sitemap.html') }}" class="inline-flex items-center gap-1.5 hover:text-white transition-colors">
-                    <i class="fas fa-sitemap text-[10px] text-leaf-500"></i>
-                    Site Haritası
-                </a>
-                <span class="text-ink-200/30">·</span>
                 <p class="flex items-center gap-1.5">
                     <span>Code with</span>
                     <a href="https://mezbilisim.com" target="_blank" rel="noopener"

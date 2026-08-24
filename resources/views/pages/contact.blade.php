@@ -52,7 +52,7 @@
             <div>
                 <div class="inline-flex items-center gap-3 mb-5">
                     <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">İletişim</p>
+                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">İLETİŞİM</p>
                 </div>
                 <h2 class="font-display text-3xl lg:text-[42px] font-bold text-deep-600 leading-[1.15] mb-5 tracking-tight whitespace-nowrap">
                     Randevu Talebi Oluşturun
@@ -64,21 +64,21 @@
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">TELEFON</p>
                             <a href="tel:{{ config('site.phone_raw') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.phone') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-POSTA</p>
                             <a href="mailto:{{ config('site.email') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.email') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Klinik</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">KLİNİK</p>
                             <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
         <div class="text-center max-w-3xl mx-auto mb-10">
             <div class="inline-flex items-center gap-3 mb-4">
                 <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">Konum</p>
+                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">KONUM</p>
                 <span class="h-px w-6 bg-gradient-to-l from-transparent to-leaf-500"></span>
             </div>
             <h2 class="font-display text-3xl lg:text-4xl font-bold text-deep-600 leading-tight tracking-tight">
@@ -130,7 +130,7 @@
                     <i class="fas fa-location-dot"></i>
                 </span>
                 <div class="min-w-0">
-                    <p class="text-[10px] text-ink-400 uppercase tracking-[0.22em] font-semibold mb-1">Adres</p>
+                    <p class="text-[10px] text-ink-400 uppercase tracking-[0.22em] font-semibold mb-1">ADRES</p>
                     <p class="text-deep-700 text-sm font-semibold leading-snug mb-2">
                         DAP Vadi İstinye Ofis, Merkez,<br>
                         Kağıthane Cd. No:3 D:68, 34406<br>

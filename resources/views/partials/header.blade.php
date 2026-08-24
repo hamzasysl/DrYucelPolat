@@ -2,6 +2,7 @@
     // Veriler config/site.php + config/treatments.php'den okunur.
     $current        = request()->route() ? request()->route()->getName() : null;
     $whatsapp       = config('site.whatsapp');
+    $whatsappCTA    = $whatsapp . '?text=' . rawurlencode('Merhaba, web sitenizden ulaşıyorum. Sizinle iletişime geçmek istiyorum. Teşekkürler.');
     $sitePhone      = config('site.phone');
     $sitePhoneTel   = config('site.phone_raw');
     $siteEmail      = config('site.email');
@@ -95,7 +96,7 @@
              x-data="{ open: false }">
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex-shrink-0 inline-block">
-                <img src="{{ str_starts_with($siteLogo, 'http') ? $siteLogo : asset(ltrim($siteLogo, '/')) }}" alt="{{ $siteName }}" class="h-[52px] lg:h-[60px] w-auto">
+                <img src="{{ str_starts_with($siteLogo, 'http') ? $siteLogo : asset(ltrim($siteLogo, '/')) . '?v=' . @filemtime(public_path(ltrim($siteLogo, '/'))) }}" alt="{{ $siteName }}" class="h-[52px] lg:h-[60px] w-auto">
             </a>
 
             {{-- Desktop nav (logo mavisi tonu) --}}
@@ -145,7 +146,7 @@
                                         {{-- Header --}}
                                         <div class="flex items-center justify-between mb-4 pb-3 border-b border-ink-100">
                                             <a href="{{ route('services.index') }}" class="group/header block">
-                                                <p class="text-brand-500 font-semibold text-[11px] tracking-[0.22em] uppercase">Uzmanlık Alanları</p>
+                                                <p class="text-brand-500 font-semibold text-[11px] tracking-[0.22em] uppercase">UZMANLIK ALANLARI</p>
                                                 <h3 class="font-display text-[15px] font-bold text-deep-600 mt-0.5 group-hover/header:text-brand-500 transition-colors inline-flex items-center gap-1.5">
                                                     Tüm Hizmetler
                                                     <i class="fas fa-arrow-right text-[10px] opacity-0 -translate-x-1 group-hover/header:opacity-100 group-hover/header:translate-x-0 transition-all duration-200"></i>
@@ -216,7 +217,7 @@
             </nav>
 
             {{-- CTA — koyu üst → logo mavisi alt gradient + hover arrow --}}
-            <a href="{{ $whatsapp }}" target="_blank" rel="noopener"
+            <a href="{{ $whatsappCTA }}" target="_blank" rel="noopener"
                class="hidden lg:inline-flex relative items-center group ml-5"
                aria-label="WhatsApp ile randevu al">
                 {{-- Beyaz daire --}}

@@ -191,7 +191,7 @@
             {{-- Kicker — pembe yazı + yeşil çizgi (kısa) --}}
             <div class="inline-flex items-center gap-3 mb-5">
                 <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">Uzmanlık Alanları</p>
+                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">UZMANLIK ALANLARI</p>
                 <span class="h-px w-6 bg-gradient-to-l from-transparent to-leaf-500"></span>
             </div>
 
@@ -252,7 +252,7 @@
         <div class="max-w-3xl mb-14">
             <div class="inline-flex items-center gap-3 mb-5">
                 <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">Çalışma Felsefem</p>
+                <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">ÇALIŞMA FELSEFEM</p>
             </div>
             <h2 class="font-display text-3xl lg:text-4xl font-bold text-deep-600 leading-[1.15] tracking-tight mb-4">
                 Modern tıp, bilimsel kanıt ve insan odaklı yaklaşım.
@@ -310,7 +310,7 @@
             <div class="lg:col-span-7">
                 <div class="inline-flex items-center gap-3 mb-5">
                     <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">Hakkımda</p>
+                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">HAKKIMDA</p>
                 </div>
 
                 <h2 class="font-display text-3xl lg:text-5xl font-bold text-deep-600 leading-[1.1] mb-6 tracking-tight">
@@ -324,7 +324,7 @@
 
                 {{-- Bağlı olduğu kurumlar — top bar stilinde minimal yeşil badge'ler --}}
                 <div class="space-y-3 mb-8">
-                    <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400">Bağlı Olduğu Kurumlar</p>
+                    <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400">BAĞLI OLDUĞU KURUMLAR</p>
                     <div class="flex flex-col gap-4">
                         <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
@@ -350,7 +350,7 @@
                        class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
                         Detaylı Özgeçmiş <i class="fas fa-arrow-right text-[10px]"></i>
                     </a>
-                    <a href="{{ config('site.whatsapp') }}" target="_blank" rel="noopener"
+                    <a href="{{ config('site.whatsapp') }}?text={{ rawurlencode('Merhaba, web sitenizden ulaşıyorum. Sizinle iletişime geçmek istiyorum. Teşekkürler.') }}" target="_blank" rel="noopener"
                        class="inline-flex items-center gap-2 bg-[#1FA950] hover:bg-[#168F47] text-white px-6 py-3.5 text-xs font-semibold uppercase tracking-wider rounded-lg shadow-[0_4px_12px_rgba(31,169,80,0.30)] hover:shadow-[0_6px_18px_rgba(22,143,71,0.35)] transition-all">
                         <i class="fab fa-whatsapp text-sm"></i> WhatsApp
                     </a>
@@ -375,7 +375,7 @@
             <div>
                 <div class="inline-flex items-center gap-3 mb-5">
                     <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">İletişim</p>
+                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">İLETİŞİM</p>
                 </div>
                 <h2 class="font-display text-3xl lg:text-[42px] font-bold text-deep-600 leading-[1.15] mb-5 tracking-tight whitespace-nowrap">
                     Randevu Talebi Oluşturun
@@ -387,21 +387,21 @@
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-phone"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Telefon</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">TELEFON</p>
                             <a href="tel:{{ config('site.phone_raw') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.phone') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-envelope"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-posta</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">E-POSTA</p>
                             <a href="mailto:{{ config('site.email') }}" class="text-deep-700 font-semibold hover:text-brand-500 transition-colors">{{ config('site.email') }}</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">Klinik</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">KLİNİK</p>
                             <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>
                         </div>
                     </div>

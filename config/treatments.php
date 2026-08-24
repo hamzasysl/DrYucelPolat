@@ -2,8 +2,9 @@
 
 /**
  * Op. Dr. Yücel Polat — Tedavi kataloğu.
- * Anasayfa "Uzmanlık Alanları" + Hizmetler sayfası burayı baz alır.
- * Sıralama IG'de baskınlıktan derlenmiştir (varis + endovasküler en önde).
+ * Tüm görünür metinler (short, lead, seo_desc) hocanın yazdığı docx dosyalarından BİREBİR alınmıştır.
+ * seo_keywords sadece arama terimlerinden oluşur (cümle yok).
+ * Detaylı makale içerikleri resources/views/partials/services/{slug}.blade.php dosyalarında.
  */
 
 return [
@@ -11,113 +12,172 @@ return [
         'slug'  => 'varis-tedavisi',
         'icon'  => 'fa-syringe',
         'title' => 'Varis Tedavisi',
-        'short' => 'Köpük skleroterapi, kılcal damar tedavisi ve endovenöz teknikler ile estetik ve güvenli sonuçlar.',
-        'lead'  => 'Telenjiektazi (kılcal damar), retiküler varisler ve venöz yetmezlikte skleroterapi, köpük skleroterapi, endovenöz lazer (EVLA) ve radyofrekans (RFA) ile kişiye özel modern tedavi planlanır.',
+        'short' => 'Varis, yer çekimine karşı toplardamarların görevini tam yapamaması sonucu genişlemesi ve şekil değiştirmesidir.',
+        'lead'  => 'Varis, yer çekimine karşı toplardamarların görevini tam yapamaması sonucu genişlemesi ve şekil değiştirmesidir. Kalp seviyesinin altındaki toplardamarlarda görülebilir.',
+        'intro' => [
+            'Varis, yer çekimine karşı toplardamarların görevini tam yapamaması sonucu genişlemesi ve şekil değiştirmesidir. Kalp seviyesinin altındaki toplardamarlarda görülebilir.',
+            'Varis yıllar içinde oluşan ve hastalığın her döneminde çeşitli belirtiler gösteren, çoğunlukta önemsenmeyen bir hastalıktır.',
+        ],
         'has_page' => true,
-        'badges'=> ['Kesisiz seçenekler', 'Günübirlik bakım', 'Estetik sonuç'],
-        'points'=> [
-            'Köpük skleroterapi (foam) — küçük ve orta varis',
-            'Kılcal damar mikro-skleroterapisi',
-            'Endovenöz lazer / radyofrekans ablasyon',
-            'Klasik varis ameliyatı (gerektiğinde)',
+        'seo_desc' => 'Varis, yer çekimine karşı toplardamarların görevini tam yapamaması sonucu genişlemesi ve şekil değiştirmesidir. Kalp seviyesinin altındaki toplardamarlarda görülebilir.',
+        'seo_keywords' => 'varis, varis tedavisi, varis nedir, varis belirtileri, kılcal varis, telenjiektazi, retiküler varis, trunkal varis, örümcek varis, skleroterapi, köpük skleroterapi, EVLA, endovenöz lazer ablasyon, RFA, radyofrekans ablasyon, VenaSeal, siyanoakrilat ablasyon, transkütan lazer, KlaKs, kriyo skleroterapi, flebektomi, stripping, varis çorabı, kompresyon tedavisi, doppler ultrasonografi, venöz ülser, Op. Dr. Yücel Polat, Liv Hospital İstanbul',
+        // Skleroterapi / köpük / EVLA / RFA / VenaSeal — docx: "aynı gün normal günlük yaşam"
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '30-90 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Günübirlik'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
         ],
     ],
     [
-        'slug'  => 'shockwave-ivl',
-        'icon'  => 'fa-bolt-lightning',
-        'title' => 'Damar Tıkanıklığı',
-        'short' => 'Bacak atardamarında kireçlenmiş tıkanıklıkları intravasküler litotripsi ile kesisiz aç.',
-        'lead'  => 'Periferik arter hastalığında, kalsifik plakları yüksek frekanslı ses dalgalarıyla parçalayan minimal invaziv teknik. Klasik anjiyoplastiye uygun olmayan vakalarda da etkili.',
-        'badges'=> ['Kesisiz', 'Aynı gün taburcu', 'Lokal anestezi'],
-        'points'=> [
-            'Kalsifik (kireçli) plakların parçalanması',
-            'Ardından balon / stent ile akışın açılması',
-            'Diyabetik damar hastalığı hastalarında etkin',
-            'Kısa süreli — genelde 45-60 dk',
+        'slug'  => 'periferik-damar-hastaligi',
+        'icon'  => 'fa-heart-pulse',
+        'title' => 'Periferik Damar Hastalığı',
+        'short' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır.',
+        'lead'  => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
+        'intro' => [
+            'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
+        'seo_keywords' => 'periferik damar hastalığı, damar tıkanıklığı, ateroskleroz, damar sertliği, kladikasyo, aralıklı topallama, istirahat ağrısı, akut arteriyel emboli, akut ekstremite iskemisi, Leriche sendromu, ankle brachial indeks, ABI, doppler ultrasonografi, BT anjiyografi, MR anjiyografi, DSA, PTA, perkütan translüminal anjiyoplasti, stent, PTS, aterektomi, rotasyonel aterektomi, Turbo Elite lazer, IVL, intravasküler litotripsi, shockwave, CERAB, bypass, endarterektomi, hibrit cerrahi, Op. Dr. Yücel Polat',
+        // Endovasküler (PTA/IVL/stent) ağırlıklı; "6-12 ay takip önemli" — docx'ten
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '1-2 gün'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-2 hafta'],
         ],
     ],
     [
-        'slug'  => 'lenfodem-lipodem',
+        'slug'  => 'lenfodem',
         'icon'  => 'fa-hand-holding-droplet',
-        'title' => 'Lenfödem & Lipödem',
-        'short' => 'Bacak şişliği, ağırlık hissi ve orantısız yağ birikiminde kombine tedavi.',
-        'lead'  => 'Lenf drenajı + kompresyon + cerrahi (gerektiğinde) ile lenfödem ve lipödem yönetimi. Yaşam kalitesi odaklı uzun vadeli takip.',
-        'badges'=> ['Konservatif', 'Multidisipliner', 'Yaşam boyu takip'],
-        'points'=> [
-            'Manuel lenfatik drenaj (MLD)',
-            'Kompresyon bandajı ve özel çorap eşleştirme',
-            'İleri vakada cerrahi (LVA, lipo) yönlendirmesi',
-            'Diyet + egzersiz planı entegrasyonu',
+        'title' => 'Lenfödem',
+        'short' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
+        'lead'  => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
+        'intro' => [
+            'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
+            'Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Birincil (Kalıtımsal, Prekoks) veya ikincil olarak gelişebilir.',
+        'seo_keywords' => 'lenfödem, lenfödem tedavisi, fil hastalığı, birincil lenfödem, kalıtımsal lenfödem, prekoks lenfödem, ikincil lenfödem, sekonder lenfödem, kompleks dekonjestif tedavi, KDT, manuel lenfatik drenaj, MLD, kompresyon giysisi, kompresyon çorabı, medikal cihaz destekli tedavi, doppler ultrasonografi, kol lenfödemi, bacak lenfödemi, radyoterapi sonrası lenfödem, Op. Dr. Yücel Polat',
+        // Kompleks Dekonjestif Tedavi — cerrahi değil, seans bazlı; docx: "kronik hastalık, belirli aralıkla kontrol"
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Gerekmiyor'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '45-60 dk / seans'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Ayaktan'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
         ],
     ],
     [
-        'slug'  => 'diyabetik-yara',
+        'slug'  => 'lipodem',
+        'icon'  => 'fa-scale-balanced',
+        'title' => 'Lipödem',
+        'short' => 'Genellikle kalça, bacaklar ile bazen de kollarda görülen orantısız, simetrik anormal yağ doku birikimidir.',
+        'lead'  => 'Genellikle kalça, bacaklar ile bazen de kollarda görülen orantısız, simetrik anormal yağ doku birikimidir. Hastalar kolayca "obez" olarak damgalanır fakat zayıf hastalarda da lipödem gözükebilir.',
+        'intro' => [
+            'Genellikle kalça, bacaklar ile bazen de kollarda görülen orantısız, simetrik anormal yağ doku birikimidir. Hastalar kolayca "obez" olarak damgalanır fakat zayıf hastalarda da lipödem gözükebilir.',
+            'Lipödem hastaları obezitenin aksine düşük kalorili diyet ile neredeyse cevap alamaz.',
+            'Lipödem hastaları etkilenen bölgede ağrı hissedebilir. Hafifçe dokunmayla bile hassasiyet gösterebilir, kolayca morarabilir.',
+            'Hastalığın temelinde genetik ve hormonal faktörler etkindir. Mikroanjiopati (kılcal damar hasarı) ve inflamasyon ile seyreden süreçler ile anormal yağ doku birikiminin olduğu kronik ilerleyici bir tablo ortaya çıkar.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Genellikle kalça, bacaklar ile bazen de kollarda görülen orantısız, simetrik anormal yağ doku birikimidir. Hastalar kolayca "obez" olarak damgalanır fakat zayıf hastalarda da lipödem gözükebilir.',
+        'seo_keywords' => 'lipödem, lipödem nedir, lipödem tedavisi, orantısız yağ birikimi, simetrik yağ birikimi, kalıtımsal lipödem, hormonal lipödem, mikroanjiyopati, kılcal damar hasarı, kompleks dekonjestif terapi, liposuction, özel liposuction, transkütan lazer, transdermal radyofrekans, kompresyon çorabı, manuel lenfatik masaj, segmental vücut ölçümü, obezite ayırıcı tanı, Op. Dr. Yücel Polat',
+        // Kombine tedavi — non-cerrahi seanslar + gerektiğinde özel liposuction (docx)
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Vakaya özel'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Günübirlik'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-3 gün'],
+        ],
+    ],
+    [
+        'slug'  => 'diyabetik-ayak',
         'icon'  => 'fa-band-aid',
-        'title' => 'Diyabetik Yara & Ayak',
-        'short' => 'Diyabetik ayak yaralarında dolaşım değerlendirmesi + uzman yara bakımı.',
-        'lead'  => 'Diyabete bağlı kronik yaralar ve amputasyon riski olan vakalarda damar açıklığını yeniden sağlama, yara bakımı ve sistemik takip.',
-        'badges'=> ['Erken müdahale', 'Damar + yara birlikte', 'Amputasyon önleme'],
-        'points'=> [
-            'Periferik damar değerlendirmesi (Doppler, anjiyo)',
-            'Endovasküler / bypass ile dolaşımın sağlanması',
-            'Yara debridmanı ve modern pansumanlar',
-            'Diyabet ekibi ile koordineli plan',
+        'title' => 'Diyabetik Ayak',
+        'short' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
+        'lead'  => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+        'intro' => [
+            'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
+            'Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+            'Doğru ve günlük yapılan ayak bakımı büyük oranda diyabetik ayak yarasının oluşmasını engeller.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+        'seo_keywords' => 'diyabetik ayak, diyabetik ayak yarası, diyabetik ayak tedavisi, şeker hastalığı ayak, nöropati, diyabetik nöropati, dolaşım bozukluğu, revaskülarizasyon, mikrovasküler dolaşım, ayak bileği kol indeksi, ABI, doppler ultrasonografi, BT MR anjiyografi, intravasküler litotripsi, IVL, PTA, aterektomi, distal bypass, bacak damarı bypass, diyabetik ayak ülseri, venöz ülser, kronik yara, amputasyon önleme, ayak bakımı, Op. Dr. Yücel Polat',
+        // IVL/PTA/Aterektomi + distal bypass revaskülarizasyon (docx)
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '1-3 gün'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-4 hafta'],
         ],
     ],
     [
         'slug'  => 'dvt-tromboz',
         'icon'  => 'fa-heart-circle-bolt',
-        'title' => 'DVT / Tromboz & Emboli',
-        'short' => 'Derin ven trombozu ve pulmoner emboli tanı + tedavi yönetimi.',
-        'lead'  => 'Aniden gelişen bacak şişliği, ağrı ve nefes darlığında derin ven trombozu (DVT) ve emboli tanısı, antikoagulan tedavi ve gerektiğinde girişimsel uygulamalar.',
-        'badges'=> ['Acil değerlendirme', '24/7 hat', 'Uzun dönem takip'],
-        'points'=> [
-            'Doppler USG ile hızlı tanı',
-            'Antikoagulan tedavi (heparin, oral)',
-            'Kateter ile trombüs aspirasyonu (seçili vakada)',
-            'Tromboz sonrası sendrom (PTS) takibi',
+        'title' => 'Derin Ven Trombozu (DVT)',
+        'short' => 'Tromboz, kanın damar içinde pıhtılaşması ve kan akışını engellemesidir.',
+        'lead'  => 'Tromboz, kanın damar içinde pıhtılaşması ve kan akışını engellemesidir. Derin Ven Trombozu (DVT), kirli kanı taşıyan ana damarlarda meydana gelen pıhtıdır. Sıklıkla bacak toplardamarlarında gözükür.',
+        'intro' => [
+            'Tromboz, kanın damar içinde pıhtılaşması ve kan akışını engellemesidir.',
+            'Derin Ven Trombozu (DVT), kirli kanı taşıyan ana damarlarda meydana gelen pıhtıdır. Sıklıkla bacak toplardamarlarında gözükür.',
+            'Tedavi edilmeyen proksimal DVT\'li (diz seviyesi üzeri) hastaların yarısında 3 ay içinde semptomatik Pulmoner Emboli (Akciğer Embolisi) gelişebilir. Acil müdahale gerektirir.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Tromboz, kanın damar içinde pıhtılaşması ve kan akışını engellemesidir. Derin Ven Trombozu (DVT), kirli kanı taşıyan ana damarlarda meydana gelen pıhtıdır. Sıklıkla bacak toplardamarlarında gözükür.',
+        'seo_keywords' => 'DVT, derin ven trombozu, tromboz, pıhtı, kan pıhtılaşması, bacak pıhtısı, pulmoner emboli, akciğer embolisi, tromboflebit, posttrombotik sendrom, PTS, venöz ülser, Flegmasia Alba, Cerulea Dolens, akut ekstremite iskemisi, heparin, antikoagulan, kan sulandırıcı, oral antikoagulan, kateter trombolitik, EKOS, ultrason hızlandırılmış trombolitik, Anjiojet, farmako-mekanik trombektomi, venöz stentleme, renkli doppler ultrasonografi, D-dimer, BT pulmoner anjiyografi, IV kateter tromboflebit, Op. Dr. Yücel Polat',
+        // Girişimsel (EKOS/Anjiojet) — docx: "acil ve tıbbi bir süreç", "ilk 14 günde başarı yüksek"
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '3-7 gün'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '2-4 hafta'],
         ],
     ],
     [
         'slug'  => 'pelvik-konjesyon',
         'icon'  => 'fa-venus',
         'title' => 'Pelvik Konjesyon Sendromu',
-        'short' => 'Kadınlarda kronik pelvik ağrının damar kaynaklı sebebi — embolizasyon ile çözüm.',
-        'lead'  => 'Genişlemiş pelvik venlere bağlı kronik kasık/kalça/bel ağrısı, ayakta uzun durmakla artan rahatsızlık ve atipik varis vakalarında endovasküler embolizasyon.',
-        'badges'=> ['Kadın sağlığı', 'Minimal invaziv', 'Kalıcı sonuç'],
-        'points'=> [
-            'Anjiyografik tanı ve haritalama',
-            'Coil / sıvı ajan ile embolizasyon',
-            'Ofis prosedürü — kısa nekahat',
-            'Jinekoloji + üroloji ile multidisipliner değerlendirme',
+        'short' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır.',
+        'lead'  => 'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+        'intro' => [
+            'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+            'Pelvik konjesyon sendromu (Yumurtalık Varisleri) genetik, ailesel, hormonal etkenler (Östrojen), birden fazla gebelik, Nutcracker veya May Thurner Sendromları gibi toplardamarların sıkışmasında görülebilir.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+        'seo_keywords' => 'pelvik konjesyon sendromu, yumurtalık varisleri, overian ven varisi, gonadal ven, kronik pelvik ağrı, kadın kasık ağrısı, disparoni, cinsel ilişki ağrısı, disorgazmi, anorgazmi, PGAD, dismenore, adet ağrısı, dizüri, pollaküri, urgency, stres inkontinans, amenore, menorji, Nutcracker sendromu, May Thurner sendromu, pelvik venöz embolizasyon, tanısal venografi, laparoskopik ven ligasyonu, MR venografi, BT venografi, hemoroid, vulva varisi, Op. Dr. Yücel Polat',
+        // Pelvik Venöz Embolizasyon — docx: "aynı gün ağır efordan uzak normal fiziksel yaşamına döner"
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-90 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Günübirlik'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
         ],
     ],
     [
-        'slug'  => 'kalp-damar-cerrahisi',
-        'icon'  => 'fa-heart-pulse',
-        'title' => 'Kalp & Damar Cerrahisi',
-        'short' => 'Koroner bypass, kalp kapak, aort ve karotis cerrahisinde modern protokoller.',
-        'lead'  => 'Açık kalp ameliyatlarında uzun yıllık deneyim. Mümkün olan her vakada minimal invaziv veya atan-kalp tekniği ile hızlı iyileşme.',
-        'badges'=> ['20+ yıl deneyim', 'Atan-kalp tekniği', 'Hızlı iyileşme'],
-        'points'=> [
-            'Koroner bypass (CABG) — off-pump dahil',
-            'Mitral / aort kapak tamir ve protez',
-            'Aort anevrizması (torakal + abdominal)',
-            'Karotis (şah damarı) endarterektomi',
+        'slug'  => 'cardisiography',
+        'icon'  => 'fa-wave-square',
+        'title' => 'Cardisiography (Yapay Zeka EKG)',
+        'short' => 'Kalp hastalıklarında erken tanı hayat kurtarır ve kalıcı kalp hasarını önler.',
+        'lead'  => 'Kalp hastalıklarında erken tanı hayat kurtarır ve kalıcı kalp hasarını önler. Günümüzde Yapay zeka EKG (Cardisiography) kullanımı hayatı tehdit eden kalp krizi gibi kalp sağlığı problemlerinin erken dönemde açığa çıkmasında önemli bir yardımcıdır.',
+        'intro' => [
+            'Kalp hastalıklarında erken tanı hayat kurtarır ve kalıcı kalp hasarını önler.',
+            'Günümüzde Yapay zeka EKG (Cardisiography) kullanımı hayatı tehdit eden kalp krizi gibi kalp sağlığı problemlerinin erken dönemde açığa çıkmasında önemli bir yardımcıdır.',
+            'Cardisiography (CSG) kalbin elektriksel faaliyetini üç boyutlu olarak inceleyen yapay zeka destekli, girişimsel olmayan bir kalp tarama ve erken tanı yöntemidir.',
         ],
-    ],
-    [
-        'slug'  => 'konsultasyon',
-        'icon'  => 'fa-user-doctor',
-        'title' => 'Konsültasyon & İkinci Görüş',
-        'short' => 'Mevcut tetkiklerin değerlendirmesi, tedavi seçeneklerinin karşılaştırılması.',
-        'lead'  => 'Eldeki anjiyografi, EKO, BT ve Doppler raporlarının detaylı incelemesi; cerrahi-endovasküler seçimde şeffaf yönlendirme.',
-        'badges'=> ['Tetkik değerlendirme', 'Risk analizi', 'Açık iletişim'],
-        'points'=> [
-            'Anjiyo / EKO / BT / Doppler raporları',
-            'Cerrahi vs endovasküler kararlar',
-            'Risk profili ve alternatif planlar',
-            'Hasta ve yakınlarına net bilgilendirme',
+        'has_page' => true,
+        'seo_desc' => 'Cardisiography (CSG) kalbin elektriksel faaliyetini üç boyutlu olarak inceleyen yapay zeka destekli, girişimsel olmayan bir kalp tarama ve erken tanı yöntemidir.',
+        'seo_keywords' => 'Cardisiography, CSG, yapay zeka EKG, AI EKG, 3D EKG, kalp tarama, kalp tarama testi, kalp krizi riski, kalp krizi taraması, erken tanı, iskemi, kanlanma bozukluğu, ritm bozukluğu, aritmi, yapısal kalp anomalisi, girişimsel olmayan test, kalp muayenesi, kardiyovasküler tarama, koroner risk, Op. Dr. Yücel Polat',
+        // Tarama testi — girişimsel değil, hazırlık yok
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Gerekmiyor'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '5-10 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Ayaktan'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı anda'],
         ],
     ],
 ];
