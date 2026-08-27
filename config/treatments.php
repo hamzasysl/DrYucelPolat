@@ -5,6 +5,7 @@
  * Tüm görünür metinler (short, lead, seo_desc) hocanın yazdığı docx dosyalarından BİREBİR alınmıştır.
  * seo_keywords sadece arama terimlerinden oluşur (cümle yok).
  * Detaylı makale içerikleri resources/views/partials/services/{slug}.blade.php dosyalarında.
+ * Sıralama: Varis → Lipödem → Lenfödem → Pelvik → DVT → Periferik → Diyabetik → Cardisiography
  */
 
 return [
@@ -26,47 +27,6 @@ return [
             ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
             ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '30-90 dk'],
             ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Günübirlik'],
-            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
-        ],
-    ],
-    [
-        'slug'  => 'periferik-damar-hastaligi',
-        'icon'  => 'fa-heart-pulse',
-        'title' => 'Periferik Damar Hastalığı',
-        'short' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır.',
-        'lead'  => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
-        'intro' => [
-            'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
-        ],
-        'has_page' => true,
-        'seo_desc' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
-        'seo_keywords' => 'periferik damar hastalığı, damar tıkanıklığı, ateroskleroz, damar sertliği, kladikasyo, aralıklı topallama, istirahat ağrısı, akut arteriyel emboli, akut ekstremite iskemisi, Leriche sendromu, ankle brachial indeks, ABI, doppler ultrasonografi, BT anjiyografi, MR anjiyografi, DSA, PTA, perkütan translüminal anjiyoplasti, stent, PTS, aterektomi, rotasyonel aterektomi, Turbo Elite lazer, IVL, intravasküler litotripsi, shockwave, CERAB, bypass, endarterektomi, hibrit cerrahi, Op. Dr. Yücel Polat',
-        // Endovasküler (PTA/IVL/stent) ağırlıklı; "6-12 ay takip önemli" — docx'ten
-        'stats' => [
-            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
-            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
-            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '1-2 gün'],
-            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-2 hafta'],
-        ],
-    ],
-    [
-        'slug'  => 'lenfodem',
-        'icon'  => 'fa-hand-holding-droplet',
-        'title' => 'Lenfödem',
-        'short' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
-        'lead'  => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
-        'intro' => [
-            'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
-            'Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
-        ],
-        'has_page' => true,
-        'seo_desc' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Birincil (Kalıtımsal, Prekoks) veya ikincil olarak gelişebilir.',
-        'seo_keywords' => 'lenfödem, lenfödem tedavisi, fil hastalığı, birincil lenfödem, kalıtımsal lenfödem, prekoks lenfödem, ikincil lenfödem, sekonder lenfödem, kompleks dekonjestif tedavi, KDT, manuel lenfatik drenaj, MLD, kompresyon giysisi, kompresyon çorabı, medikal cihaz destekli tedavi, doppler ultrasonografi, kol lenfödemi, bacak lenfödemi, radyoterapi sonrası lenfödem, Op. Dr. Yücel Polat',
-        // Kompleks Dekonjestif Tedavi — cerrahi değil, seans bazlı; docx: "kronik hastalık, belirli aralıkla kontrol"
-        'stats' => [
-            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Gerekmiyor'],
-            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '45-60 dk / seans'],
-            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Ayaktan'],
             ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
         ],
     ],
@@ -94,25 +54,45 @@ return [
         ],
     ],
     [
-        'slug'  => 'diyabetik-ayak',
-        'icon'  => 'fa-band-aid',
-        'title' => 'Diyabetik Ayak',
-        'short' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
-        'lead'  => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+        'slug'  => 'lenfodem',
+        'icon'  => 'fa-hand-holding-droplet',
+        'title' => 'Lenfödem',
+        'short' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
+        'lead'  => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
         'intro' => [
-            'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
-            'Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
-            'Doğru ve günlük yapılan ayak bakımı büyük oranda diyabetik ayak yarasının oluşmasını engeller.',
+            'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
+            'Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
         ],
         'has_page' => true,
-        'seo_desc' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
-        'seo_keywords' => 'diyabetik ayak, diyabetik ayak yarası, diyabetik ayak tedavisi, şeker hastalığı ayak, nöropati, diyabetik nöropati, dolaşım bozukluğu, revaskülarizasyon, mikrovasküler dolaşım, ayak bileği kol indeksi, ABI, doppler ultrasonografi, BT MR anjiyografi, intravasküler litotripsi, IVL, PTA, aterektomi, distal bypass, bacak damarı bypass, diyabetik ayak ülseri, venöz ülser, kronik yara, amputasyon önleme, ayak bakımı, Op. Dr. Yücel Polat',
-        // IVL/PTA/Aterektomi + distal bypass revaskülarizasyon (docx)
+        'seo_desc' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Birincil (Kalıtımsal, Prekoks) veya ikincil olarak gelişebilir.',
+        'seo_keywords' => 'lenfödem, lenfödem tedavisi, fil hastalığı, birincil lenfödem, kalıtımsal lenfödem, prekoks lenfödem, ikincil lenfödem, sekonder lenfödem, kompleks dekonjestif tedavi, KDT, manuel lenfatik drenaj, MLD, kompresyon giysisi, kompresyon çorabı, medikal cihaz destekli tedavi, doppler ultrasonografi, kol lenfödemi, bacak lenfödemi, radyoterapi sonrası lenfödem, Op. Dr. Yücel Polat',
+        // Kompleks Dekonjestif Tedavi — cerrahi değil, seans bazlı; docx: "kronik hastalık, belirli aralıkla kontrol"
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Gerekmiyor'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '45-60 dk / seans'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Ayaktan'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
+        ],
+    ],
+    [
+        'slug'  => 'pelvik-konjesyon',
+        'icon'  => 'fa-venus',
+        'title' => 'Pelvik Konjesyon Sendromu',
+        'short' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır.',
+        'lead'  => 'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+        'intro' => [
+            'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+            'Pelvik konjesyon sendromu (Yumurtalık Varisleri) genetik, ailesel, hormonal etkenler (Östrojen), birden fazla gebelik, Nutcracker veya May Thurner Sendromları gibi toplardamarların sıkışmasında görülebilir.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+        'seo_keywords' => 'pelvik konjesyon sendromu, yumurtalık varisleri, overian ven varisi, gonadal ven, kronik pelvik ağrı, kadın kasık ağrısı, disparoni, cinsel ilişki ağrısı, disorgazmi, anorgazmi, PGAD, dismenore, adet ağrısı, dizüri, pollaküri, urgency, stres inkontinans, amenore, menorji, Nutcracker sendromu, May Thurner sendromu, pelvik venöz embolizasyon, tanısal venografi, laparoskopik ven ligasyonu, MR venografi, BT venografi, hemoroid, vulva varisi, Op. Dr. Yücel Polat',
+        // Pelvik Venöz Embolizasyon — docx: "aynı gün ağır efordan uzak normal fiziksel yaşamına döner"
         'stats' => [
             ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
-            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
-            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '1-3 gün'],
-            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-4 hafta'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-90 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Günübirlik'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
         ],
     ],
     [
@@ -138,24 +118,45 @@ return [
         ],
     ],
     [
-        'slug'  => 'pelvik-konjesyon',
-        'icon'  => 'fa-venus',
-        'title' => 'Pelvik Konjesyon Sendromu',
-        'short' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır.',
-        'lead'  => 'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
+        'slug'  => 'periferik-damar-hastaligi',
+        'icon'  => 'fa-heart-pulse',
+        'title' => 'Periferik Damar Hastalığı',
+        'short' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır.',
+        'lead'  => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
         'intro' => [
-            'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
-            'Pelvik konjesyon sendromu (Yumurtalık Varisleri) genetik, ailesel, hormonal etkenler (Östrojen), birden fazla gebelik, Nutcracker veya May Thurner Sendromları gibi toplardamarların sıkışmasında görülebilir.',
+            'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
         ],
         'has_page' => true,
-        'seo_desc' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
-        'seo_keywords' => 'pelvik konjesyon sendromu, yumurtalık varisleri, overian ven varisi, gonadal ven, kronik pelvik ağrı, kadın kasık ağrısı, disparoni, cinsel ilişki ağrısı, disorgazmi, anorgazmi, PGAD, dismenore, adet ağrısı, dizüri, pollaküri, urgency, stres inkontinans, amenore, menorji, Nutcracker sendromu, May Thurner sendromu, pelvik venöz embolizasyon, tanısal venografi, laparoskopik ven ligasyonu, MR venografi, BT venografi, hemoroid, vulva varisi, Op. Dr. Yücel Polat',
-        // Pelvik Venöz Embolizasyon — docx: "aynı gün ağır efordan uzak normal fiziksel yaşamına döner"
+        'seo_desc' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
+        'seo_keywords' => 'periferik damar hastalığı, damar tıkanıklığı, ateroskleroz, damar sertliği, kladikasyo, aralıklı topallama, istirahat ağrısı, akut arteriyel emboli, akut ekstremite iskemisi, Leriche sendromu, ankle brachial indeks, ABI, doppler ultrasonografi, BT anjiyografi, MR anjiyografi, DSA, PTA, perkütan translüminal anjiyoplasti, stent, PTS, aterektomi, rotasyonel aterektomi, Turbo Elite lazer, IVL, intravasküler litotripsi, shockwave, CERAB, bypass, endarterektomi, hibrit cerrahi, Op. Dr. Yücel Polat',
+        // Endovasküler (PTA/IVL/stent) ağırlıklı; "6-12 ay takip önemli" — docx'ten
         'stats' => [
             ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
-            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-90 dk'],
-            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => 'Günübirlik'],
-            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => 'Aynı gün'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '1-2 gün'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-2 hafta'],
+        ],
+    ],
+    [
+        'slug'  => 'diyabetik-ayak',
+        'icon'  => 'fa-band-aid',
+        'title' => 'Diyabetik Ayak',
+        'short' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
+        'lead'  => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+        'intro' => [
+            'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
+            'Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+            'Doğru ve günlük yapılan ayak bakımı büyük oranda diyabetik ayak yarasının oluşmasını engeller.',
+        ],
+        'has_page' => true,
+        'seo_desc' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
+        'seo_keywords' => 'diyabetik ayak, diyabetik ayak yarası, diyabetik ayak tedavisi, şeker hastalığı ayak, nöropati, diyabetik nöropati, dolaşım bozukluğu, revaskülarizasyon, mikrovasküler dolaşım, ayak bileği kol indeksi, ABI, doppler ultrasonografi, BT MR anjiyografi, intravasküler litotripsi, IVL, PTA, aterektomi, distal bypass, bacak damarı bypass, diyabetik ayak ülseri, venöz ülser, kronik yara, amputasyon önleme, ayak bakımı, Op. Dr. Yücel Polat',
+        // IVL/PTA/Aterektomi + distal bypass revaskülarizasyon (docx)
+        'stats' => [
+            ['icon' => 'fa-syringe',        'label' => 'ANESTEZİ',   'value' => 'Lokal'],
+            ['icon' => 'fa-clock',          'label' => 'SÜRE',       'value' => '60-120 dk'],
+            ['icon' => 'fa-house-medical',  'label' => 'HASTANE',    'value' => '1-3 gün'],
+            ['icon' => 'fa-person-walking', 'label' => 'İŞE DÖNÜŞ',  'value' => '1-4 hafta'],
         ],
     ],
     [
