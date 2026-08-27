@@ -167,7 +167,7 @@
                                             $currentSlug = request()->route('slug');
                                         @endphp
 
-                                        <div class="grid grid-cols-2 gap-x-2 gap-y-1">
+                                        <div class="flex flex-col gap-1">
                                             @foreach ($servicesChildren as $i => $child)
                                                 @php
                                                     $c = $colors[$i % 3];
