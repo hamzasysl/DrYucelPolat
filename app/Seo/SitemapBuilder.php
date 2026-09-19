@@ -79,6 +79,13 @@ class SitemapBuilder
                 'color' => 'leaf',
                 'pages' => [
                     [
+                        'title'      => 'Bilimsel Yayınlar',
+                        'url'        => route('publications.index'),
+                        'desc'       => 'Uluslararası hakemli dergilerde yayımlanan makaleler ve kongre bildirileri.',
+                        'priority'   => '0.7',
+                        'changefreq' => 'monthly',
+                    ],
+                    [
                         'title'      => 'Blog',
                         'url'        => route('blog.index'),
                         'desc'       => 'Kalp ve damar sağlığı, tedavi yöntemleri ve hasta bilgilendirme yazıları.',

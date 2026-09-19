@@ -9,12 +9,20 @@ return [
     'name'        => 'Op. Dr. Yücel Polat',
     'logo'        => '/img/logo.svg',
 
-    'phone'       => '+90 506 235 10 88',
-    'phone_raw'   => '+905062351088',
+    'phone'       => '+90 540 379 59 59',
+    'phone_raw'   => '+905403795959',
     'email'       => 'dr.yucelpolat@hotmail.com',
-    'address'     => 'Liv Hospital İstanbul, Ulus Mah. Bestekar Şevki Bey Sok. No: 1, Beşiktaş / İstanbul',
+    'address'     => 'Ballı Business Center, Alipaşa Mah. Sülün Cad. No: 6/1 Kat: 9 No: 906, Çorlu / Tekirdağ',
+    'address_short' => 'Çorlu / Tekirdağ',
 
-    'whatsapp'    => 'https://wa.me/905062351088',
+    'whatsapp'    => 'https://wa.me/905403795959',
+
+    // Çalışma saatleri — footer + iletişim sayfası tek yerden okur.
+    'hours' => [
+        ['label' => 'Hafta içi', 'value' => '09:00 - 18:00'],
+        ['label' => 'Cumartesi', 'value' => '10:00 - 14:00'],
+        ['label' => 'Pazar',     'value' => 'Kapalı', 'closed' => true],
+    ],
 
     // Boş bırakılan sosyaller header'da gizlenir.
     'socials' => [
@@ -30,6 +38,7 @@ return [
         ['title' => 'Anasayfa',  'route' => 'home'],
         ['title' => 'Hakkımda',  'route' => 'about'],
         ['title' => 'Hizmetler', 'dropdown' => true],
+        ['title' => 'Yayınlar',  'route' => 'publications.index'],
         ['title' => 'Blog',      'route' => 'blog.index'],
         ['title' => 'İletişim',  'route' => 'contact'],
     ],

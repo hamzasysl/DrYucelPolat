@@ -16,6 +16,28 @@ Route::get('/hizmetler/{slug}', function (string $slug) {
 Route::view('/iletisim',   'pages.contact') ->name('contact');
 Route::view('/blog',       'pages.blog')    ->name('blog.index');
 
+// Yayınlar — config/publications.php. Sıralama: yazar listesinde "Y Polat" ne kadar
+// baştaysa yayın o kadar yukarıda; eşit sırada olanlar yeniden eskiye.
+Route::get('/yayinlar', function () {
+    $publications = collect(config('publications', []))
+        ->map(function (array $p) {
+            $idx = array_search('Y Polat', $p['authors'], true);
+            $p['position'] = $idx === false ? 99 : $idx + 1;
+            return $p;
+        })
+        ->sortBy([
+            fn ($a, $b) => $a['position'] <=> $b['position'],
+            fn ($a, $b) => $b['year'] <=> $a['year'],
+        ])
+        ->values();
+
+    return view('pages.publications', [
+        'publications' => $publications,
+        'firstAuthor'  => $publications->where('position', 1)->values(),
+        'coAuthor'     => $publications->where('position', '>', 1)->values(),
+    ]);
+})->name('publications.index');
+
 Route::view('/_palette', 'pages._palette')->name('palette');
 
 Route::get('/thank-you', \App\Livewire\Ui\ThankYou::class)->name('thank-you');
