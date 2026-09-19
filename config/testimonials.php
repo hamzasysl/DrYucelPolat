@@ -37,7 +37,7 @@ return [
     ],
     [
         'name'  => null,
-        'label' => 'Cerrahi tedavi',
+        'label' => 'Pelvik konjesyon',
         'photos' => ['yorum-2a.webp', 'yorum-2b.webp', 'yorum-2c.webp'],
         'text'  => [
             'Merhabalar, 2 yıl önce sevgili doktorumuz Yücel Polat ile bir rahatsızlık nedeniyle tanıştım. Doktorum ameliyat olmam gerektiğini, dilersem başka meslektaşlarıyla da görüşebileceğimi söyledi. Görüştüm ama bana son derece güven veren Dr. Yücel Polat\'tı ve kendisinde ameliyat olmaya karar verdim.',
@@ -57,8 +57,8 @@ return [
         ],
     ],
     [
-        'name'  => null,
-        'label' => 'Hasta yakını — İngiltere',
+        'name'  => 'Hasta yakını — İngiltere',
+        'label' => 'Varis / kronik venöz ülser',
         'photos' => ['yorum-4.webp'],
         'text'  => [
             'İngiltere\'den araştırıp bulduğum, annemin tedavisini güvenle emanet ettiğim kıymetli Yücel Hocamıza ilgi, emeği ve başarılı tedavisi için gönülden çok teşekkür ederim. İyi ki yollarımız kesişmiş. Ellerinize, emeğinize sağlık hocam.',
