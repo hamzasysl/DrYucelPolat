@@ -106,7 +106,7 @@
                 @foreach ($testimonials as $t)
                     @php $isLong = collect($t['text'])->sum(fn ($p) => mb_strlen($p)) > 420; @endphp
                     <article data-slide
-                             x-data="{ open: false }"
+                             x-data="{ open: false, tr: false }"
                              class="group relative flex-shrink-0 snap-start flex flex-col
                                     w-[85vw] sm:w-[340px] lg:w-[360px]
                                     bg-white rounded-2xl border border-ink-100 hover:border-deep-200 overflow-hidden
@@ -212,10 +212,18 @@
                         <div class="flex-1 flex flex-col p-6 {{ count($shots) ? 'pt-7' : 'pt-4' }}">
                             {{-- Yıldızlar + sonuç rozeti --}}
                             <div class="flex items-center justify-between gap-3 mb-3">
-                                <div class="flex items-center gap-1 text-[12px] text-sun-500" aria-label="5 üzerinden 5">
-                                    @for ($i = 0; $i < 5; $i++)
-                                        <i class="fas fa-star"></i>
-                                    @endfor
+                                <div class="flex items-center gap-2.5">
+                                    <div class="flex items-center gap-1 text-[12px] text-sun-500" aria-label="5 üzerinden 5">
+                                        @for ($i = 0; $i < 5; $i++)
+                                            <i class="fas fa-star"></i>
+                                        @endfor
+                                    </div>
+                                    @if (! empty($t['lang']))
+                                        <span class="inline-flex items-center gap-1 bg-deep-50 text-deep-500 px-2 py-0.5 rounded
+                                                     text-[10px] font-bold uppercase tracking-wider whitespace-nowrap">
+                                            <i class="fas fa-language text-[9px]"></i>{{ $t['lang']['name'] }}
+                                        </span>
+                                    @endif
                                 </div>
                                 @if (! empty($t['result']))
                                     <span class="inline-flex items-center gap-1.5 bg-leaf-500/12 text-leaf-600 px-2.5 py-1 rounded-md
@@ -229,7 +237,7 @@
                                 {{-- Uzun yorum — yumuşak açılan gövde --}}
                                 <div class="relative overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                                      :style="open ? 'max-height:' + ($refs.body.scrollHeight + 8) + 'px' : 'max-height:13.5rem'">
-                                    <div x-ref="body" class="text-ink-500 text-[14.5px] font-light leading-relaxed space-y-3">
+                                    <div x-ref="body" lang="{{ $t['lang']['code'] ?? 'tr' }}" class="text-ink-500 text-[14.5px] font-light leading-relaxed space-y-3">
                                         @foreach ($t['text'] as $paragraph)
                                             <p>{{ $paragraph }}</p>
                                         @endforeach
@@ -240,20 +248,54 @@
                                          :class="open ? 'opacity-0' : 'opacity-100'"></div>
                                 </div>
                             @else
-                                <div class="text-ink-500 text-[14.5px] font-light leading-relaxed space-y-3">
+                                <div lang="{{ $t['lang']['code'] ?? 'tr' }}" class="text-ink-500 text-[14.5px] font-light leading-relaxed space-y-3">
                                     @foreach ($t['text'] as $paragraph)
                                         <p>{{ $paragraph }}</p>
                                     @endforeach
                                 </div>
                             @endif
 
-                            @if ($isLong)
-                                <button type="button" @click="open = !open"
-                                        class="self-start mt-3 inline-flex items-center gap-1.5 text-brand-500 hover:text-deep-600
-                                               text-[12px] font-bold uppercase tracking-wider transition-colors">
-                                    <span x-text="open ? 'Kısalt' : 'Devamını oku'"></span>
-                                    <i class="fas fa-chevron-down text-[9px] transition-transform" :class="open ? 'rotate-180' : ''"></i>
-                                </button>
+                            @if ($isLong || ! empty($t['translation']))
+                                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3">
+                                    @if ($isLong)
+                                        <button type="button" @click="open = !open"
+                                                class="inline-flex items-center gap-1.5 text-brand-500 hover:text-deep-600
+                                                       text-[12px] font-bold uppercase tracking-wider transition-colors">
+                                            <span x-text="open ? 'Kısalt' : 'Devamını oku'"></span>
+                                            <i class="fas fa-chevron-down text-[9px] transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                                        </button>
+                                    @endif
+
+                                    @if (! empty($t['translation']))
+                                        <button type="button" @click="tr = !tr"
+                                                :aria-expanded="tr ? 'true' : 'false'"
+                                                class="inline-flex items-center gap-1.5 text-deep-500 hover:text-brand-500
+                                                       text-[12px] font-bold uppercase tracking-wider transition-colors">
+                                            <i class="fas fa-language text-[12px]"></i>
+                                            <span x-text="tr ? 'Çeviriyi gizle' : '{{ $t['translation']['name'] }} çeviriyi göster'"></span>
+                                            <i class="fas fa-chevron-down text-[9px] transition-transform" :class="tr ? 'rotate-180' : ''"></i>
+                                        </button>
+                                    @endif
+                                </div>
+                            @endif
+
+                            {{-- Çeviri — orijinal dildeki yorumun karşılığı --}}
+                            @if (! empty($t['translation']))
+                                <div x-show="tr" x-cloak style="display:none"
+                                     x-transition:enter="transition ease-out duration-200"
+                                     x-transition:enter-start="opacity-0 -translate-y-1"
+                                     x-transition:enter-end="opacity-100 translate-y-0"
+                                     class="mt-4 pt-4 border-t border-dashed border-ink-100">
+                                    <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-ink-400 mb-2.5">
+                                        {{ $t['translation']['name'] }} çevirisi
+                                    </p>
+                                    <div lang="{{ $t['translation']['code'] }}"
+                                         class="text-ink-500 text-[14.5px] font-light leading-relaxed space-y-3">
+                                        @foreach ($t['translation']['text'] as $paragraph)
+                                            <p>{{ $paragraph }}</p>
+                                        @endforeach
+                                    </div>
+                                </div>
                             @endif
 
                             {{-- Yazar --}}

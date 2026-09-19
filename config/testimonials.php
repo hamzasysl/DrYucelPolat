@@ -8,6 +8,8 @@
  *   label  — kısa etiket (tedavi adı / ilişki). Kartın üstünde rozet olarak çıkar.
  *   text   — yorum metni (paragraf paragraf, dizi olarak).
  *   result — opsiyonel sonuç rozeti (örn. kilo değişimi). Yoksa gösterilmez.
+ *   lang   — yorum Türkçe değilse ['code' => 'bg', 'name' => 'Bulgarca'] gibi verilir.
+ *   translation — ['code', 'name', 'text'] — kartta "çeviriyi göster" ile açılır.
  *   photos — public/img/testimonials/ içindeki dosya adları. Birden fazla dosya
  *            verilirse kartın içindeki fotoğraf alanı kaydırmalı galeriye döner.
  *            Dosya yoksa kart otomatik olarak fotoğrafsız görünüme düşer.
@@ -18,9 +20,19 @@ return [
         'name'  => null,
         'label' => 'Varis ameliyatı',
         'photos' => ['yorum-1.webp'],
+        // Yorum hastanın kendi dilinde (Bulgarca) yazılmıştır; Türkçesi çeviri olarak açılır.
+        'lang'  => ['code' => 'bg', 'name' => 'Bulgarca'],
         'text'  => [
-            'Sayın Doktor Polat, gösterdiğiniz profesyonellik, ilgi ve özen için size yürekten teşekkür etmek istiyorum. Becerileriniz ve yaklaşımınız sayesinde varis ameliyatım başarılı geçti ve bugün kendimi çok daha iyi hissediyorum.',
-            'Sadece mükemmel bir doktor olmakla kalmayıp, hastalarına huzur ve güven aşılayan bir insan olduğunuz için de teşekkür ederim. Sağlıklı kalın ve aynı özveriyle insanlara yardım etmeye devam edin!',
+            'Уважаеми д-р Полат, искам от сърце да Ви благодаря за професионализма, вниманието и грижите, които положихте за мен. Благодарение на Вашите умения и отношение операцията на разширените ми вени мина успешно и днес се чувствам много по-добре.',
+            'Благодаря Ви, че сте не само отличен лекар, но и човек, който вдъхва спокойствие и доверие на своите пациенти. Бъдете здрав и продължавайте да помагате на хората със същата отдаденост!',
+        ],
+        'translation' => [
+            'code' => 'tr',
+            'name' => 'Türkçe',
+            'text' => [
+                'Sayın Doktor Polat, gösterdiğiniz profesyonellik, ilgi ve özen için size yürekten teşekkür etmek istiyorum. Becerileriniz ve yaklaşımınız sayesinde varis ameliyatım başarılı geçti ve bugün kendimi çok daha iyi hissediyorum.',
+                'Sadece mükemmel bir doktor olmakla kalmayıp, hastalarına huzur ve güven aşılayan bir insan olduğunuz için de teşekkür ederim. Sağlıklı kalın ve aynı özveriyle insanlara yardım etmeye devam edin!',
+            ],
         ],
     ],
     [
