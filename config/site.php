@@ -33,6 +33,15 @@ return [
         'x'         => '',
     ],
 
+    // Görev yaptığı kurumlar — anasayfa + hakkımda tek yerden okur.
+    // 'url' boş bırakılırsa kart link değil, düz metin olarak çıkar.
+    'institutions' => [
+        ['name' => 'Liv Hospital Bahçeşehir', 'url' => 'https://www.livhospital.com.tr/'],
+        ['name' => 'Tekirdağ İsmail Fehmi Cumalıoğlu Şehir Hastanesi', 'url' => ''],
+        ['name' => 'Mehmet Akif Ersoy Göğüs Kalp ve Damar Cerrahisi Eğitim ve Araştırma Hastanesi', 'url' => ''],
+        ['name' => 'Şarköy Devlet Hastanesi', 'url' => ''],
+    ],
+
     // Header navigasyon — Hizmetler dropdown'i config/treatments.php'den beslenir.
     'nav' => [
         ['title' => 'Anasayfa',  'route' => 'home'],

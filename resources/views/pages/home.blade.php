@@ -324,26 +324,24 @@
                     varis ve kronik venöz hastalıklar, endovasküler girişimler ve damar sağlığı alanında hasta kabul etmektedir.
                 </p>
 
-                {{-- Bağlı olduğu kurumlar — top bar stilinde minimal yeşil badge'ler --}}
+                {{-- Görev yaptığı kurumlar — config/site.php'den beslenir --}}
                 <div class="space-y-3 mb-8">
                     <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400">GÖREV YAPTIĞI KURUMLAR</p>
-                    <div class="flex flex-col gap-4">
-                        <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
-                            <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
-                                <i class="fas fa-hospital text-[10px]"></i>
-                            </span>
-                            <span class="font-light text-[15px]">Istinye Üniversitesi Liv Hospital</span>
-                        </a>
-                        <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
-                            <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
-                                <i class="fas fa-hospital text-[10px]"></i>
-                            </span>
-                            <span class="font-light text-[15px]">Liv Hospital Bahçeşehir</span>
-                        </a>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        @foreach (config('site.institutions') as $ins)
+                            <{{ $ins['url'] ? 'a' : 'div' }}
+                               @if ($ins['url']) href="{{ $ins['url'] }}" target="_blank" rel="noopener" @endif
+                               class="group flex items-center gap-2.5 rounded-xl border border-ink-100 p-3.5 transition-colors
+                                      {{ $ins['url'] ? 'hover:border-leaf-500/40 hover:bg-leaf-500/[0.03]' : '' }}">
+                                <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
+                                             shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
+                                    <i class="fas fa-hospital text-[10px]"></i>
+                                </span>
+                                <span class="font-light text-[14px] leading-snug text-ink-500 {{ $ins['url'] ? 'group-hover:text-deep-700' : '' }}">
+                                    {{ $ins['name'] }}
+                                </span>
+                            </{{ $ins['url'] ? 'a' : 'div' }}>
+                        @endforeach
                     </div>
                 </div>
 

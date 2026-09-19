@@ -42,25 +42,27 @@
     'current' => 'Hakkımda',
 ])
 
-{{-- 1. ABOUT — Anasayfa'daki Hakkımda section'ının birebir aynısı --}}
+{{-- 1. ABOUT — üstte foto + giriş (hizalı), altında tam genişlik devam --}}
 <section class="bg-white py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+
+        {{-- ÜST BLOK — sağdaki metin fotoğrafın yüksekliğiyle hizalanır --}}
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
             {{-- Doktor fotosu --}}
             <div class="lg:col-span-5">
-                <div class="relative lg:sticky lg:top-32">
+                <div class="relative">
                     <div class="absolute -inset-3 bg-gradient-to-br from-brand-500/10 to-deep-500/10 rounded-3xl blur-2xl"></div>
                     <div class="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-deep-100 to-ink-50">
                         <img src="{{ asset('img/doktor.webp') }}"
-                             alt="Op. Dr. Yücel Polat"
+                             alt="Op. Dr. Yücel Polat — Kalp ve Damar Cerrahisi Uzmanı"
                              class="w-full h-full object-cover"
                              loading="lazy">
                     </div>
                 </div>
             </div>
 
-            {{-- İçerik --}}
+            {{-- Başlık + giriş --}}
             <div class="lg:col-span-7">
                 <div class="inline-flex items-center gap-3 mb-5">
                     <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
@@ -84,8 +86,8 @@
                     </span>
                 </div>
 
-                {{-- Özgeçmiş — Op. Dr. Yücel Polat'ın kendi metni, birebir ve sırasıyla --}}
-                <div class="space-y-5 mb-8">
+                {{-- Özgeçmiş — giriş paragrafları --}}
+                <div class="space-y-5">
                     <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
                         Trakya Üniversitesi Tıp Fakültesi’ndeki tıp eğitimimin ardından Gazi Üniversitesi Tıp Fakültesi
                         Kalp ve Damar Cerrahisi Anabilim Dalı’nda uzmanlık eğitimimi tamamladım.
@@ -98,60 +100,63 @@
                         hasta değerlendirme, karar verme ve sağlık hizmetini sürdürme konusunda önemli mesleki
                         deneyimler kazanmamı sağladı.
                     </p>
-                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
-                        Kalp ve damar cerrahisinin farklı alanlarında edindiğim klinik ve cerrahi deneyimin yanı sıra,
-                        zaman içerisinde çalışmalarımı özellikle damar hastalıkları ve estetik fleboloji alanlarında
-                        yoğunlaştırdım.
-                    </p>
-                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
-                        Bu alandaki güncel yaklaşımları ve uygulamaları yerinde gözlemlemek amacıyla Avrupa’nın farklı
-                        ülkelerindeki fleboloji kliniklerini ziyaret ederek, venöz hastalıkların tanı ve tedavisinde
-                        kullanılan farklı yöntem ve uygulamaları inceleme fırsatı buldum.
-                    </p>
-                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
-                        Cerrahi deneyimimi güncel minimal invaziv (kesisiz) yöntemler ile birleştirerek, hastalığın
-                        özelliklerine ve kişinin ihtiyaçlarına uygun tedavi yaklaşımını belirlemeyi amaçlıyorum.
-                    </p>
-                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
-                        Çorlu’daki muayenehanemde hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir yaklaşımla
-                        değerlendiriyorum. Her hasta için bireysel bir tedavi planı oluşturmayı önemsiyorum.
-                    </p>
-                </div>
-
-                {{-- Bağlı olduğu kurumlar --}}
-                <div class="space-y-3 mb-8">
-                    <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400">GÖREV YAPTIĞI KURUMLAR</p>
-                    <div class="flex flex-col gap-4">
-                        <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
-                            <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
-                                <i class="fas fa-hospital text-[10px]"></i>
-                            </span>
-                            <span class="font-light text-[15px]">Istinye Üniversitesi Liv Hospital</span>
-                        </a>
-                        <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
-                            <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
-                                         shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
-                                <i class="fas fa-hospital text-[10px]"></i>
-                            </span>
-                            <span class="font-light text-[15px]">Liv Hospital Bahçeşehir</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap gap-3">
-                    <a href="{{ route('contact') }}"
-                       class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
-                        Randevu Al <i class="fas fa-arrow-right text-[10px]"></i>
-                    </a>
-                    <a href="{{ config('site.whatsapp') }}" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 bg-[#1FA950] hover:bg-[#168F47] text-white px-6 py-3.5 text-xs font-semibold uppercase tracking-wider rounded-lg shadow-[0_4px_12px_rgba(31,169,80,0.30)] hover:shadow-[0_6px_18px_rgba(22,143,71,0.35)] transition-all">
-                        <i class="fab fa-whatsapp text-sm"></i> WhatsApp
-                    </a>
                 </div>
             </div>
+        </div>
+
+        {{-- DEVAM — section'ın tam genişliğinde, iki sütun --}}
+        <div class="mt-12 lg:mt-14 lg:columns-2 lg:gap-12">
+            <p class="text-ink-500 text-[17px] leading-[1.75] font-light mb-5 break-inside-avoid">
+                Kalp ve damar cerrahisinin farklı alanlarında edindiğim klinik ve cerrahi deneyimin yanı sıra,
+                zaman içerisinde çalışmalarımı özellikle damar hastalıkları ve estetik fleboloji alanlarında
+                yoğunlaştırdım.
+            </p>
+            <p class="text-ink-500 text-[17px] leading-[1.75] font-light mb-5 break-inside-avoid">
+                Bu alandaki güncel yaklaşımları ve uygulamaları yerinde gözlemlemek amacıyla Avrupa’nın farklı
+                ülkelerindeki fleboloji kliniklerini ziyaret ederek, venöz hastalıkların tanı ve tedavisinde
+                kullanılan farklı yöntem ve uygulamaları inceleme fırsatı buldum.
+            </p>
+            <p class="text-ink-500 text-[17px] leading-[1.75] font-light mb-5 break-inside-avoid">
+                Cerrahi deneyimimi güncel minimal invaziv (kesisiz) yöntemler ile birleştirerek, hastalığın
+                özelliklerine ve kişinin ihtiyaçlarına uygun tedavi yaklaşımını belirlemeyi amaçlıyorum.
+            </p>
+            <p class="text-ink-500 text-[17px] leading-[1.75] font-light mb-0 break-inside-avoid">
+                Çorlu’daki muayenehanemde hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir yaklaşımla
+                değerlendiriyorum. Her hasta için bireysel bir tedavi planı oluşturmayı önemsiyorum.
+            </p>
+        </div>
+
+        {{-- GÖREV YAPTIĞI KURUMLAR — tam genişlik --}}
+        <div class="mt-12 lg:mt-14 pt-10 border-t border-ink-100">
+            <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400 mb-5">GÖREV YAPTIĞI KURUMLAR</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                @foreach (config('site.institutions') as $ins)
+                    <{{ $ins['url'] ? 'a' : 'div' }}
+                       @if ($ins['url']) href="{{ $ins['url'] }}" target="_blank" rel="noopener" @endif
+                       class="group flex items-center gap-3 rounded-xl border border-ink-100 p-4 transition-colors
+                              {{ $ins['url'] ? 'hover:border-leaf-500/40 hover:bg-leaf-500/[0.03]' : '' }}">
+                        <span class="w-7 h-7 rounded-md bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center shrink-0
+                                     shadow-[0_1px_3px_color-mix(in_srgb,var(--color-leaf-500)_20%,transparent)]">
+                            <i class="fas fa-hospital text-[10px]"></i>
+                        </span>
+                        <span class="font-light text-[15px] leading-snug text-ink-500 {{ $ins['url'] ? 'group-hover:text-deep-700' : '' }}">
+                            {{ $ins['name'] }}
+                        </span>
+                    </{{ $ins['url'] ? 'a' : 'div' }}>
+                @endforeach
+            </div>
+        </div>
+
+        {{-- CTA --}}
+        <div class="flex flex-wrap gap-3 mt-10">
+            <a href="{{ route('contact') }}"
+               class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg shadow-[0_6px_18px_color-mix(in_srgb,var(--color-brand-500)_20%,transparent)] hover:shadow-[0_8px_22px_color-mix(in_srgb,var(--color-brand-500)_28%,transparent)] transition-all">
+                Randevu Al <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+            <a href="{{ config('site.whatsapp') }}" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-[#1FA950] hover:bg-[#168F47] text-white px-6 py-3.5 text-xs font-semibold uppercase tracking-wider rounded-lg shadow-[0_4px_12px_rgba(31,169,80,0.30)] hover:shadow-[0_6px_18px_rgba(22,143,71,0.35)] transition-all">
+                <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+            </a>
         </div>
     </div>
 </section>
