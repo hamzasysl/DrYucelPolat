@@ -4,7 +4,7 @@
 @section('description', 'Op. Dr. Yücel Polat kimdir? Kalp ve Damar Cerrahisi Uzmanı, fleboloji ve estetik fleboloji. Eğitim, mesleki deneyim ve klinik yaklaşım. Çorlu / Tekirdağ.')
 @section('keywords', 'Op. Dr. Yücel Polat kimdir, kardiyovasküler cerrah, fleboloji uzmanı, estetik fleboloji, kalp damar cerrahı Çorlu, vasküler cerrah Tekirdağ, Yücel Polat özgeçmiş, kalp damar cerrahisi uzmanı')
 @section('og_title', 'Hakkımda — ' . config('app.name'))
-@section('og_description', '20 yıllık hekimlik deneyimi, fleboloji ve estetik fleboloji odağı. Mesleki yolculuğum, uzmanlık alanlarım ve hasta odaklı yaklaşımım.')
+@section('og_description', '20 yıllık hekimlik deneyimi, fleboloji ve estetik fleboloji odağı. Eğitimim, uzmanlık alanlarım ve hasta odaklı yaklaşımım.')
 @section('og_image', asset('img/doktor.webp'))
 @section('og_image_alt', 'Op. Dr. Yücel Polat — Profil Fotoğrafı')
 @section('og_type', 'profile')
@@ -45,11 +45,11 @@
 {{-- 1. ABOUT — Anasayfa'daki Hakkımda section'ının birebir aynısı --}}
 <section class="bg-white py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
             {{-- Doktor fotosu --}}
             <div class="lg:col-span-5">
-                <div class="relative">
+                <div class="relative lg:sticky lg:top-32">
                     <div class="absolute -inset-3 bg-gradient-to-br from-brand-500/10 to-deep-500/10 rounded-3xl blur-2xl"></div>
                     <div class="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-deep-100 to-ink-50">
                         <img src="{{ asset('img/doktor.webp') }}"
@@ -84,16 +84,39 @@
                     </span>
                 </div>
 
-                <p class="text-ink-500 text-lg leading-relaxed mb-5 font-light">
-                    Trakya Üniversitesi Tıp Fakültesi'ndeki tıp eğitimimin ardından
-                    <span class="text-deep-700 font-semibold">Gazi Üniversitesi Tıp Fakültesi Kalp ve Damar Cerrahisi
-                    Anabilim Dalı'nda</span> uzmanlık eğitimimi tamamladım.
-                </p>
-
-                <p class="text-ink-500 text-[15px] leading-relaxed mb-6 font-light">
-                    Çorlu'daki muayenehanemde hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir
-                    yaklaşımla değerlendiriyorum. Her hasta için bireysel bir tedavi planı oluşturmayı önemsiyorum.
-                </p>
+                {{-- Özgeçmiş — Op. Dr. Yücel Polat'ın kendi metni, birebir ve sırasıyla --}}
+                <div class="space-y-5 mb-8">
+                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
+                        Trakya Üniversitesi Tıp Fakültesi’ndeki tıp eğitimimin ardından Gazi Üniversitesi Tıp Fakültesi
+                        Kalp ve Damar Cerrahisi Anabilim Dalı’nda uzmanlık eğitimimi tamamladım.
+                    </p>
+                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
+                        Yaklaşık 20 yıllık hekimlik deneyimimin 10 yılı aşkın bölümünde Kalp ve Damar Cerrahisi Uzmanı
+                        olarak farklı kamu hastanelerinde görev yaptım. Meslek hayatım boyunca Türkiye’nin farklı
+                        bölgelerinde sağlık hizmeti sundum; Şırnak ve Yüksekova’da olağanüstü güvenlik koşullarının
+                        yaşandığı dönemlerde hekimlik görevimi sürdürdüm. Bu süreçler, farklı ve zorlu klinik koşullarda
+                        hasta değerlendirme, karar verme ve sağlık hizmetini sürdürme konusunda önemli mesleki
+                        deneyimler kazanmamı sağladı.
+                    </p>
+                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
+                        Kalp ve damar cerrahisinin farklı alanlarında edindiğim klinik ve cerrahi deneyimin yanı sıra,
+                        zaman içerisinde çalışmalarımı özellikle damar hastalıkları ve estetik fleboloji alanlarında
+                        yoğunlaştırdım.
+                    </p>
+                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
+                        Bu alandaki güncel yaklaşımları ve uygulamaları yerinde gözlemlemek amacıyla Avrupa’nın farklı
+                        ülkelerindeki fleboloji kliniklerini ziyaret ederek, venöz hastalıkların tanı ve tedavisinde
+                        kullanılan farklı yöntem ve uygulamaları inceleme fırsatı buldum.
+                    </p>
+                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
+                        Cerrahi deneyimimi güncel minimal invaziv (kesisiz) yöntemler ile birleştirerek, hastalığın
+                        özelliklerine ve kişinin ihtiyaçlarına uygun tedavi yaklaşımını belirlemeyi amaçlıyorum.
+                    </p>
+                    <p class="text-ink-500 text-[17px] leading-[1.75] font-light">
+                        Çorlu’daki muayenehanemde hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir yaklaşımla
+                        değerlendiriyorum. Her hasta için bireysel bir tedavi planı oluşturmayı önemsiyorum.
+                    </p>
+                </div>
 
                 {{-- Bağlı olduğu kurumlar --}}
                 <div class="space-y-3 mb-8">
@@ -128,101 +151,6 @@
                         <i class="fab fa-whatsapp text-sm"></i> WhatsApp
                     </a>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- 2. MESLEKİ YOLCULUK — hocanın kaleminden, dikey zaman çizgisi --}}
-@php
-    $journey = [
-        [
-            'icon'  => 'fa-graduation-cap',
-            'title' => 'Eğitim',
-            'text'  => 'Trakya Üniversitesi Tıp Fakültesi\'ndeki tıp eğitimimin ardından Gazi Üniversitesi Tıp Fakültesi
-                        Kalp ve Damar Cerrahisi Anabilim Dalı\'nda uzmanlık eğitimimi tamamladım.',
-        ],
-        [
-            'icon'  => 'fa-hospital',
-            'title' => 'Kamu hastanelerinde 10 yılı aşkın uzmanlık',
-            'text'  => 'Yaklaşık 20 yıllık hekimlik deneyimimin 10 yılı aşkın bölümünde Kalp ve Damar Cerrahisi Uzmanı
-                        olarak farklı kamu hastanelerinde görev yaptım. Meslek hayatım boyunca Türkiye\'nin farklı
-                        bölgelerinde sağlık hizmeti sundum; Şırnak ve Yüksekova\'da olağanüstü güvenlik koşullarının
-                        yaşandığı dönemlerde hekimlik görevimi sürdürdüm. Bu süreçler, farklı ve zorlu klinik koşullarda
-                        hasta değerlendirme, karar verme ve sağlık hizmetini sürdürme konusunda önemli mesleki deneyimler
-                        kazanmamı sağladı.',
-        ],
-        [
-            'icon'  => 'fa-droplet',
-            'title' => 'Damar hastalıkları ve estetik flebolojiye yönelim',
-            'text'  => 'Kalp ve damar cerrahisinin farklı alanlarında edindiğim klinik ve cerrahi deneyimin yanı sıra,
-                        zaman içerisinde çalışmalarımı özellikle damar hastalıkları ve estetik fleboloji alanlarında
-                        yoğunlaştırdım.',
-        ],
-        [
-            'icon'  => 'fa-earth-europe',
-            'title' => 'Avrupa\'daki fleboloji kliniklerinde gözlem',
-            'text'  => 'Bu alandaki güncel yaklaşımları ve uygulamaları yerinde gözlemlemek amacıyla Avrupa\'nın farklı
-                        ülkelerindeki fleboloji kliniklerini ziyaret ederek, venöz hastalıkların tanı ve tedavisinde
-                        kullanılan farklı yöntem ve uygulamaları inceleme fırsatı buldum.',
-        ],
-        [
-            'icon'  => 'fa-wand-magic-sparkles',
-            'title' => 'Minimal invaziv (kesisiz) yaklaşım',
-            'text'  => 'Cerrahi deneyimimi güncel minimal invaziv (kesisiz) yöntemler ile birleştirerek, hastalığın
-                        özelliklerine ve kişinin ihtiyaçlarına uygun tedavi yaklaşımını belirlemeyi amaçlıyorum.',
-        ],
-        [
-            'icon'  => 'fa-location-dot',
-            'title' => 'Çorlu\'daki muayenehanem',
-            'text'  => 'Hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir yaklaşımla değerlendiriyorum.
-                        Her hasta için bireysel bir tedavi planı oluşturmayı önemsiyorum.',
-        ],
-    ];
-@endphp
-<section class="bg-ink-50 py-20 lg:py-28 border-t border-ink-100">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-            {{-- Sol: başlık (sticky) --}}
-            <div class="lg:col-span-4 lg:sticky lg:top-32">
-                <div class="inline-flex items-center gap-3 mb-5">
-                    <span class="h-px w-6 bg-gradient-to-r from-transparent to-leaf-500"></span>
-                    <p class="text-brand-500 font-semibold text-sm tracking-[0.22em] uppercase">ÖZGEÇMİŞ</p>
-                </div>
-                <h2 class="font-display tracking-tight mb-5">
-                    <span class="block text-ink-400 font-light text-[19px] lg:text-[22px] leading-snug mb-1">Eğitimden kliniğe</span>
-                    <span class="block text-deep-600 font-extrabold text-[30px] lg:text-[40px] leading-[1.08] tracking-[-0.02em]">
-                        Mesleki yolculuğum
-                    </span>
-                </h2>
-                <p class="text-ink-400 text-[15px] leading-relaxed font-light">
-                    Yaklaşık 20 yıllık hekimlik deneyimi; kamu hastanelerinde uzmanlık, Türkiye'nin farklı
-                    bölgelerinde saha tecrübesi ve damar sağlığında güncel minimal invaziv uygulamalar.
-                </p>
-            </div>
-
-            {{-- Sağ: zaman çizgisi --}}
-            <div class="lg:col-span-8">
-                <ol class="relative">
-                    {{-- Dikey çizgi --}}
-                    <span class="absolute left-[19px] top-3 bottom-3 w-px bg-gradient-to-b from-brand-200 via-deep-200 to-transparent" aria-hidden="true"></span>
-
-                    @foreach ($journey as $i => $step)
-                        <li class="relative pl-14 pb-9 last:pb-0">
-                            <span class="absolute left-0 top-0 w-10 h-10 rounded-xl bg-white border border-ink-100 text-deep-500
-                                         inline-flex items-center justify-center shadow-[0_2px_10px_color-mix(in_srgb,var(--color-deep-700)_8%,transparent)]">
-                                <i class="fas {{ $step['icon'] }} text-[13px] {{ $i === count($journey) - 1 ? 'text-brand-500' : '' }}"></i>
-                            </span>
-                            <h3 class="font-display text-[17px] lg:text-[19px] font-bold text-deep-700 leading-snug mb-2 pt-1.5">
-                                {{ $step['title'] }}
-                            </h3>
-                            <p class="text-ink-500 text-[15px] leading-relaxed font-light">
-                                {{ $step['text'] }}
-                            </p>
-                        </li>
-                    @endforeach
-                </ol>
             </div>
         </div>
     </div>
