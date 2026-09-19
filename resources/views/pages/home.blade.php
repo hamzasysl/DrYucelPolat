@@ -119,12 +119,15 @@
 
             {{-- 4) Logo'daki renkli 3 odak alani satiri — okunurluk icin ince cam pill --}}
             <div class="flex justify-center mb-8">
-                <div class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-white/8 backdrop-blur-md border border-white/10">
-                    <p class="font-display font-semibold text-xs sm:text-sm tracking-[0.18em] uppercase">
+                <div class="inline-flex items-center justify-center px-3 sm:px-5 py-2 rounded-full bg-white/8 backdrop-blur-md border border-white/10">
+                    {{-- Mobilde uc kelime tek satirda kalsin diye punto ve harf araligi kuculur --}}
+                    <p class="font-display font-semibold whitespace-nowrap uppercase
+                              text-[10px] min-[380px]:text-[11px] sm:text-sm
+                              tracking-[0.1em] sm:tracking-[0.18em]">
                         <span class="text-[#ff6a70]">Atardamar</span>
-                        <span class="text-white/45 mx-2">&bull;</span>
+                        <span class="text-white/45 mx-1 sm:mx-2">&bull;</span>
                         <span class="text-[#5eaeef]">Toplardamar</span>
-                        <span class="text-white/45 mx-2">&bull;</span>
+                        <span class="text-white/45 mx-1 sm:mx-2">&bull;</span>
                         <span class="text-[#8fd85e]">Lenf Sistemi</span>
                     </p>
                 </div>
@@ -159,7 +162,7 @@
                 class="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20
                        w-12 h-12 rounded-full bg-white/10 hover:bg-white border border-white/20 hover:border-white
                        text-white hover:text-deep-700 backdrop-blur transition-all
-                       flex items-center justify-center"
+                       hidden sm:flex items-center justify-center"
                 aria-label="Önceki">
             <i class="fas fa-chevron-left text-sm"></i>
         </button>
@@ -167,7 +170,7 @@
                 class="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20
                        w-12 h-12 rounded-full bg-white/10 hover:bg-white border border-white/20 hover:border-white
                        text-white hover:text-deep-700 backdrop-blur transition-all
-                       flex items-center justify-center"
+                       hidden sm:flex items-center justify-center"
                 aria-label="Sonraki">
             <i class="fas fa-chevron-right text-sm"></i>
         </button>
