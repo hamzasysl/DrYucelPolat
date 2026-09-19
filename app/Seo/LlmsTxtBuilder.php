@@ -23,10 +23,10 @@ class LlmsTxtBuilder
         $host  = url('/');
 
         $out = "# {$brand}\n\n";
-        $out .= "> Op. Dr. Yücel Polat — Kalp ve damar cerrahisi uzmanı. ";
-        $out .= "Liv Hospital İstanbul'da varis tedavisi, koroner bypass, kalp kapak cerrahisi, ";
-        $out .= "aort cerrahisi ve endovasküler girişimler. 20+ yıllık klinik deneyim, ";
-        $out .= "kanıta dayalı protokoller ve modern minimal invaziv teknikler.\n\n";
+        $out .= "> Op. Dr. Yücel Polat — Kalp ve damar cerrahisi uzmanı, fleboloji ve estetik fleboloji. ";
+        $out .= "Çorlu (Tekirdağ) muayenehanesinde varis ve kronik venöz hastalıklar, ";
+        $out .= "endovasküler girişimler, lenfödem-lipödem ve damar sağlığı. 20 yıllık hekimlik deneyimi, ";
+        $out .= "kanıta dayalı protokoller ve modern minimal invaziv (kesisiz) teknikler.\n\n";
 
         $out .= "Bu site Türkçe içerik sunar. Resmi web adresi: {$host}\n\n";
         $out .= "---\n\n";
@@ -61,8 +61,9 @@ class LlmsTxtBuilder
         $out .= "- Diyabetik Ayak ve Kronik Yara Bakımı\n\n";
 
         $out .= "## Konum & İletişim\n\n";
-        $out .= "- Hastane: Liv Hospital İstanbul, Sarıyer\n";
-        $out .= "- Bölge: İstanbul, Türkiye\n";
+        $out .= "- Muayenehane: " . config('site.address') . "\n";
+        $out .= "- Bölge: Çorlu / Tekirdağ, Türkiye\n";
+        $out .= "- Telefon: " . config('site.phone') . "\n";
         $out .= "- Resmi site: {$host}\n";
         $out .= "- E-posta: " . config('mail.from.address') . "\n";
         $out .= "- Randevu sayfası: " . route('contact') . "\n\n";

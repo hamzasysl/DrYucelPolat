@@ -16,7 +16,7 @@
 
 <h2>Varis Tedavisi ve Yöntemleri Nelerdir?</h2>
 <p>
-    Estetik tedavide hastanın durumuna göre sıvı skleroterapi, köpük skleroterapi, transkütan lazer veya radyofrekans, kriyo lazer / kriyo skleroterapi (KlaKs) kullanılabilir.
+    Estetik tedavide hastanın durumuna göre sıvı skleroterapi, köpük skleroterapi, transkütan lazer (silgi lazer) veya radyofrekans, kriyo lazer / kriyo skleroterapi (KlaKs) kullanılabilir.
 </p>
 <p>
     Girişimsel tedavilerde, hastanın durumuna göre Endovenöz Lazer Ablasyon (EVLA), Radyofrekans ablasyon (RFA), Kimyasal ablasyon, Siyanoakrilat ablasyonu (VenaSeal) gibi yöntemler kullanılabilir.

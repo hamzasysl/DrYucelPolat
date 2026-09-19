@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'İletişim & Randevu — ' . config('app.name'))
-@section('description', 'Op. Dr. Yücel Polat ile iletişim — Liv Hospital İstanbul. Telefon, WhatsApp, e-posta ve online randevu formu. Ücretsiz konsültasyon için hızlı dönüş.')
-@section('keywords', 'Op. Dr. Yücel Polat iletişim, randevu al, kalp damar cerrahı randevu, Liv Hospital iletişim, kardiyovasküler cerrah randevu, ücretsiz konsültasyon, WhatsApp randevu')
+@section('description', 'Op. Dr. Yücel Polat ile iletişim — Çorlu / Tekirdağ muayenehanesi. Telefon, WhatsApp, e-posta ve online randevu formu. Muayene ve değerlendirme için hızlı dönüş.')
+@section('keywords', 'Op. Dr. Yücel Polat iletişim, randevu al, kalp damar cerrahı randevu Çorlu, damar cerrahisi Tekirdağ, kardiyovasküler cerrah randevu, muayene randevusu, WhatsApp randevu')
 @section('og_title', 'İletişim & Randevu — ' . config('app.name'))
-@section('og_description', 'Ücretsiz konsültasyon randevusu için iletişim formu, telefon ve WhatsApp. Liv Hospital İstanbul.')
+@section('og_description', 'Muayene ve değerlendirme randevusu için iletişim formu, telefon ve WhatsApp. Çorlu / Tekirdağ.')
 @section('og_image', asset('img/doktor.webp'))
 
 @section('structured_data')
@@ -23,7 +23,7 @@
         '@id' => route('contact') . '#webpage',
         'url' => route('contact'),
         'name' => 'İletişim & Randevu — Op. Dr. Yücel Polat',
-        'description' => 'Op. Dr. Yücel Polat ile iletişim ve randevu — Liv Hospital İstanbul.',
+        'description' => 'Op. Dr. Yücel Polat ile iletişim ve randevu — Çorlu / Tekirdağ muayenehanesi.',
         'isPartOf' => ['@id' => url('/') . '#website'],
         'about' => ['@id' => url('/') . '#clinic'],
         'inLanguage' => 'tr-TR',
@@ -58,7 +58,7 @@
                     Randevu Talebi Oluşturun
                 </h2>
                 <p class="text-ink-400 text-base lg:text-[17px] leading-relaxed mb-10 max-w-lg font-light">
-                    Konsültasyon ve detaylı muayene için formu doldurun, en kısa sürede dönüş yapalım.
+                    Muayene ve değerlendirme için randevu oluşturun; formu doldurun, en kısa sürede dönüş yapalım.
                 </p>
                 <div class="space-y-10 max-w-md">
                     <div class="flex items-center gap-4">
@@ -78,8 +78,8 @@
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">KLİNİK</p>
-                            <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">MUAYENEHANE</p>
+                            <p class="text-deep-700 font-semibold text-[15px] leading-snug">{{ config('site.address') }}</p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
     </div>
 </section>
 
-{{-- Map section (geçici adres — gerçek adres gelince güncellenecek) --}}
+{{-- Map section --}}
 <section class="bg-white py-16 lg:py-20 border-t border-ink-100">
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-10">
@@ -111,7 +111,7 @@
         <div class="relative rounded-2xl overflow-hidden shadow-xl border border-ink-100 ring-1 ring-deep-100/40">
             <div class="aspect-[16/8] lg:aspect-[21/8] bg-ink-100">
                 <iframe
-                    src="https://www.google.com/maps?q=DAP+Vadi+İstinye+Ofis+Merkez+Kağıthane+Cd.+No:3+D:68+34406+Kağıthane+İstanbul&output=embed"
+                    src="https://www.google.com/maps?q=Ballı+Business+Center+Alipaşa+Mah.+Sülün+Cad.+No:6/1+Çorlu+Tekirdağ&output=embed"
                     width="100%"
                     height="100%"
                     style="border:0;"
@@ -132,11 +132,11 @@
                 <div class="min-w-0">
                     <p class="text-[10px] text-ink-400 uppercase tracking-[0.22em] font-semibold mb-1">ADRES</p>
                     <p class="text-deep-700 text-sm font-semibold leading-snug mb-2">
-                        DAP Vadi İstinye Ofis, Merkez,<br>
-                        Kağıthane Cd. No:3 D:68, 34406<br>
-                        Kağıthane / İstanbul
+                        Ballı Business Center,<br>
+                        Alipaşa Mah. Sülün Cad. No: 6/1<br>
+                        Kat: 9 No: 906, Çorlu / Tekirdağ
                     </p>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=DAP+Vadi+İstinye+Ofis+Merkez+Kağıthane+Cd.+No:3+D:68+34406+Kağıthane+İstanbul"
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Ballı+Business+Center+Alipaşa+Mah.+Sülün+Cad.+No:6/1+Çorlu+Tekirdağ"
                        target="_blank" rel="noopener"
                        class="inline-flex items-center gap-1.5 text-brand-500 hover:text-brand-700 text-xs font-bold uppercase tracking-wider transition-colors">
                         Yol Tarifi Al <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>

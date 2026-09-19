@@ -2,7 +2,7 @@
 
 @section('title', $service['title'] . ' — ' . config('app.name'))
 @section('description', $service['seo_desc'] ?? $service['lead'])
-@section('keywords', $service['seo_keywords'] ?? ($service['title'] . ', Op. Dr. Yücel Polat, Liv Hospital İstanbul'))
+@section('keywords', $service['seo_keywords'] ?? ($service['title'] . ', Op. Dr. Yücel Polat, Çorlu, Tekirdağ'))
 @section('og_title', $service['title'] . ' — ' . config('app.name'))
 @section('og_description', $service['seo_desc'] ?? $service['lead'])
 @php
@@ -35,7 +35,7 @@
         'performer' => ['@id' => url('/') . '#person'],
         'procedureType' => 'https://schema.org/SurgicalProcedure',
         'bodyLocation' => 'Kalp ve damar sistemi',
-        'preparation' => 'Konsültasyon, gerekli tetkikler (Doppler USG, kan tahlilleri) ve hekim değerlendirmesi.',
+        'preparation' => 'Muayene ve değerlendirme, gerekli tetkikler (Doppler USG, kan tahlilleri) ve hekim değerlendirmesi.',
         'followup' => 'Düzenli kontrol muayeneleri, gerektiğinde görüntüleme tetkikleri ve yaşam tarzı önerileri.',
     ];
     $webPageLd = [
@@ -109,44 +109,6 @@
                         WhatsApp ile İletişime Geç
                     </a>
                 </div>
-
-                {{-- Premium stat şeridi — kompakt fontlar, single-line label --}}
-                <div class="relative">
-                    {{-- Üst yatay çizgi — kenarlarda fade --}}
-                    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ink-200 to-transparent"></div>
-                    {{-- Alt yatay çizgi — simetrik --}}
-                    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-ink-200 to-transparent"></div>
-
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-2 sm:gap-x-8 gap-y-5 sm:gap-y-0 py-5 sm:py-6">
-                        @foreach ($service['stats'] ?? [] as $i => $info)
-                            <div class="relative flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-2 sm:gap-3 min-w-0">
-                                {{-- Dikey ayraç — sm+ üzeri, hücreler arası gap ortasında --}}
-                                @if (! $loop->last)
-                                    <span class="hidden sm:block absolute -right-4 top-1/2 -translate-y-1/2 w-px h-9
-                                                 bg-gradient-to-b from-transparent via-ink-200 to-transparent"></span>
-                                @endif
-                                {{-- Mobilde dikey ayraç — sağdaki kolonu sol kolondan ayır (ilk ve üçüncü item'in sağında) --}}
-                                @if ($i % 2 === 0)
-                                    <span class="sm:hidden absolute top-1 bottom-1 -right-1 w-px
-                                                 bg-gradient-to-b from-transparent via-ink-200/70 to-transparent"></span>
-                                @endif
-                                {{-- Mobilde 1. satırın altına yatay ayraç --}}
-                                @if ($i < 2)
-                                    <span class="sm:hidden absolute -bottom-2.5 left-2 right-2 h-px
-                                                 bg-gradient-to-r from-transparent via-ink-200/70 to-transparent"></span>
-                                @endif
-
-                                <span class="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-deep-50 to-white border border-deep-100/60 text-deep-500 inline-flex items-center justify-center text-xs shrink-0 shadow-[0_2px_5px_color-mix(in_srgb,var(--color-deep-700)_6%,transparent)]">
-                                    <i class="fas {{ $info['icon'] }}"></i>
-                                </span>
-                                <div class="min-w-0 w-full sm:flex-1">
-                                    <p class="text-[11px] tracking-normal font-medium text-deep-500/85 mb-1 leading-[1.3] whitespace-nowrap pt-0.5" style="font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;">{{ $info['label'] }}</p>
-                                    <p class="font-display text-[13.5px] font-extrabold text-deep-700 leading-tight tracking-tight truncate">{{ $info['value'] }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
             </div>
 
             {{-- Sağ: Foto alanı (lg col-5) --}}
@@ -209,10 +171,10 @@
                 @endif
 
                 <h2>Süreç</h2>
-                <p>Konsültasyon ve detaylı muayene ile başlayan süreç; tanı testleri, kişiselleştirilmiş tedavi planı, uygulama ve düzenli takip aşamalarıyla tamamlanır. Her hastanın klinik tablosu farklıdır ve bu fark planlamaya yansıtılır.</p>
+                <p>Muayene ve ayrıntılı değerlendirme ile başlayan süreç; tanı testleri, kişiselleştirilmiş tedavi planı, uygulama ve düzenli takip aşamalarıyla tamamlanır. Her hastanın klinik tablosu farklıdır ve bu fark planlamaya yansıtılır.</p>
 
                 <h2>Ne Zaman Başvurmalısınız?</h2>
-                <p>Şikayetiniz veya mevcut tetkikleriniz varsa konsültasyon için iletişime geçebilirsiniz. Erken değerlendirme tedavi seçeneklerini genişletir, sonuçları olumlu yönde etkiler.</p>
+                <p>Damar sağlığınızı ayrıntılı değerlendirelim, size uygun tedavi seçeneklerini birlikte planlayalım. Erken değerlendirme tedavi seçeneklerini genişletir, sonuçları olumlu yönde etkiler.</p>
             @endif
         </article>
 

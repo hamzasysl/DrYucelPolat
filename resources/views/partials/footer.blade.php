@@ -26,16 +26,16 @@
                     <span class="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-brand-500 via-brand-400/60 to-deep-400/40"></span>
 
                     <p class="text-ink-200/85 text-sm leading-relaxed font-light mb-3.5 max-w-md">
-                        Liv Hospital Istanbul bünyesinde varis tedavisi,
-                        endovasküler girişimler, lenfödem-lipödem, diyabetik yara, tromboz ve klasik
-                        kalp-damar cerrahisi alanlarında hizmet veriyorum. Her hasta için bilimsel kanıta dayalı,
+                        Çorlu'daki muayenehanemde varis ve kronik venöz hastalıklar,
+                        endovasküler girişimler, lenfödem-lipödem, diyabetik yara ve tromboz başta olmak üzere
+                        damar sağlığı alanında hizmet veriyorum. Her hasta için bilimsel kanıta dayalı,
                         riski ölçülmüş ve kişiye özel tedavi planı.
                     </p>
 
                     {{-- Quote tarzı kısa imza --}}
                     <p class="text-ink-200/65 text-[12.5px] leading-relaxed font-light italic max-w-md flex items-start gap-2">
                         <i class="fas fa-quote-left text-brand-400/60 text-[10px] mt-1 shrink-0"></i>
-                        Bilim, deneyim ve şefkat — birlikte daha güçlü.
+                        Bilimsel yaklaşım — Klinik deneyim — Kişiye özel değerlendirme.
                     </p>
                 </div>
 
@@ -117,14 +117,12 @@
                         Çalışma Saatleri
                     </p>
                     <div class="space-y-1.5 text-[12px]">
-                        <div class="flex items-center justify-between gap-2">
-                            <span class="font-light text-ink-200/75">Pzt - Cmt</span>
-                            <span class="font-semibold text-white tabular-nums">09:00 - 18:00</span>
-                        </div>
-                        <div class="flex items-center justify-between gap-2">
-                            <span class="font-light text-ink-200/75">Pazar</span>
-                            <span class="font-semibold text-brand-400">Kapalı</span>
-                        </div>
+                        @foreach (config('site.hours', []) as $h)
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="font-light text-ink-200/75">{{ $h['label'] }}</span>
+                                <span class="font-semibold tabular-nums {{ ($h['closed'] ?? false) ? 'text-brand-400' : 'text-white' }}">{{ $h['value'] }}</span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

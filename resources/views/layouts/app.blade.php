@@ -2,7 +2,7 @@
     /** Global SEO defaults — sayfa-özel @section ile override edilebilir */
     $siteName    = config('site.name');
     $siteTagline = 'Kalp ve Damar Cerrahisi Uzmanı';
-    $defaultDesc = 'Op. Dr. Yücel Polat — 20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass ve endovasküler girişimler.';
+    $defaultDesc = 'Op. Dr. Yücel Polat — 20 yıllık hekimlik deneyimiyle kalp ve damar cerrahisi, fleboloji ve estetik fleboloji. Çorlu / Tekirdağ.';
     $defaultTitle = $siteName . ' — ' . $siteTagline;
     $defaultOgImageRaw = '/img/doktor.webp';
     $defaultOgImage = str_starts_with($defaultOgImageRaw, 'http') ? $defaultOgImageRaw : asset(ltrim($defaultOgImageRaw, '/'));
@@ -45,17 +45,17 @@
             [
                 '@type' => ['MedicalBusiness', 'Hospital'],
                 '@id' => url('/') . '#clinic',
-                'name' => 'Op. Dr. Yücel Polat — Liv Hospital İstanbul',
+                'name' => 'Op. Dr. Yücel Polat — Muayenehane, Çorlu / Tekirdağ',
                 'url' => url('/'),
                 'image' => $defaultOgImage,
                 'telephone' => config('site.phone_raw'),
                 'email' => config('site.email'),
                 'address' => [
                     '@type' => 'PostalAddress',
-                    'streetAddress' => 'Liv Hospital',
-                    'addressLocality' => 'Sarıyer',
-                    'addressRegion' => 'İstanbul',
-                    'postalCode' => '34000',
+                    'streetAddress' => 'Ballı Business Center, Alipaşa Mah. Sülün Cad. No: 6/1 Kat: 9 No: 906',
+                    'addressLocality' => 'Çorlu',
+                    'addressRegion' => 'Tekirdağ',
+                    'postalCode' => '59860',
                     'addressCountry' => 'TR',
                 ],
                 'medicalSpecialty' => ['Cardiovascular Surgery', 'Vascular Surgery'],
@@ -96,16 +96,16 @@
          ============================================================ --}}
     <title>@yield('title', $defaultTitle)</title>
     <meta name="description" content="@yield('description', $defaultDesc)">
-    <meta name="keywords" content="@yield('keywords', 'kalp damar cerrahisi, varis tedavisi, koroner bypass, kalp kapak ameliyatı, endovasküler cerrahi, Op. Dr. Yücel Polat, Liv Hospital, kardiyovasküler cerrah İstanbul, damar tıkanıklığı, DVT tedavisi')">
+    <meta name="keywords" content="@yield('keywords', 'kalp damar cerrahisi, varis tedavisi, fleboloji, estetik fleboloji, endovasküler cerrahi, Op. Dr. Yücel Polat, kalp damar cerrahı Çorlu, damar cerrahisi Tekirdağ, damar tıkanıklığı, DVT tedavisi')">
     <meta name="author" content="Op. Dr. Yücel Polat">
     <meta name="robots" content="@yield('robots', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1')">
     <meta name="googlebot" content="index, follow">
     <meta name="rating" content="general">
     <meta name="distribution" content="global">
-    <meta name="geo.region" content="TR-34">
-    <meta name="geo.placename" content="İstanbul">
-    <meta name="ICBM" content="41.1532, 29.0537">
-    <meta name="geo.position" content="41.1532;29.0537">
+    <meta name="geo.region" content="TR-59">
+    <meta name="geo.placename" content="Çorlu, Tekirdağ">
+    <meta name="ICBM" content="41.1594, 27.8003">
+    <meta name="geo.position" content="41.1594;27.8003">
     <meta http-equiv="Content-Language" content="tr">
 
     {{-- Canonical --}}

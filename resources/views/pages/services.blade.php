@@ -78,11 +78,11 @@
                 <span class="h-px w-6 bg-gradient-to-l from-transparent to-leaf-500"></span>
             </div>
             <h2 class="font-display text-3xl lg:text-5xl font-bold text-deep-600 leading-[1.1] mb-5 tracking-tight">
-                Kapsamlı Damar &amp; Kalp Tedavisi
+                Damar Sağlığına Bütüncül Yaklaşım
             </h2>
             <p class="text-ink-500 text-[15px] lg:text-base leading-relaxed font-light">
-                Varis ve kılcal damar tedavisinden açık kalp cerrahisine kadar geniş bir uzmanlık alanı.
-                Her tedavi planı vakaya özel; kanıta dayalı protokoller ve modern teknik altyapı.
+                Varis ve toplardamar hastalıklarından atardamar ve lenf sistemi hastalıklarına uzanan
+                kapsamlı ve kanıta dayalı damar sağlığı yaklaşımı. Her tedavi planı vakaya özel.
             </p>
         </div>
 
@@ -171,8 +171,8 @@
                             Hangi tedavinin uygun olduğunu birlikte değerlendirelim
                         </h3>
                         <p class="text-ink-500 text-[14px] lg:text-[15px] leading-relaxed font-light max-w-2xl">
-                            Mevcut tetkikleriniz ve şikayetleriniz üzerinden ücretsiz konsültasyon.
-                            Şeffaf değerlendirme, baskısız öneri.
+                            Damar sağlığınızı ayrıntılı değerlendirelim, size uygun tedavi seçeneklerini
+                            birlikte planlayalım.
                         </p>
                     </div>
                     <div class="flex flex-wrap gap-3 shrink-0">
@@ -181,7 +181,7 @@
                             <i class="fas fa-calendar-check text-[12px]"></i>
                             Randevu Al
                         </a>
-                        <a href="https://wa.me/900000000000" target="_blank" rel="noopener"
+                        <a href="{{ config('site.whatsapp') }}" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2 bg-[#1FA950] hover:bg-[#168F47] text-white px-6 py-3 text-[13px] font-semibold rounded-lg shadow-[0_8px_20px_rgba(31,169,80,0.28)] transition-all">
                             <i class="fab fa-whatsapp text-[15px]"></i>
                             WhatsApp

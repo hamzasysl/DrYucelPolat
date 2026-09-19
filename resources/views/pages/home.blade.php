@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', config("app.name") . " — Kalp ve Damar Cerrahisi Uzmanı")
-@section('description', '20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass, endovasküler girişimler. Liv Hospital İstanbul. Ücretsiz konsültasyon randevusu — hızlı dönüş.')
-@section('keywords', 'kalp damar cerrahisi İstanbul, varis tedavisi, koroner bypass, kalp kapak ameliyatı, Op. Dr. Yücel Polat, Liv Hospital, endovasküler cerrahi, kardiyovasküler cerrah, kılcal damar tedavisi, EVLA, köpük skleroterapi, damar tıkanıklığı tedavisi')
+@section('description', '20 yıllık hekimlik deneyimiyle kalp ve damar cerrahisi, varis tedavisi, fleboloji ve endovasküler girişimler. Çorlu / Tekirdağ muayenehanesi — muayene ve değerlendirme randevusu.')
+@section('keywords', 'kalp damar cerrahisi Çorlu, varis tedavisi Tekirdağ, fleboloji, estetik fleboloji, Op. Dr. Yücel Polat, endovasküler cerrahi, kardiyovasküler cerrah, kılcal damar tedavisi, EVLA, köpük skleroterapi, damar tıkanıklığı tedavisi')
 @section('og_title', config("app.name") . " — Kalp ve Damar Cerrahisi Uzmanı")
 @section('og_description', '20+ yıl deneyimle modern kalp ve damar tedavisi. Varis, bypass, kapak ve endovasküler girişimlerde uzman yaklaşım.')
 @section('og_image', asset('img/doktor.webp'))
@@ -22,7 +22,7 @@
         '@type' => 'WebPage',
         '@id' => url('/') . '#webpage-home',
         'url' => url('/'),
-        'name' => 'Op. Dr. Yücel Polat — Kalp ve Damar Cerrahisi Uzmanı | Liv Hospital İstanbul',
+        'name' => 'Op. Dr. Yücel Polat — Kalp ve Damar Cerrahisi Uzmanı | Çorlu / Tekirdağ',
         'description' => '20+ yıl deneyimle kalp damar cerrahisi, varis tedavisi, koroner bypass, endovasküler girişimler.',
         'isPartOf' => ['@id' => url('/') . '#website'],
         'about' => ['@id' => url('/') . '#person'],
@@ -197,11 +197,12 @@
 
             {{-- Single-color title --}}
             <h2 class="font-display text-4xl lg:text-6xl font-bold text-deep-600 leading-[1.1] mb-6 tracking-tight">
-                Kapsamlı Damar Tedavisi
+                Damar Sağlığına Bütüncül Yaklaşım
             </h2>
 
             <p class="text-ink-400 text-base lg:text-lg leading-relaxed font-light">
-                Varis ve endovasküler girişimlerden açık kalp cerrahisine, kanıta dayalı protokol.
+                Varis ve toplardamar hastalıklarından atardamar ve lenf sistemi hastalıklarına uzanan
+                kapsamlı ve kanıta dayalı damar sağlığı yaklaşımı.
             </p>
         </div>
 
@@ -318,13 +319,14 @@
                 </h2>
 
                 <p class="text-ink-500 text-lg leading-relaxed mb-5 font-light">
-                    Kalp ve damar cerrahisi uzmanı. <span class="text-deep-700 font-semibold">Liv Hospital Istanbul</span>
-                    bünyesinde varis, endovasküler girişimler ve klasik kalp-damar cerrahisi alanlarında hasta kabul etmektedir.
+                    Kalp ve Damar Cerrahisi Uzmanı — Fleboloji / Estetik Fleboloji.
+                    <span class="text-deep-700 font-semibold">Çorlu'daki muayenehanesinde</span>
+                    varis ve kronik venöz hastalıklar, endovasküler girişimler ve damar sağlığı alanında hasta kabul etmektedir.
                 </p>
 
                 {{-- Bağlı olduğu kurumlar — top bar stilinde minimal yeşil badge'ler --}}
                 <div class="space-y-3 mb-8">
-                    <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400">BAĞLI OLDUĞU KURUMLAR</p>
+                    <p class="text-[11px] uppercase tracking-[0.22em] font-semibold text-ink-400">GÖREV YAPTIĞI KURUMLAR</p>
                     <div class="flex flex-col gap-4">
                         <a href="https://www.livhospital.com.tr/" target="_blank" rel="noopener"
                            class="inline-flex items-center gap-2.5 text-ink-500 hover:text-deep-700 transition-colors w-fit">
@@ -360,6 +362,9 @@
     </div>
 </section>
 
+{{-- HASTA YORUMLARI --}}
+@include('partials.testimonials')
+
 {{-- INSTAGRAM SLIDER --}}
 @include('partials.instagram-slider')
 
@@ -381,7 +386,7 @@
                     Randevu Talebi Oluşturun
                 </h2>
                 <p class="text-ink-400 text-base lg:text-[17px] leading-relaxed mb-10 max-w-lg font-light">
-                    Konsültasyon ve detaylı muayene için formu doldurun, en kısa sürede dönüş yapalım.
+                    Muayene ve değerlendirme için randevu oluşturun; formu doldurun, en kısa sürede dönüş yapalım.
                 </p>
                 <div class="space-y-10 max-w-md">
                     <div class="flex items-center gap-4">
@@ -401,8 +406,8 @@
                     <div class="flex items-center gap-4">
                         <span class="w-11 h-11 rounded-xl bg-leaf-500/15 text-leaf-500 inline-flex items-center justify-center text-base shadow-[0_2px_6px_color-mix(in_srgb,var(--color-leaf-500)_18%,transparent)]"><i class="fas fa-map-marker-alt"></i></span>
                         <div>
-                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">KLİNİK</p>
-                            <p class="text-deep-700 font-semibold">Klinik Adresi, Sarıyer / İstanbul</p>
+                            <p class="text-[11px] text-ink-400 uppercase tracking-[0.18em] font-semibold mb-0.5">MUAYENEHANE</p>
+                            <p class="text-deep-700 font-semibold text-[15px] leading-snug">{{ config('site.address') }}</p>
                         </div>
                     </div>
                 </div>
