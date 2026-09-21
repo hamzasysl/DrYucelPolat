@@ -27,8 +27,8 @@ return [
     // Boş bırakılan sosyaller header'da gizlenir.
     'socials' => [
         'instagram' => 'https://instagram.com/dryucelpolat',
-        'facebook'  => 'https://facebook.com/dryucelpolat',
-        'youtube'   => 'https://youtube.com/@dryucelpolat',
+        'facebook'  => '',
+        'youtube'   => '',
         'linkedin'  => '',
         'x'         => '',
     ],
@@ -42,12 +42,19 @@ return [
         ['name' => 'Şarköy Devlet Hastanesi', 'url' => ''],
     ],
 
+    // Hizmet renk sistemi — logodaki üç odak alanı: atardamar (kırmızı), toplardamar (mavi), lenf (yeşil).
+    // config/treatments.php içindeki 'system' alanı buradan renk alır; tüm sayfalarda aynı renk.
+    'systems' => [
+        'artery' => ['label' => 'Atardamar',    'bg' => 'bg-brand-50',    'text' => 'text-brand-500', 'fill' => 'group-hover:bg-brand-500', 'from' => '#E63946', 'to' => '#9F1F2A'],
+        'vein'   => ['label' => 'Toplardamar',  'bg' => 'bg-deep-50',     'text' => 'text-deep-500',  'fill' => 'group-hover:bg-deep-500',  'from' => '#1E5F9E', 'to' => '#0F3D5A'],
+        'lymph'  => ['label' => 'Lenf sistemi', 'bg' => 'bg-leaf-500/15', 'text' => 'text-leaf-500',  'fill' => 'group-hover:bg-leaf-500',  'from' => '#84CC16', 'to' => '#5A8E0F'],
+    ],
+
     // Header navigasyon — Hizmetler dropdown'i config/treatments.php'den beslenir.
     'nav' => [
         ['title' => 'Anasayfa',  'route' => 'home'],
         ['title' => 'Hakkımda',  'route' => 'about'],
         ['title' => 'Hizmetler', 'dropdown' => true],
-        ['title' => 'Yayınlar',  'route' => 'publications.index'],
         ['title' => 'Blog',      'route' => 'blog.index'],
         ['title' => 'İletişim',  'route' => 'contact'],
     ],

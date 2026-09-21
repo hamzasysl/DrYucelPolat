@@ -3,22 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::view('/',          'pages.home')    ->name('home');
-Route::view('/hakkimda',  'pages.about')   ->name('about');
-Route::view('/hizmetler', 'pages.services')->name('services.index');
-
-// Hizmet detay sayfası yalnızca config/treatments.php'de 'has_page' => true olanlar için açılır.
-Route::get('/hizmetler/{slug}', function (string $slug) {
-    $service = collect(config('treatments'))->firstWhere('slug', $slug);
-    abort_unless($service && ($service['has_page'] ?? false), 404);
-    return view('pages.service-detail', compact('service'));
-})->name('services.show');
-
-Route::view('/iletisim',   'pages.contact') ->name('contact');
-Route::view('/blog',       'pages.blog')    ->name('blog.index');
-
-// Yayınlar — config/publications.php. Sıralama: yazar listesinde "Y Polat" ne kadar
-// baştaysa yayın o kadar yukarıda; eşit sırada olanlar yeniden eskiye.
-Route::get('/yayinlar', function () {
+// Hakkımda — yayınlar da burada. Sıralama: yazar listesinde "Y Polat" ne kadar baştaysa
+// yayın o kadar yukarıda; eşit sırada olanlar yeniden eskiye.
+Route::get('/hakkimda', function () {
     $publications = collect(config('publications', []))
         ->map(function (array $p) {
             $idx = array_search('Y Polat', $p['authors'], true);
@@ -31,12 +18,22 @@ Route::get('/yayinlar', function () {
         ])
         ->values();
 
-    return view('pages.publications', [
-        'publications' => $publications,
-        'firstAuthor'  => $publications->where('position', 1)->values(),
-        'coAuthor'     => $publications->where('position', '>', 1)->values(),
-    ]);
-})->name('publications.index');
+    return view('pages.about', compact('publications'));
+})->name('about');
+Route::view('/hizmetler', 'pages.services')->name('services.index');
+
+// Hizmet detay sayfası yalnızca config/treatments.php'de 'has_page' => true olanlar için açılır.
+Route::get('/hizmetler/{slug}', function (string $slug) {
+    $service = collect(config('treatments'))->firstWhere('slug', $slug);
+    abort_unless($service && ($service['has_page'] ?? false), 404);
+    return view('pages.service-detail', compact('service'));
+})->name('services.show');
+
+Route::view('/iletisim',   'pages.contact') ->name('contact');
+Route::view('/blog',       'pages.blog')    ->name('blog.index');
+
+// Eski /yayinlar sayfası kaldırıldı — içerik Hakkımda'ya taşındı, eski linkler kırılmasın.
+Route::redirect('/yayinlar', '/hakkimda#yayinlar', 301);
 
 Route::view('/_palette', 'pages._palette')->name('palette');
 

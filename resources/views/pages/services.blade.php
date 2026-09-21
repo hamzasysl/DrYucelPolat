@@ -86,20 +86,12 @@
             </p>
         </div>
 
-        @php
-            // Renk rotasyonu — foto fallback gradient'i için
-            $accents = [
-                ['from' => '#1E5F9E', 'to' => '#0F3D5A', 'badge' => 'bg-deep-500'],
-                ['from' => '#E63946', 'to' => '#9F1F2A', 'badge' => 'bg-brand-500'],
-                ['from' => '#84CC16', 'to' => '#5A8E0F', 'badge' => 'bg-leaf-500'],
-                ['from' => '#F59E0B', 'to' => '#B97506', 'badge' => 'bg-sun-500'],
-            ];
-        @endphp
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
             @foreach (config('treatments') as $i => $service)
                 @php
-                    $a = $accents[$i % 4];
+                    // Renk hastalığın sistemine göre: atardamar kırmızı, toplardamar mavi, lenf yeşil
+                    $a = config('site.systems.' . ($service['system'] ?? 'vein'));
                     $photoPath = public_path('img/services/' . $service['slug'] . '.jpg');
                     $hasPhoto = file_exists($photoPath);
                 @endphp
@@ -121,15 +113,15 @@
                         @else
                             {{-- Fallback: gradient + büyük ikon ortalı --}}
                             <div class="absolute inset-0 flex items-center justify-center text-white/85">
-                                <i class="fas {{ $service['icon'] }} text-[68px] opacity-90 transition-transform duration-500 group-hover:scale-110"></i>
+                                <x-treatment-icon :slug="$service['slug']" :fallback="$service['icon']" class="w-20 h-20 opacity-90 transition-transform duration-500 group-hover:scale-110" />
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                         @endif
 
                         {{-- Üst sol köşede küçük ikon-rozet (her zaman görünür) --}}
                         <div class="absolute top-4 left-4 inline-flex items-center gap-2">
-                            <span class="w-9 h-9 rounded-lg bg-white/95 backdrop-blur-sm text-deep-600 flex items-center justify-center shadow-[0_3px_10px_color-mix(in_srgb,var(--color-deep-700)_18%,transparent)]">
-                                <i class="fas {{ $service['icon'] }} text-sm"></i>
+                            <span class="w-9 h-9 rounded-lg bg-white/95 backdrop-blur-sm {{ $a['text'] }} flex items-center justify-center shadow-[0_3px_10px_color-mix(in_srgb,var(--color-deep-700)_18%,transparent)]">
+                                <x-treatment-icon :slug="$service['slug']" :fallback="$service['icon']" class="w-5 h-5" />
                             </span>
                         </div>
                     </div>

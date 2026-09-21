@@ -135,7 +135,7 @@
 
             {{-- 5) Slogan — logodan birebir --}}
             <p class="text-white text-lg sm:text-xl lg:text-[22px] leading-relaxed mb-10 max-w-2xl mx-auto font-light drop-shadow">
-                Dolaşım Sisteminin Tamamına Odaklanan <br class="hidden sm:inline">
+                Dolaşım Sisteminin Tamamına Odaklanan <br class="sm:hidden">
                 <span class="font-semibold">Tedavi Yaklaşımı</span>
             </p>
 
@@ -209,25 +209,18 @@
             </p>
         </div>
 
-        @php
-            // Icon rengi rotasyonu — mavi / pembe / yeşil
-            $iconStyles = [
-                ['bg' => 'bg-deep-50',     'text' => 'text-deep-500'],
-                ['bg' => 'bg-brand-50',    'text' => 'text-brand-500'],
-                ['bg' => 'bg-leaf-500/15', 'text' => 'text-leaf-500'],
-            ];
-        @endphp
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             @foreach (config('treatments') as $i => $service)
                 @php
-                    $c = $iconStyles[$i % 3];
+                    // İkon rengi hastalığın sistemine göre: atardamar kırmızı, toplardamar mavi, lenf yeşil
+                    $c = config('site.systems.' . ($service['system'] ?? 'vein'));
                     $hasPage = $service['has_page'] ?? false;
                 @endphp
                 <a href="{{ $hasPage ? route('services.show', $service['slug']) : '#' }}"
                    class="group bg-white rounded-2xl p-7 pb-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-ink-100 flex flex-col">
-                    <div class="w-12 h-12 rounded-xl {{ $c['bg'] }} flex items-center justify-center {{ $c['text'] }} mb-5 shrink-0 transition-all duration-300 group-hover:scale-105">
-                        <i class="fas {{ $service['icon'] }} text-xl"></i>
+                    <div class="w-14 h-14 rounded-2xl {{ $c['bg'] }} flex items-center justify-center {{ $c['text'] }} mb-5 shrink-0 transition-all duration-300 group-hover:scale-105">
+                        <x-treatment-icon :slug="$service['slug']" :fallback="$service['icon']" class="w-9 h-9" />
                     </div>
                     <h3 class="font-display text-lg font-bold text-deep-700 mb-3 leading-snug group-hover:text-brand-500 transition-colors">{{ $service['title'] }}</h3>
                     <p class="text-ink-500 text-sm leading-relaxed mb-5 flex-grow font-light">{{ $service['short'] }}</p>

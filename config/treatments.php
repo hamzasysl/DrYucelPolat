@@ -6,12 +6,14 @@
  * seo_keywords sadece arama terimlerinden oluşur (cümle yok).
  * Detaylı makale içerikleri resources/views/partials/services/{slug}.blade.php dosyalarında.
  * Sıralama: Varis → Lipödem → Lenfödem → Pelvik → DVT → Periferik → Diyabetik → Cardisiography
+ * system: ikon rengi — 'vein' toplardamar (mavi), 'artery' atardamar (kırmızı), 'lymph' lenf (yeşil). Renkler config/site.php 'systems'.
  */
 
 return [
     [
         'slug'  => 'varis-tedavisi',
         'icon'  => 'fa-syringe',
+        'system' => 'vein',
         'title' => 'Varis Tedavisi',
         'short' => 'Varis, yer çekimine karşı toplardamarların görevini tam yapamaması sonucu genişlemesi ve şekil değiştirmesidir.',
         'lead'  => 'Varis, yer çekimine karşı toplardamarların görevini tam yapamaması sonucu genişlemesi ve şekil değiştirmesidir. Kalp seviyesinin altındaki toplardamarlarda görülebilir.',
@@ -26,6 +28,7 @@ return [
     [
         'slug'  => 'lipodem',
         'icon'  => 'fa-scale-balanced',
+        'system' => 'lymph',
         'title' => 'Lipödem',
         'short' => 'Genellikle kalça, bacaklar ile bazen de kollarda görülen orantısız, simetrik anormal yağ doku birikimidir.',
         'lead'  => 'Genellikle kalça, bacaklar ile bazen de kollarda görülen orantısız, simetrik anormal yağ doku birikimidir. Hastalar kolayca "obez" olarak damgalanır fakat zayıf hastalarda da lipödem gözükebilir.',
@@ -42,6 +45,7 @@ return [
     [
         'slug'  => 'lenfodem',
         'icon'  => 'fa-hand-holding-droplet',
+        'system' => 'lymph',
         'title' => 'Lenfödem',
         'short' => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir.',
         'lead'  => 'Lenfödem genellikle kol veya bacaklarda biriken lenf sıvısının neden olduğu şişliktir. Halk arasında fil hastalığı olarak da bilinir. Lenfödem, birincil lenfödem (Kalıtımsal, Prekoks) veya geçirilmiş ameliyat, radyoterapi, travma gibi nedenlere bağlı olarak ikincil lenfödem olarak gelişebilir.',
@@ -56,6 +60,7 @@ return [
     [
         'slug'  => 'pelvik-konjesyon',
         'icon'  => 'fa-venus',
+        'system' => 'vein',
         'title' => 'Pelvik Konjesyon Sendromu',
         'short' => 'Kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır.',
         'lead'  => 'Bacaklarda toplardamarların genişlemesi "varis", makat bölgesindeki toplardamarlar genişlemesi "hemoroid", erkeklerde gonadal (testiküler) toplardamarların genişlemesi "varikosel" adını alırken kadınlarda gonadal (overian) toplardamarların genişlemesi yani varisleşmesi "Pelvik Konjesyon Sendromu / Yumurtalık varisleri" adını alır. Sıklıkla sol tarafta gözükür.',
@@ -70,6 +75,7 @@ return [
     [
         'slug'  => 'dvt-tromboz',
         'icon'  => 'fa-heart-circle-bolt',
+        'system' => 'vein',
         'title' => 'Derin Ven Trombozu (DVT)',
         'short' => 'Tromboz, kanın damar içinde pıhtılaşması ve kan akışını engellemesidir.',
         'lead'  => 'Tromboz, kanın damar içinde pıhtılaşması ve kan akışını engellemesidir. Derin Ven Trombozu (DVT), kirli kanı taşıyan ana damarlarda meydana gelen pıhtıdır. Sıklıkla bacak toplardamarlarında gözükür.',
@@ -85,6 +91,7 @@ return [
     [
         'slug'  => 'periferik-damar-hastaligi',
         'icon'  => 'fa-heart-pulse',
+        'system' => 'artery',
         'title' => 'Periferik Damar Hastalığı',
         'short' => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır.',
         'lead'  => 'Genellikle damar sertliği (ateroskleroz) nedeniyle oluşan, kalp dışındaki organlara özellikle kollara ve bacaklara kan taşıyan damarların daralması veya tıkanmasıdır. Sigara ve tütün ürünleri kullanımı en önemli risk faktörüdür.',
@@ -98,6 +105,7 @@ return [
     [
         'slug'  => 'diyabetik-ayak',
         'icon'  => 'fa-band-aid',
+        'system' => 'artery',
         'title' => 'Diyabetik Ayak',
         'short' => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır.',
         'lead'  => 'Diyabetik ayak, şeker hastalarında sinir hasarı (nöropati) ve dolaşım bozukluğu ile ortaya çıkan iyileşmesi güç yaralardır. Etkin ve doğru bir yaklaşım ile tedavi edilmediği takdirde uzuv kayıplarının yaşanması olasıdır.',
@@ -113,6 +121,7 @@ return [
     [
         'slug'  => 'cardisiography',
         'icon'  => 'fa-wave-square',
+        'system' => 'artery',
         'title' => 'Cardisiography (Yapay Zeka EKG)',
         'short' => 'Kalp hastalıklarında erken tanı hayat kurtarır ve kalıcı kalp hasarını önler.',
         'lead'  => 'Kalp hastalıklarında erken tanı hayat kurtarır ve kalıcı kalp hasarını önler. Günümüzde Yapay zeka EKG (Cardisiography) kullanımı hayatı tehdit eden kalp krizi gibi kalp sağlığı problemlerinin erken dönemde açığa çıkmasında önemli bir yardımcıdır.',

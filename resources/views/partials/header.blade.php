@@ -17,6 +17,8 @@
         ->map(fn ($t) => [
             'label'  => $t['title'],
             'icon'   => $t['icon'] ?? null,
+            'system' => $t['system'] ?? 'vein',
+            'slug'   => $t['slug'],
             'url'    => ($t['has_page'] ?? false)
                 ? route('services.show', $t['slug'])
                 : '#',
@@ -73,6 +75,9 @@
             <div class="flex items-center gap-1.5">
                 @if ($socials['instagram'])
                     <a href="{{ $socials['instagram'] }}" target="_blank" rel="noopener" class="social-pill" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                @endif
+                @if ($whatsapp)
+                    <a href="{{ $whatsappCTA }}" target="_blank" rel="noopener" class="social-pill" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 @endif
                 @if ($socials['facebook'])
                     <a href="{{ $socials['facebook'] }}" target="_blank" rel="noopener" class="social-pill" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -159,21 +164,15 @@
 
                                         {{-- 2 kolon × 4 hizmet --}}
                                         @php
-                                            $colors = [
-                                                ['bg' => 'bg-deep-50',     'text' => 'text-deep-500',  'fill' => 'group-hover:bg-deep-500'],
-                                                ['bg' => 'bg-brand-50',    'text' => 'text-brand-500', 'fill' => 'group-hover:bg-brand-500'],
-                                                ['bg' => 'bg-leaf-500/15', 'text' => 'text-leaf-500',  'fill' => 'group-hover:bg-leaf-500'],
-                                            ];
                                             $currentSlug = request()->route('slug');
                                         @endphp
 
                                         <div class="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-2 gap-y-1">
                                             @foreach ($servicesChildren as $i => $child)
                                                 @php
-                                                    $c = $colors[$i % 3];
+                                                    $c = config('site.systems.' . $child['system']);
                                                     $childUrl = $child['url'];
                                                     $isActive = request()->url() === $childUrl;
-                                                    $childIconPrefix = $child['icon'] && str_starts_with($child['icon'], 'fab ') ? '' : 'fas ';
                                                 @endphp
                                                 <a href="{{ $childUrl }}"
                                                    @if ($child['target'] === '_blank') target="_blank" rel="noopener" @endif
@@ -182,7 +181,7 @@
                                                           {{ $isActive ? 'bg-ink-100' : 'hover:bg-ink-50' }}">
                                                     @if ($child['icon'])
                                                         <span class="w-7 h-7 min-[1200px]:w-9 min-[1200px]:h-9 rounded-lg {{ $c['bg'] }} {{ $c['text'] }} inline-flex items-center justify-center shrink-0 transition-colors {{ $c['fill'] }} group-hover:text-white">
-                                                            <i class="{{ $childIconPrefix . $child['icon'] }} text-[10px] min-[1200px]:text-sm"></i>
+                                                            <x-treatment-icon :slug="$child['slug']" :fallback="$child['icon']" class="w-4 h-4 min-[1200px]:w-5 min-[1200px]:h-5" />
                                                         </span>
                                                     @endif
                                                     <div class="min-w-0 flex-1">
@@ -320,7 +319,6 @@
                                         @php
                                             $mobChildUrl = $child['url'];
                                             $mobActive = request()->url() === $mobChildUrl;
-                                            $mobIconPrefix = $child['icon'] && str_starts_with($child['icon'], 'fab ') ? '' : 'fas ';
                                         @endphp
                                         <a href="{{ $mobChildUrl }}"
                                            @if ($child['target'] === '_blank') target="_blank" rel="noopener" @endif
@@ -328,7 +326,7 @@
                                            class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors text-ink-700
                                                   {{ $mobActive ? 'bg-ink-100' : 'hover:bg-deep-50 hover:text-deep-600' }}">
                                             @if ($child['icon'])
-                                                <i class="{{ $mobIconPrefix . $child['icon'] }} text-deep-400 text-xs w-4 text-center"></i>
+                                                <x-treatment-icon :slug="$child['slug']" :fallback="$child['icon']" class="w-[18px] h-[18px] shrink-0 {{ config('site.systems.' . $child['system'] . '.text') }}" />
                                             @endif
                                             {{ $child['label'] }}
                                         </a>

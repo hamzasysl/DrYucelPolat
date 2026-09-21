@@ -133,8 +133,8 @@
                             {{-- Placeholder: dolu görsel beklenirken --}}
                             <div class="absolute inset-0 bg-gradient-to-br from-deep-100 via-white to-ink-100 flex items-center justify-center">
                                 <div class="text-center p-6">
-                                    <span class="w-20 h-20 rounded-2xl bg-white shadow-lg text-brand-500 inline-flex items-center justify-center text-4xl mb-3">
-                                        <i class="fas {{ $service['icon'] }}"></i>
+                                    <span class="w-20 h-20 rounded-2xl bg-white shadow-lg {{ config('site.systems.' . ($service['system'] ?? 'vein') . '.text') }} inline-flex items-center justify-center mb-3">
+                                        <x-treatment-icon :slug="$service['slug']" :fallback="$service['icon']" class="w-11 h-11" />
                                     </span>
                                     <p class="text-[10px] uppercase tracking-[0.22em] font-bold text-ink-400">GÖRSEL YAKINDA</p>
                                     <p class="text-[10px] text-ink-300 mt-1 font-mono">img/services/{{ $service['slug'] }}.jpg</p>

@@ -44,7 +44,7 @@
                     $footerSocials = collect([
                         ['url' => config('site.socials.instagram'), 'icon' => 'fab fa-instagram',  'label' => 'Instagram'],
                         ['url' => config('site.socials.facebook'),  'icon' => 'fab fa-facebook-f', 'label' => 'Facebook'],
-                        ['url' => config('site.socials.youtube'),   'icon' => 'fab fa-youtube',    'label' => 'YouTube'],
+                        ['url' => config('site.whatsapp'),          'icon' => 'fab fa-whatsapp',   'label' => 'WhatsApp'],
                         ['url' => config('site.socials.linkedin'),  'icon' => 'fab fa-linkedin-in','label' => 'LinkedIn'],
                         ['url' => config('site.socials.x'),         'icon' => 'fab fa-x-twitter',  'label' => 'X'],
                     ])->filter(fn ($s) => ! empty($s['url']));

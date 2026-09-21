@@ -33,6 +33,27 @@
 @endphp
 <script type="application/ld+json">{!! json_encode($breadcrumbLd, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
 <script type="application/ld+json">{!! json_encode($aboutPageLd, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
+@php
+    $publicationsLd = [
+        '@context' => 'https://schema.org',
+        '@type' => 'ItemList',
+        '@id' => route('about') . '#yayinlar',
+        'name' => 'Op. Dr. Yücel Polat — Seçili Bilimsel Yayınlar',
+        'itemListElement' => $publications->map(fn ($p, $i) => [
+            '@type' => 'ListItem',
+            'position' => $i + 1,
+            'item' => array_filter([
+                '@type' => 'ScholarlyArticle',
+                'name' => $p['title'],
+                'author' => collect($p['authors'])->map(fn ($a) => ['@type' => 'Person', 'name' => $a === 'Y Polat' ? 'Yücel Polat' : $a])->all(),
+                'datePublished' => (string) $p['year'],
+                'isPartOf' => ['@type' => 'Periodical', 'name' => $p['journal']],
+                'url' => $p['doi'] ? 'https://doi.org/' . $p['doi'] : null,
+            ]),
+        ])->all(),
+    ];
+@endphp
+<script type="application/ld+json">{!! json_encode($publicationsLd, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
 @endsection
 
 @section('content')
@@ -161,6 +182,9 @@
     </div>
 </section>
 
+{{-- BİLİMSEL YAYINLAR — eski /yayinlar sayfasının içeriği --}}
+@include('partials.publications', ['publications' => $publications])
+
 {{-- 2. UZMANLIK ALANLARI — quote-style büyük metin + grid --}}
 <section class="bg-white py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -190,9 +214,10 @@
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1">
                     @foreach (config('treatments') as $i => $t)
                         <li class="group flex items-center gap-4 py-4 border-b border-ink-100 hover:border-brand-200 transition-colors">
-                            <span class="w-9 h-9 rounded-lg bg-deep-50 text-deep-500 inline-flex items-center justify-center text-sm shrink-0
-                                         group-hover:bg-deep-500 group-hover:text-white transition-all">
-                                <i class="fas {{ $t['icon'] }}"></i>
+                            @php $sc = config('site.systems.' . ($t['system'] ?? 'vein')); @endphp
+                            <span class="w-9 h-9 rounded-lg {{ $sc['bg'] }} {{ $sc['text'] }} inline-flex items-center justify-center text-sm shrink-0
+                                         {{ $sc['fill'] }} group-hover:text-white transition-all">
+                                <x-treatment-icon :slug="$t['slug']" :fallback="$t['icon']" class="w-5 h-5" />
                             </span>
                             <div class="flex-1 min-w-0">
                                 <p class="text-deep-700 text-[15px] font-semibold leading-snug">{{ $t['title'] }}</p>

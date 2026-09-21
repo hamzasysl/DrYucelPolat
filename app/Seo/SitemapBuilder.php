@@ -32,7 +32,7 @@ class SitemapBuilder
                     [
                         'title'      => 'Hakkımda',
                         'url'        => route('about'),
-                        'desc'       => 'Kim, deneyim, uzmanlık alanları ve klinik felsefe.',
+                        'desc'       => 'Özgeçmiş, eğitim, klinik deneyim ve bilimsel yayınlar.',
                         'priority'   => '0.8',
                         'changefreq' => 'monthly',
                     ],
@@ -74,17 +74,10 @@ class SitemapBuilder
             ],
             [
                 'key'   => 'blog',
-                'title' => 'Blog & Yayınlar',
+                'title' => 'Blog',
                 'icon'  => 'fa-newspaper',
                 'color' => 'leaf',
                 'pages' => [
-                    [
-                        'title'      => 'Bilimsel Yayınlar',
-                        'url'        => route('publications.index'),
-                        'desc'       => 'Uluslararası hakemli dergilerde yayımlanan makaleler ve kongre bildirileri.',
-                        'priority'   => '0.7',
-                        'changefreq' => 'monthly',
-                    ],
                     [
                         'title'      => 'Blog',
                         'url'        => route('blog.index'),

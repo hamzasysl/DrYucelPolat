@@ -45,7 +45,7 @@ return [
         ],
     ],
     [
-        'name'  => 'Züleyha Akay',
+        'name'  => null, // metinde kendini tanıtıyor (Züleyha Akay); kartın altında "Hastamız" görünsün
         'label' => 'Lipödem tedavisi',
         'photos' => ['yorum-3.webp'],
         'result' => '79 kg → 63 kg · 9 ayda 16 kg',
