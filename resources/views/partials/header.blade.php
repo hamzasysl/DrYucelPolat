@@ -76,11 +76,11 @@
                 @if ($socials['instagram'])
                     <a href="{{ $socials['instagram'] }}" target="_blank" rel="noopener" class="social-pill" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 @endif
-                @if ($whatsapp)
-                    <a href="{{ $whatsappCTA }}" target="_blank" rel="noopener" class="social-pill" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                @endif
                 @if ($socials['facebook'])
                     <a href="{{ $socials['facebook'] }}" target="_blank" rel="noopener" class="social-pill" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                @endif
+                @if ($whatsapp)
+                    <a href="{{ $whatsappCTA }}" target="_blank" rel="noopener" class="social-pill" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 @endif
                 @if ($socials['youtube'])
                     <a href="{{ $socials['youtube'] }}" target="_blank" rel="noopener" class="social-pill" aria-label="YouTube"><i class="fab fa-youtube"></i></a>

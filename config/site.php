@@ -27,7 +27,7 @@ return [
     // Boş bırakılan sosyaller header'da gizlenir.
     'socials' => [
         'instagram' => 'https://instagram.com/dryucelpolat',
-        'facebook'  => '',
+        'facebook'  => 'https://www.facebook.com/yucelpolat',
         'youtube'   => '',
         'linkedin'  => '',
         'x'         => '',

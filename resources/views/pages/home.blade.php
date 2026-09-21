@@ -359,9 +359,6 @@
 {{-- HASTA YORUMLARI --}}
 @include('partials.testimonials')
 
-{{-- INSTAGRAM SLIDER --}}
-@include('partials.instagram-slider')
-
 {{-- CONTACT FORM CTA — light theme --}}
 <section class="relative bg-ink-50 py-20 lg:py-28 overflow-hidden border-t border-ink-100">
     <div class="absolute inset-0 opacity-30 pointer-events-none">
