@@ -5,7 +5,7 @@
 @section('keywords', 'Op. Dr. Yücel Polat kimdir, kardiyovasküler cerrah, fleboloji uzmanı, estetik fleboloji, kalp damar cerrahı Çorlu, vasküler cerrah Tekirdağ, Yücel Polat özgeçmiş, kalp damar cerrahisi uzmanı')
 @section('og_title', 'Hakkımda — ' . config('app.name'))
 @section('og_description', '20 yıllık hekimlik deneyimi, fleboloji ve estetik fleboloji odağı. Eğitimim, uzmanlık alanlarım ve hasta odaklı yaklaşımım.')
-@section('og_image', asset('img/doktor.webp'))
+@section('og_image', asset('img/doktor-og.webp'))
 @section('og_image_alt', 'Op. Dr. Yücel Polat — Profil Fotoğrafı')
 @section('og_type', 'profile')
 
@@ -77,7 +77,7 @@
                     <div class="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-deep-100 to-ink-50">
                         <img src="{{ asset('img/doktor.webp') }}"
                              alt="Op. Dr. Yücel Polat — Kalp ve Damar Cerrahisi Uzmanı"
-                             class="w-full h-full object-cover"
+                             class="w-full h-full object-cover object-[50%_62%]"
                              loading="lazy">
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                 özelliklerine ve kişinin ihtiyaçlarına uygun tedavi yaklaşımını belirlemeyi amaçlıyorum.
             </p>
             <p class="text-ink-500 text-[17px] leading-[1.75] font-light mb-0 break-inside-avoid">
-                Çorlu’daki muayenehanemde hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir yaklaşımla
+                Tekirdağ Çorlu’daki muayenehanemde hastalarımı tanı, tedavi ve takip süreçlerinde bütüncül bir yaklaşımla
                 değerlendiriyorum. Her hasta için bireysel bir tedavi planı oluşturmayı önemsiyorum.
             </p>
         </div>

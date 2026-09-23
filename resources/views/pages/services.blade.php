@@ -5,7 +5,7 @@
 @section('keywords', 'kalp damar cerrahisi hizmetleri, varis tedavisi, periferik damar hastalığı, damar tıkanıklığı, koroner bypass, endovasküler cerrahi, DVT tedavisi, lenfödem tedavisi, lipödem, diyabetik ayak, cardisiography, yapay zeka EKG, pelvik konjesyon sendromu, yumurtalık varisleri')
 @section('og_title', 'Tüm Hizmetler — ' . config('app.name'))
 @section('og_description', 'Varis, bypass, kalp kapak, endovasküler girişimler — Op. Dr. Yücel Polat uzmanlık alanları.')
-@section('og_image', asset('img/doktor.webp'))
+@section('og_image', asset('img/doktor-og.webp'))
 
 @section('structured_data')
 @php

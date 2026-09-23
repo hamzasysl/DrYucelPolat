@@ -5,7 +5,7 @@
 @section('keywords', 'Op. Dr. Yücel Polat iletişim, randevu al, kalp damar cerrahı randevu Çorlu, damar cerrahisi Tekirdağ, kardiyovasküler cerrah randevu, muayene randevusu, WhatsApp randevu')
 @section('og_title', 'İletişim & Randevu — ' . config('app.name'))
 @section('og_description', 'Muayene ve değerlendirme randevusu için iletişim formu, telefon ve WhatsApp. Çorlu / Tekirdağ.')
-@section('og_image', asset('img/doktor.webp'))
+@section('og_image', asset('img/doktor-og.webp'))
 
 @section('structured_data')
 @php

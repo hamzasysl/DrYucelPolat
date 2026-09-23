@@ -4,7 +4,7 @@
     $siteTagline = 'Kalp ve Damar Cerrahisi Uzmanı';
     $defaultDesc = 'Op. Dr. Yücel Polat — 20 yıllık hekimlik deneyimiyle kalp ve damar cerrahisi, fleboloji ve estetik fleboloji. Çorlu / Tekirdağ.';
     $defaultTitle = $siteName . ' — ' . $siteTagline;
-    $defaultOgImageRaw = '/img/doktor.webp';
+    $defaultOgImageRaw = '/img/doktor-og.webp';
     $defaultOgImage = str_starts_with($defaultOgImageRaw, 'http') ? $defaultOgImageRaw : asset(ltrim($defaultOgImageRaw, '/'));
     $canonical = url()->current();
 

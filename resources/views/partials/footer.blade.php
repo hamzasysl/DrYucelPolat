@@ -26,7 +26,7 @@
                     <span class="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-brand-500 via-brand-400/60 to-deep-400/40"></span>
 
                     <p class="text-ink-200/85 text-sm leading-relaxed font-light mb-3.5 max-w-md">
-                        Çorlu'daki muayenehanemde varis ve kronik venöz hastalıklar,
+                        Tekirdağ Çorlu'daki muayenehanemde varis ve kronik venöz hastalıklar,
                         endovasküler girişimler, lenfödem-lipödem, diyabetik yara ve tromboz başta olmak üzere
                         damar sağlığı alanında hizmet veriyorum. Her hasta için bilimsel kanıta dayalı,
                         riski ölçülmüş ve kişiye özel tedavi planı.

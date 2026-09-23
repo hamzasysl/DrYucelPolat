@@ -5,7 +5,7 @@
 @section('keywords', 'kalp damar blog, varis blog yazıları, sağlık makaleleri, kardiyovasküler sağlık, kalp sağlığı rehberi, damar hastalıkları bilgi, Op. Dr. Yücel Polat blog')
 @section('og_title', 'Blog & Sağlık Yazıları — ' . config('app.name'))
 @section('og_description', 'Kalp ve damar sağlığı, tedavi yöntemleri ve hasta bilgilendirme yazıları.')
-@section('og_image', asset('img/doktor.webp'))
+@section('og_image', asset('img/doktor-og.webp'))
 @section('og_type', 'website')
 
 @section('structured_data')

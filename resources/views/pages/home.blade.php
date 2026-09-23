@@ -5,7 +5,7 @@
 @section('keywords', 'kalp damar cerrahisi Çorlu, varis tedavisi Tekirdağ, fleboloji, estetik fleboloji, Op. Dr. Yücel Polat, endovasküler cerrahi, kardiyovasküler cerrah, kılcal damar tedavisi, EVLA, köpük skleroterapi, damar tıkanıklığı tedavisi')
 @section('og_title', config("app.name") . " — Kalp ve Damar Cerrahisi Uzmanı")
 @section('og_description', '20+ yıl deneyimle modern kalp ve damar tedavisi. Varis, bypass, kapak ve endovasküler girişimlerde uzman yaklaşım.')
-@section('og_image', asset('img/doktor.webp'))
+@section('og_image', asset('img/doktor-og.webp'))
 @section('og_type', 'website')
 
 @section('structured_data')
@@ -297,7 +297,7 @@
                     <div class="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-deep-100 to-ink-50">
                         <img src="{{ asset('img/doktor.webp') }}"
                              alt="Op. Dr. Yücel Polat"
-                             class="w-full h-full object-cover"
+                             class="w-full h-full object-cover object-[50%_62%]"
                              loading="lazy">
                     </div>
                 </div>
@@ -316,7 +316,7 @@
 
                 <p class="text-ink-500 text-lg leading-relaxed mb-5 font-light">
                     Kalp ve Damar Cerrahisi Uzmanı — Fleboloji / Estetik Fleboloji.
-                    <span class="text-deep-700 font-semibold">Çorlu'daki muayenehanesinde</span>
+                    <span class="text-deep-700 font-semibold">Tekirdağ Çorlu'daki muayenehanesinde</span>
                     varis ve kronik venöz hastalıklar, endovasküler girişimler ve damar sağlığı alanında hasta kabul etmektedir.
                 </p>
 
